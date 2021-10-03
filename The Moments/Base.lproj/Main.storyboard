@@ -25,17 +25,38 @@
                                     <constraint firstAttribute="height" constant="200" id="ocf-GP-Zdt"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Moments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhG-yd-epr">
+                                <rect key="frame" x="121.5" y="379" width="171.5" height="37.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                                <color key="highlightedColor" systemColor="systemBackgroundColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R7U-d6-gBI">
+                                <rect key="frame" x="52" y="464" width="310" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="310" id="W3T-p2-pNj"/>
+                                    <constraint firstAttribute="height" constant="53" id="ngn-eR-FhP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="tintColor"/>
                         <color key="tintColor" name="AccentColor"/>
                         <constraints>
+                            <constraint firstItem="R7U-d6-gBI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="420" id="BXJ-24-9ie"/>
                             <constraint firstItem="gGd-cZ-PME" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="95" id="Eoo-lx-Om0"/>
+                            <constraint firstItem="YhG-yd-epr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HJC-BP-Mhh"/>
+                            <constraint firstItem="YhG-yd-epr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="335" id="Lzp-Bu-odK"/>
+                            <constraint firstItem="R7U-d6-gBI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Mai-EW-ujb"/>
+                            <constraint firstItem="R7U-d6-gBI" firstAttribute="top" secondItem="YhG-yd-epr" secondAttribute="bottom" constant="47.5" id="Qp3-gH-z4U"/>
                             <constraint firstItem="gGd-cZ-PME" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Xi1-B9-uP3"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="iconUIImageView" destination="gGd-cZ-PME" id="U3f-eG-cDj"/>
+                        <outlet property="loginTextField" destination="R7U-d6-gBI" id="QHp-Uo-eMd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -48,6 +69,12 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

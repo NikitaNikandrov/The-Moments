@@ -9,7 +9,7 @@ import UIKit
 
 class LogInViewController: UIViewController {
 
-    @IBOutlet weak var iconUIImageView: UIImageView!
+    @IBOutlet weak var loginTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
