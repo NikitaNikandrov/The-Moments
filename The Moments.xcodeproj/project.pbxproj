@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848AE26FBAEDD00355775 /* AppDelegate.swift */; };
 		E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B026FBAEDD00355775 /* SceneDelegate.swift */; };
-		E5A848B326FBAEDD00355775 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B226FBAEDD00355775 /* ViewController.swift */; };
+		E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B226FBAEDD00355775 /* LogInViewController.swift */; };
 		E5A848B626FBAEDD00355775 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5A848B426FBAEDD00355775 /* Main.storyboard */; };
 		E5A848B926FBAEDD00355775 /* The_Moments.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B726FBAEDD00355775 /* The_Moments.xcdatamodeld */; };
 		E5A848BB26FBAEE100355775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5A848BA26FBAEE100355775 /* Assets.xcassets */; };
@@ -39,7 +39,7 @@
 		E5A848AB26FBAEDD00355775 /* The Moments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Moments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A848AE26FBAEDD00355775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5A848B026FBAEDD00355775 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E5A848B226FBAEDD00355775 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E5A848B226FBAEDD00355775 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		E5A848B526FBAEDD00355775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5A848B826FBAEDD00355775 /* The_Moments.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = The_Moments.xcdatamodel; sourceTree = "<group>"; };
 		E5A848BA26FBAEE100355775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,9 +101,9 @@
 		E5A848AD26FBAEDD00355775 /* The Moments */ = {
 			isa = PBXGroup;
 			children = (
+				E5A848E126FBAF2800355775 /* View */,
 				E5A848AE26FBAEDD00355775 /* AppDelegate.swift */,
 				E5A848B026FBAEDD00355775 /* SceneDelegate.swift */,
-				E5A848B226FBAEDD00355775 /* ViewController.swift */,
 				E5A848B426FBAEDD00355775 /* Main.storyboard */,
 				E5A848BA26FBAEE100355775 /* Assets.xcassets */,
 				E5A848BC26FBAEE100355775 /* LaunchScreen.storyboard */,
@@ -129,6 +129,14 @@
 				E5A848D526FBAEE200355775 /* Info.plist */,
 			);
 			path = "The MomentsUITests";
+			sourceTree = "<group>";
+		};
+		E5A848E126FBAF2800355775 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5A848B226FBAEDD00355775 /* LogInViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5A848B326FBAEDD00355775 /* ViewController.swift in Sources */,
+				E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */,
 				E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */,
 				E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */,
 				E5A848B926FBAEDD00355775 /* The_Moments.xcdatamodeld in Sources */,
