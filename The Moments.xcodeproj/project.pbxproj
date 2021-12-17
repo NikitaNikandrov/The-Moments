@@ -44,7 +44,7 @@
 		E5A848B826FBAEDD00355775 /* The_Moments.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = The_Moments.xcdatamodel; sourceTree = "<group>"; };
 		E5A848BA26FBAEE100355775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5A848BD26FBAEE100355775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E5A848BF26FBAEE100355775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5A848BF26FBAEE100355775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../The Moments/Info.plist"; sourceTree = "<group>"; };
 		E5A848C426FBAEE200355775 /* The MomentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The MomentsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A848C826FBAEE200355775 /* The_MomentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_MomentsTests.swift; sourceTree = "<group>"; };
 		E5A848CA26FBAEE200355775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,7 +107,6 @@
 				E5A848B426FBAEDD00355775 /* Main.storyboard */,
 				E5A848BA26FBAEE100355775 /* Assets.xcassets */,
 				E5A848BC26FBAEE100355775 /* LaunchScreen.storyboard */,
-				E5A848BF26FBAEE100355775 /* Info.plist */,
 				E5A848B726FBAEDD00355775 /* The_Moments.xcdatamodeld */,
 			);
 			path = "The Moments";
@@ -117,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				E5A848C826FBAEE200355775 /* The_MomentsTests.swift */,
+				E5A848BF26FBAEE100355775 /* Info.plist */,
 				E5A848CA26FBAEE200355775 /* Info.plist */,
 			);
 			path = "The MomentsTests";
