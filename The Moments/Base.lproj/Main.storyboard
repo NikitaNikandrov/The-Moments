@@ -21,8 +21,10 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="momentsLogo" translatesAutoresizingMaskIntoConstraints="NO" id="gGd-cZ-PME">
                                 <rect key="frame" x="107" y="139" width="200" height="200"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="BHZ-4k-tbq"/>
                                     <constraint firstAttribute="width" constant="200" id="ieW-wp-txI"/>
                                     <constraint firstAttribute="height" constant="200" id="ocf-GP-Zdt"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="rw9-7i-OEy"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Moments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhG-yd-epr">
@@ -54,7 +56,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="0HZ-2d-mQ3"/>
-                                    <constraint firstAttribute="width" constant="310" id="HUa-jO-eax"/>
+                                    <constraint firstAttribute="width" constant="310" id="NSG-Gg-81O"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="systemBackgroundColor"/>
                                 <state key="normal" title="Button"/>
@@ -67,7 +69,7 @@
                                 <rect key="frame" x="52" y="698" width="310" height="40"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="310" id="IF6-Iq-h15"/>
+                                    <constraint firstAttribute="width" constant="310" id="6dF-1o-n7L"/>
                                     <constraint firstAttribute="height" constant="40" id="kH9-ne-Kw2"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="systemBackgroundColor"/>
@@ -87,6 +89,7 @@
                             <constraint firstItem="rfU-AM-IBS" firstAttribute="top" secondItem="dU1-gR-SV6" secondAttribute="bottom" constant="30" id="PPJ-xd-ngG"/>
                             <constraint firstItem="dU1-gR-SV6" firstAttribute="top" secondItem="R7U-d6-gBI" secondAttribute="bottom" constant="8" symbolic="YES" id="Qba-Hl-gsQ"/>
                             <constraint firstItem="R7U-d6-gBI" firstAttribute="top" secondItem="YhG-yd-epr" secondAttribute="bottom" constant="47.5" id="Qp3-gH-z4U"/>
+                            <constraint firstItem="gGd-cZ-PME" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="95" id="TkI-kV-7XM"/>
                             <constraint firstItem="gGd-cZ-PME" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Xi1-B9-uP3"/>
                             <constraint firstItem="rfU-AM-IBS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gSN-lz-8EU"/>
                             <constraint firstItem="6iZ-kw-1y6" firstAttribute="top" secondItem="rfU-AM-IBS" secondAttribute="bottom" constant="50" id="new-nm-g0C"/>
@@ -95,9 +98,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="iconUIImageView" destination="gGd-cZ-PME" id="U3f-eG-cDj"/>
                         <outlet property="logInButton" destination="rfU-AM-IBS" id="pw9-Nr-mhy"/>
                         <outlet property="loginTextField" destination="R7U-d6-gBI" id="QHp-Uo-eMd"/>
+                        <outlet property="logoImageView" destination="gGd-cZ-PME" id="wF2-Kf-f0E"/>
                         <outlet property="passwordTextField" destination="dU1-gR-SV6" id="eLn-qa-HOz"/>
                         <outlet property="signUpButton" destination="6iZ-kw-1y6" id="rHJ-dn-mC7"/>
                     </connections>
