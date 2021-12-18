@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E53B21F9276D32BE00E2724C /* RequestServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21F8276D32BE00E2724C /* RequestServices.swift */; };
+		E53B21FC276D357100E2724C /* JSONModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FB276D357100E2724C /* JSONModels.swift */; };
+		E53B21FE276D3B3400E2724C /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FD276D3B3400E2724C /* DataModels.swift */; };
 		E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848AE26FBAEDD00355775 /* AppDelegate.swift */; };
 		E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B026FBAEDD00355775 /* SceneDelegate.swift */; };
 		E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B226FBAEDD00355775 /* LogInViewController.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E53B21F8276D32BE00E2724C /* RequestServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestServices.swift; sourceTree = "<group>"; };
+		E53B21FB276D357100E2724C /* JSONModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModels.swift; sourceTree = "<group>"; };
+		E53B21FD276D3B3400E2724C /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		E5A848AB26FBAEDD00355775 /* The Moments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Moments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A848AE26FBAEDD00355775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5A848B026FBAEDD00355775 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +84,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E53B21F4276D315B00E2724C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E53B21F7276D328A00E2724C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E53B21F8276D32BE00E2724C /* RequestServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E53B21FA276D353C00E2724C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E53B21FB276D357100E2724C /* JSONModels.swift */,
+				E53B21FD276D3B3400E2724C /* DataModels.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E5A848A226FBAEDD00355775 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +131,9 @@
 		E5A848AD26FBAEDD00355775 /* The Moments */ = {
 			isa = PBXGroup;
 			children = (
+				E53B21FA276D353C00E2724C /* Model */,
+				E53B21F7276D328A00E2724C /* Services */,
+				E53B21F4276D315B00E2724C /* Presenter */,
 				E5A848E126FBAF2800355775 /* View */,
 				E5A848AE26FBAEDD00355775 /* AppDelegate.swift */,
 				E5A848B026FBAEDD00355775 /* SceneDelegate.swift */,
@@ -272,6 +305,9 @@
 				E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */,
 				E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */,
 				E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */,
+				E53B21FC276D357100E2724C /* JSONModels.swift in Sources */,
+				E53B21FE276D3B3400E2724C /* DataModels.swift in Sources */,
+				E53B21F9276D32BE00E2724C /* RequestServices.swift in Sources */,
 				E5A848B926FBAEDD00355775 /* The_Moments.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

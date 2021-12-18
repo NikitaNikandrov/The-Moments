@@ -9,8 +9,12 @@ import UIKit
 
 class LogInViewController: UIViewController {
 
+//Mark: Variables
+    let requestServices = RequestServices()
+    
+//Mark: Autlet logo image
     @IBOutlet weak var logoImageView: UIImageView!
-    //Mark: Autlets textfields
+//Mark: Autlets textfields
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
@@ -20,6 +24,7 @@ class LogInViewController: UIViewController {
 
 //Mark: Button's actions
     @IBAction func logInButtonIsPressed(_ sender: Any) {
+        requestServices.logInRequest(Login: loginTextField.text!, Password: passwordTextField.text!) // have to write cheking for nill string
     }
 
 //Mark: Lifecycle
