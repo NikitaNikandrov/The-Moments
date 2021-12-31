@@ -12,25 +12,33 @@ class RequestServices {
     private var baseURL = "https://api-meetings.nenado.info"
     
     func logInRequest(Login: String, Password: String, closure: @escaping((UserIsLogedIn?) -> Void)) {
-        
+        //string for url
         let urlLogIn = baseURL + "/api/v1/auth-user"
+        
+        //model's data object for respose
         var resultResponse: JSONModels.LogInUser?
-        
-        guard var urlRequest = URLComponents(string: urlLogIn) else {
+       
+        //url to request
+        guard let requestURL = URL(string: urlLogIn) else {
             closure(nil)
             return
         }
         
-        let queryItems = [URLQueryItem(name: "email", value: Login),
-                          URLQueryItem(name: "password", value: Password)]
-        urlRequest.queryItems = queryItems
+        //request
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "POST"
         
-        guard let finalURLRequest = urlRequest.url else {
-            closure(nil)
-            return
-        }
+        //prepare JSON for request
+        let requestJSON: [String: String] = ["email": Login,
+                                      "password": Password]
         
-        URLSession.shared.dataTask(with: finalURLRequest) { (data, response, error) in
+        let requestJSONData = try? JSONSerialization.data(withJSONObject: requestJSON)
+        
+        //inseart JSON data to request
+        request.httpBody = requestJSONData
+        
+        //Send request
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else { return }
             guard error == nil else { return }
             if let httpResponse = response as? HTTPURLResponse{
@@ -54,4 +62,6 @@ class RequestServices {
             }
         }.resume()
     }
+    
+    
 }
