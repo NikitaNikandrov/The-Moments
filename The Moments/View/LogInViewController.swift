@@ -33,7 +33,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 self.failAuthAlert()
                 return
             }
-            //self.presenter.responseAuthHandling(response: response)
+            self.presenter.responseAuthHandling(response: response)
             self.okAuthAlert()
         }
     }
@@ -72,7 +72,7 @@ extension LogInViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
-    
+    //Hide keyboard with done button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
      {
      loginTextField.resignFirstResponder()
