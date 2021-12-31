@@ -28,7 +28,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func logInButtonIsPressed(_ sender: Any) {
         let login = String(loginTextField.text!)
         let password = String(passwordTextField.text!)
-        print(login)
         requestServices.logInRequest(Login: login, Password: password) { (result) in
             guard let response = result else {
                 self.failAuthAlert()
