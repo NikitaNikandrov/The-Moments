@@ -12,6 +12,7 @@
 		E53B21FE276D3B3400E2724C /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FD276D3B3400E2724C /* DataModels.swift */; };
 		E53B2200277F51DC00E2724C /* LoginVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FF277F51DC00E2724C /* LoginVCPresenter.swift */; };
 		E53B2203277F530000E2724C /* MainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B2202277F530000E2724C /* MainData.swift */; };
+		E53B22052780DDD400E2724C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B22042780DDD400E2724C /* RegisterViewController.swift */; };
 		E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848AE26FBAEDD00355775 /* AppDelegate.swift */; };
 		E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B026FBAEDD00355775 /* SceneDelegate.swift */; };
 		E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B226FBAEDD00355775 /* LogInViewController.swift */; };
@@ -46,6 +47,7 @@
 		E53B21FD276D3B3400E2724C /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		E53B21FF277F51DC00E2724C /* LoginVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCPresenter.swift; sourceTree = "<group>"; };
 		E53B2202277F530000E2724C /* MainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainData.swift; sourceTree = "<group>"; };
+		E53B22042780DDD400E2724C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E5A848AB26FBAEDD00355775 /* The Moments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Moments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A848AE26FBAEDD00355775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5A848B026FBAEDD00355775 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				E5A848B226FBAEDD00355775 /* LogInViewController.swift */,
+				E53B22042780DDD400E2724C /* RegisterViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */,
+				E53B22052780DDD400E2724C /* RegisterViewController.swift in Sources */,
 				E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */,
 				E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */,
 				E53B2200277F51DC00E2724C /* LoginVCPresenter.swift in Sources */,

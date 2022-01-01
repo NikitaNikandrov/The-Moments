@@ -37,10 +37,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             self.okAuthAlert()
         }
     }
+    
+    @IBAction func SignUpButtonIsPressed(_ sender: Any) {
+        let registerViewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "registerVC") as UIViewController
+        self.present(registerViewController, animated: true, completion: nil)
+    }
+    
 //Mark: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpButtons()
+        setUpVC()
     }
 
 
@@ -48,7 +54,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 
 extension LogInViewController {
     
-    func setUpButtons(){
+    func setUpVC(){
         self.logInButton.layer.borderWidth = 2
         self.logInButton.layer.borderColor = UIColor.white.cgColor
         self.logInButton.layer.cornerRadius = 19
@@ -66,17 +72,17 @@ extension LogInViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
-    
+//only for test
     func okAuthAlert() {
         let alert = UIAlertController(title: "Correct", message: "соси хуй и работай дальше", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
-    //Hide keyboard with done button
+//Mark: Hide keyboard with done button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
      {
      loginTextField.resignFirstResponder()
      passwordTextField.resignFirstResponder()
             return true;
-        }
+    }
 }
