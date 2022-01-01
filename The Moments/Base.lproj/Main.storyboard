@@ -177,6 +177,9 @@
                                 <color key="tintColor" systemColor="systemBackgroundColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up!"/>
+                                <connections>
+                                    <action selector="signUpButtonIsPressed:" destination="IVQ-Fi-hVW" eventType="touchUpInside" id="Pjk-tz-sbh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hzs-MQ-icp"/>
@@ -195,6 +198,12 @@
                             <constraint firstItem="p2d-JP-Kg5" firstAttribute="centerX" secondItem="hzs-MQ-icp" secondAttribute="centerX" id="rdu-h4-w88"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="4MU-BG-lSO" id="fx6-iV-CAG"/>
+                        <outlet property="loginTextField" destination="Itn-cA-r9Z" id="JHx-xc-soF"/>
+                        <outlet property="passwordTextField" destination="KVx-fi-Pzw" id="2br-l9-Pg0"/>
+                        <outlet property="signUpButton" destination="p2d-JP-Kg5" id="iEg-4r-ksz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cpo-MS-24x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
