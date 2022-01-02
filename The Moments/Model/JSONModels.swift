@@ -8,7 +8,7 @@
 import Foundation
 
 class JSONModels {
-    struct LogInUser: Codable {
+    struct UserDataFromServer: Codable {
         let id: Int
         let name, email, avatar, apiToken: String
 

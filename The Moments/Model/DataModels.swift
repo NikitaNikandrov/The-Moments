@@ -7,7 +7,15 @@
 
 import Foundation
 
-class UserIsLogedIn {
+class UserDataFromServer {
     var id: Int?
     var name, email, avatar, apiToken: String?
+}
+
+class MethodsArguments {
+    struct RegsterRequestArguments {
+        var login: String
+        var password: String
+        var passwordConfirm: String
+    }
 }
