@@ -7,15 +7,19 @@
 
 import Foundation
 
-class UserDataFromServer {
+class BaseUserDataFromServer {
     var id: Int?
-    var name, email, avatar, apiToken: String?
+    var name, email: String?
 }
 
-class MethodsArguments {
-    struct RegsterRequestArguments {
-        var login: String
-        var password: String
-        var passwordConfirm: String
+class LogInUserDataFromServer: BaseUserDataFromServer {
+    var avatar, apiToken: String?
+}
+
+class MethodArguments {
+    struct AuthUserArguments {
+        var login = ""
+        var password = ""
+        var confirmPassword = ""
     }
 }

@@ -8,14 +8,22 @@
 import Foundation
 
 class JSONModels {
-    struct UserDataFromServer: Codable {
+    //Mark: Log in JSON model
+    struct LogInJSONmodel: Codable {
+        let message: String?
+        let data: LogInJSONdataModel?
+    }
+    struct LogInJSONdataModel: Codable {
         let id: Int
-        let name, email, avatar, apiToken: String
-
+        let name, email: String
+        let avatar: String
+        let apiToken: String
+        
         enum CodingKeys: String, CodingKey {
             case id, name, email, avatar
             case apiToken = "api_token"
         }
     }
-
+    
+    //Mark: another models
 }

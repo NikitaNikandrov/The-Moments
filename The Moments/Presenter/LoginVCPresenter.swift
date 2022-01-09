@@ -7,8 +7,8 @@
 
 import Foundation
 
-class LoginViewControllerPresenter {
-    func responseAuthHandling(response: UserDataFromServer) {
+class LoginPresenter {
+    func responseAuthHandling(response: LogInUserDataFromServer) {
         response.id = MainData.shared.id
         response.name = MainData.shared.name
         response.avatar = MainData.shared.avatar

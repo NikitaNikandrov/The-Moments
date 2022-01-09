@@ -40,7 +40,6 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="310" id="W3T-p2-pNj"/>
                                     <constraint firstAttribute="height" constant="53" id="ngn-eR-FhP"/>
                                 </constraints>
-                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -51,7 +50,6 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="310" id="9GN-Ez-jYD"/>
                                     <constraint firstAttribute="height" constant="53" id="9mu-zu-LiV"/>
                                 </constraints>
-                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -141,7 +139,6 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="310" id="ZQj-Bo-p9W"/>
                                     <constraint firstAttribute="height" constant="53" id="jaO-n7-AYP"/>
                                 </constraints>
-                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -152,7 +149,6 @@
                                     <constraint firstAttribute="height" constant="53" id="Cg0-nf-8tI"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="310" id="LQn-Ls-N5D"/>
                                 </constraints>
-                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -163,12 +159,14 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="310" id="7fQ-1B-I0X"/>
                                     <constraint firstAttribute="height" constant="53" id="h8B-j7-Uc2"/>
                                 </constraints>
-                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="comparePasswords:" destination="IVQ-Fi-hVW" eventType="editingDidEnd" id="ybD-5E-pIH"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2d-JP-Kg5">
-                                <rect key="frame" x="52" y="342.5" width="310" height="40"/>
+                                <rect key="frame" x="52" y="382.5" width="310" height="40"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4Vb-8S-vSI"/>
@@ -181,6 +179,16 @@
                                     <action selector="signUpButtonIsPressed:" destination="IVQ-Fi-hVW" eventType="touchUpInside" id="Pjk-tz-sbh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passwords are different!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRo-D4-ZxC">
+                                <rect key="frame" x="107" y="337.5" width="200" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="MwN-fE-wwE"/>
+                                    <constraint firstAttribute="height" constant="20" id="j8i-Ld-l8K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hzs-MQ-icp"/>
                         <color key="backgroundColor" systemColor="tintColor"/>
@@ -188,9 +196,11 @@
                         <constraints>
                             <constraint firstItem="KVx-fi-Pzw" firstAttribute="centerX" secondItem="hzs-MQ-icp" secondAttribute="centerX" id="BH4-jw-FlX"/>
                             <constraint firstItem="Itn-cA-r9Z" firstAttribute="centerX" secondItem="hzs-MQ-icp" secondAttribute="centerX" id="Ius-Va-vtM"/>
+                            <constraint firstItem="FRo-D4-ZxC" firstAttribute="top" secondItem="4MU-BG-lSO" secondAttribute="bottom" constant="25" id="NdR-eg-jAn"/>
                             <constraint firstItem="PXU-8k-jiT" firstAttribute="top" secondItem="hzs-MQ-icp" secondAttribute="top" constant="30" id="YWc-d3-SN4"/>
-                            <constraint firstItem="p2d-JP-Kg5" firstAttribute="top" secondItem="4MU-BG-lSO" secondAttribute="bottom" constant="30" id="cRA-X0-HcL"/>
+                            <constraint firstItem="p2d-JP-Kg5" firstAttribute="top" secondItem="4MU-BG-lSO" secondAttribute="bottom" constant="70" id="cRA-X0-HcL"/>
                             <constraint firstItem="PXU-8k-jiT" firstAttribute="centerX" secondItem="hzs-MQ-icp" secondAttribute="centerX" id="dvV-8e-FyM"/>
+                            <constraint firstItem="FRo-D4-ZxC" firstAttribute="centerX" secondItem="hzs-MQ-icp" secondAttribute="centerX" id="fCQ-ei-bWv"/>
                             <constraint firstItem="4MU-BG-lSO" firstAttribute="centerX" secondItem="hzs-MQ-icp" secondAttribute="centerX" id="fHQ-Jq-dxi"/>
                             <constraint firstItem="KVx-fi-Pzw" firstAttribute="top" secondItem="Itn-cA-r9Z" secondAttribute="bottom" constant="8" symbolic="YES" id="fRV-Ov-EEf"/>
                             <constraint firstItem="4MU-BG-lSO" firstAttribute="top" secondItem="KVx-fi-Pzw" secondAttribute="bottom" constant="8" symbolic="YES" id="nBu-IY-8AT"/>
@@ -201,6 +211,7 @@
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="4MU-BG-lSO" id="fx6-iV-CAG"/>
                         <outlet property="loginTextField" destination="Itn-cA-r9Z" id="JHx-xc-soF"/>
+                        <outlet property="passwordLabel" destination="FRo-D4-ZxC" id="oqL-T4-OCb"/>
                         <outlet property="passwordTextField" destination="KVx-fi-Pzw" id="2br-l9-Pg0"/>
                         <outlet property="signUpButton" destination="p2d-JP-Kg5" id="iEg-4r-ksz"/>
                     </connections>

@@ -11,64 +11,70 @@ class RequestServices {
     
     private var baseURL = "https://api-meetings.nenado.info"
     
-    func logInRequest(Login: String, Password: String, closure: @escaping((UserDataFromServer?) -> Void)) {
+    func logInRequest(Login: String, Password: String, closure: @escaping((LogInUserDataFromServer?, String) -> Void)) {
         //string for url
         let urlLogIn = baseURL + "/api/v1/auth-user"
         
-        //model's data object for respose
-        var resultResponse: JSONModels.UserDataFromServer?
-       
         //url to request
         guard let requestURL = URL(string: urlLogIn) else {
-            closure(nil)
+            closure(nil, "error url")
             return
         }
         
         //request
         var request = URLRequest(url: requestURL)
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
         request.httpMethod = "POST"
         
         //prepare JSON for request
-        let requestJSON: [String: String] = ["email": Login,
-                                      "password": Password]
-        
-        let requestJSONData = try? JSONSerialization.data(withJSONObject: requestJSON)
+        let requestJSON: [String: Any] = ["email" : Login,
+                                          "password" : Password]
+        print(requestJSON)
+        let requestJSONData = try? JSONSerialization.data(withJSONObject: requestJSON, options: .prettyPrinted)
         
         //inseart JSON data to request
         request.httpBody = requestJSONData
-        
+        print("sending request")
         //Send request
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else { return }
             guard error == nil else { return }
-            if let httpResponse = response as? HTTPURLResponse{
-                if httpResponse.statusCode == 200 {
+            if let httpResponse = response as? HTTPURLResponse {
+                print("statusCode: \(httpResponse.statusCode)")
+                switch httpResponse.statusCode {
+                case 200:
                     do {
-                        resultResponse = try JSONDecoder().decode(JSONModels.UserDataFromServer.self, from: data)
-                        
-                        let result = UserDataFromServer()
-                        
-                        result.id = resultResponse?.id
-                        result.name = resultResponse?.name
-                        result.email = resultResponse?.email
-                        result.avatar = resultResponse?.avatar
-                        result.apiToken = resultResponse?.apiToken
-                        
-                        closure(result)
+                        let responseData: JSONModels.LogInJSONmodel = try JSONDecoder().decode(JSONModels.LogInJSONmodel.self, from: data)
+                        let result = LogInUserDataFromServer()
+                        result.id = responseData.data?.id
+                        result.name = responseData.data?.name
+                        result.email = responseData.data?.email
+                        result.avatar = responseData.data?.avatar
+                        result.apiToken = responseData.data?.apiToken
+                        closure(result,"")
                     } catch let error { print(error) }
-                } else {
-                    closure(nil)
+                
+                case 400:
+                    do {
+                        let responseData: JSONModels.LogInJSONmodel = try JSONDecoder().decode(JSONModels.LogInJSONmodel.self, from: data)
+                        let errorMessage: String = responseData.message ?? "Server error"
+                        closure(nil, errorMessage)
+                    } catch let error { print(error) }
+                
+                default:
+                    closure(nil, "Server error")
                 }
             }
         }.resume()
     }
     
-    func registerRequest(RegisterArguments: MethodsArguments.RegsterRequestArguments, closure: @escaping((UserDataFromServer?) -> Void)) {
+    func registerRequest(RegisterArguments: MethodArguments.AuthUserArguments, closure: @escaping((BaseUserDataFromServer?) -> Void)) {
         //string for url
         let urlRegister = baseURL + "/api/v1/register-user"
         
         //model's data object for response
-        var resultResponse: JSONModels.UserDataFromServer?
+        var resultResponse: JSONModels.LogInJSONmodel?
         
         //url to request
         guard let requestURL = URL(string: urlRegister) else {
@@ -83,7 +89,7 @@ class RequestServices {
         //prepare JSON for request
         let requestJSON: [String: String] = ["email": RegisterArguments.login,
                                              "password": RegisterArguments.password,
-                                             "password_confirmation": RegisterArguments.passwordConfirm]
+                                             "password_confirmation": RegisterArguments.confirmPassword]
         
         let requestJSONData = try? JSONSerialization.data(withJSONObject: requestJSON)
         
@@ -97,16 +103,14 @@ class RequestServices {
             if let httpResponse = response as? HTTPURLResponse{
                 if httpResponse.statusCode == 200 {
                     do {
-                        resultResponse = try JSONDecoder().decode(JSONModels.UserDataFromServer.self, from: data)
+                        resultResponse = try JSONDecoder().decode(JSONModels.LogInJSONmodel.self, from: data)
                         
-                        let result = UserDataFromServer()
-                        
-                        result.id = resultResponse?.id
-                        result.name = resultResponse?.name
-                        result.email = resultResponse?.email
-                        result.avatar = resultResponse?.avatar
-                        result.apiToken = resultResponse?.apiToken
-                        
+                        let result = BaseUserDataFromServer()
+                        /*
+                         result.id = resultResponse?.id
+                         result.name = resultResponse?.name
+                         result.email = resultResponse?.email
+                         */
                         closure(result)
                     } catch let error { print(error) }
                 } else {
@@ -115,6 +119,4 @@ class RequestServices {
             }
         }.resume()
     }
-    
-    
 }
