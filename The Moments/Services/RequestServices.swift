@@ -16,10 +16,7 @@ class RequestServices {
         let urlLogIn = baseURL + "/api/v1/auth-user"
         
         //url to request
-        guard let requestURL = URL(string: urlLogIn) else {
-            closure(nil, "error url")
-            return
-        }
+        guard let requestURL = URL(string: urlLogIn) else { return }
         
         //request
         var request = URLRequest(url: requestURL)
@@ -30,12 +27,12 @@ class RequestServices {
         //prepare JSON for request
         let requestJSON: [String: Any] = ["email" : Login,
                                           "password" : Password]
-        print(requestJSON)
+        
         let requestJSONData = try? JSONSerialization.data(withJSONObject: requestJSON, options: .prettyPrinted)
         
         //inseart JSON data to request
         request.httpBody = requestJSONData
-        print("sending request")
+        
         //Send request
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else { return }
@@ -52,7 +49,7 @@ class RequestServices {
                         result.email = responseData.data?.email
                         result.avatar = responseData.data?.avatar
                         result.apiToken = responseData.data?.apiToken
-                        closure(result,"")
+                        closure(result,"Sucsessful")
                     } catch let error { print(error) }
                 
                 case 400:
