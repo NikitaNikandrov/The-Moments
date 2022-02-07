@@ -17,98 +17,10 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="momentsLogo" translatesAutoresizingMaskIntoConstraints="NO" id="gGd-cZ-PME">
-                                <rect key="frame" x="107" y="139" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="BHZ-4k-tbq"/>
-                                    <constraint firstAttribute="width" constant="200" id="ieW-wp-txI"/>
-                                    <constraint firstAttribute="height" constant="200" id="ocf-GP-Zdt"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="rw9-7i-OEy"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Moments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhG-yd-epr">
-                                <rect key="frame" x="121.5" y="354" width="171.5" height="22.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
-                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
-                                <color key="highlightedColor" systemColor="systemBackgroundColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R7U-d6-gBI">
-                                <rect key="frame" x="52" y="424" width="310" height="53"/>
-                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="310" id="W3T-p2-pNj"/>
-                                    <constraint firstAttribute="height" constant="53" id="ngn-eR-FhP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dU1-gR-SV6">
-                                <rect key="frame" x="52" y="485" width="310" height="53"/>
-                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="310" id="9GN-Ez-jYD"/>
-                                    <constraint firstAttribute="height" constant="53" id="9mu-zu-LiV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfU-AM-IBS">
-                                <rect key="frame" x="52" y="568" width="310" height="40"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="0HZ-2d-mQ3"/>
-                                    <constraint firstAttribute="width" constant="310" id="NSG-Gg-81O"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemBackgroundColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Log In"/>
-                                <connections>
-                                    <action selector="logInButtonIsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WKG-Ml-1jG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iZ-kw-1y6">
-                                <rect key="frame" x="52" y="658" width="310" height="40"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="310" id="6dF-1o-n7L"/>
-                                    <constraint firstAttribute="height" constant="40" id="kH9-ne-Kw2"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemBackgroundColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Sign Up!"/>
-                                <connections>
-                                    <action selector="SignUpButtonIsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RyF-Pg-p4N"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="tintColor"/>
                         <color key="tintColor" name="AccentColor"/>
-                        <constraints>
-                            <constraint firstItem="R7U-d6-gBI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="380" id="BXJ-24-9ie"/>
-                            <constraint firstItem="gGd-cZ-PME" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="95" id="Eoo-lx-Om0"/>
-                            <constraint firstItem="YhG-yd-epr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HJC-BP-Mhh"/>
-                            <constraint firstItem="YhG-yd-epr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="310" id="Lzp-Bu-odK"/>
-                            <constraint firstItem="R7U-d6-gBI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Mai-EW-ujb"/>
-                            <constraint firstItem="rfU-AM-IBS" firstAttribute="top" secondItem="dU1-gR-SV6" secondAttribute="bottom" constant="30" id="PPJ-xd-ngG"/>
-                            <constraint firstItem="dU1-gR-SV6" firstAttribute="top" secondItem="R7U-d6-gBI" secondAttribute="bottom" constant="8" symbolic="YES" id="Qba-Hl-gsQ"/>
-                            <constraint firstItem="R7U-d6-gBI" firstAttribute="top" secondItem="YhG-yd-epr" secondAttribute="bottom" constant="47.5" id="Qp3-gH-z4U"/>
-                            <constraint firstItem="gGd-cZ-PME" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="95" id="TkI-kV-7XM"/>
-                            <constraint firstItem="gGd-cZ-PME" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Xi1-B9-uP3"/>
-                            <constraint firstItem="rfU-AM-IBS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gSN-lz-8EU"/>
-                            <constraint firstItem="6iZ-kw-1y6" firstAttribute="top" secondItem="rfU-AM-IBS" secondAttribute="bottom" constant="50" id="new-nm-g0C"/>
-                            <constraint firstItem="6iZ-kw-1y6" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rov-EP-Qph"/>
-                            <constraint firstItem="dU1-gR-SV6" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="uMf-41-qzw"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="logInButton" destination="rfU-AM-IBS" id="pw9-Nr-mhy"/>
-                        <outlet property="loginTextField" destination="R7U-d6-gBI" id="QHp-Uo-eMd"/>
-                        <outlet property="logoImageView" destination="gGd-cZ-PME" id="wF2-Kf-f0E"/>
-                        <outlet property="passwordTextField" destination="dU1-gR-SV6" id="eLn-qa-HOz"/>
-                        <outlet property="signUpButton" destination="6iZ-kw-1y6" id="rHJ-dn-mC7"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,7 +134,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="momentsLogo" width="980" height="980"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

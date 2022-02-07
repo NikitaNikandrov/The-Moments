@@ -23,6 +23,7 @@
 		E5A848BE26FBAEE100355775 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5A848BC26FBAEE100355775 /* LaunchScreen.storyboard */; };
 		E5A848C926FBAEE200355775 /* The_MomentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848C826FBAEE200355775 /* The_MomentsTests.swift */; };
 		E5A848D426FBAEE200355775 /* The_MomentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848D326FBAEE200355775 /* The_MomentsUITests.swift */; };
+		E5D72B5227B1787F00C8D806 /* ColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D72B5127B1787E00C8D806 /* ColorConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		E5A848CF26FBAEE200355775 /* The MomentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The MomentsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A848D326FBAEE200355775 /* The_MomentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_MomentsUITests.swift; sourceTree = "<group>"; };
 		E5A848D526FBAEE200355775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5D72B5127B1787E00C8D806 /* ColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				E53B21F8276D32BE00E2724C /* RequestServices.swift */,
+				E5D72B5127B1787E00C8D806 /* ColorConverter.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				E53B21FC276D357100E2724C /* JSONModels.swift in Sources */,
 				E53B21FE276D3B3400E2724C /* DataModels.swift in Sources */,
 				E53B21F9276D32BE00E2724C /* RequestServices.swift in Sources */,
+				E5D72B5227B1787F00C8D806 /* ColorConverter.swift in Sources */,
 				E5A848B926FBAEDD00355775 /* The_Moments.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
