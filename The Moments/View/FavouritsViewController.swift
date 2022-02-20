@@ -9,7 +9,7 @@ import UIKit
 
 class FavouritsViewController: UIViewController {
 
-    let testArray = ["сосать члены","ебаться в пьер да челло","нюхать бэбру"]
+    let testArray = ["сосать члены","ебаться в пьер да челло","нюхать бэбру", "гачи мучи", "1","2","3","4","5","6","7","8"]
     let favouritsTableView: UITableView = {
         let favourits = UITableView()
         favourits.translatesAutoresizingMaskIntoConstraints = false
