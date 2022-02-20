@@ -11,13 +11,15 @@
 		E53B21FC276D357100E2724C /* JSONModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FB276D357100E2724C /* JSONModels.swift */; };
 		E53B21FE276D3B3400E2724C /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FD276D3B3400E2724C /* DataModels.swift */; };
 		E53B2200277F51DC00E2724C /* LoginVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FF277F51DC00E2724C /* LoginVCPresenter.swift */; };
-		E53B2203277F530000E2724C /* MainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B2202277F530000E2724C /* MainData.swift */; };
+		E53B2203277F530000E2724C /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B2202277F530000E2724C /* GlobalData.swift */; };
 		E53B22052780DDD400E2724C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B22042780DDD400E2724C /* RegisterViewController.swift */; };
 		E53B220927889B6400E2724C /* RegisterVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B220827889B6400E2724C /* RegisterVCPresenter.swift */; };
+		E59886C327B3046700342A12 /* FavouritsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59886C227B3046600342A12 /* FavouritsViewController.swift */; };
+		E59886C527B47E9B00342A12 /* SearchMeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59886C427B47E9B00342A12 /* SearchMeetingsViewController.swift */; };
+		E59886C727B481CC00342A12 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59886C627B481CC00342A12 /* AccountViewController.swift */; };
 		E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848AE26FBAEDD00355775 /* AppDelegate.swift */; };
 		E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B026FBAEDD00355775 /* SceneDelegate.swift */; };
 		E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B226FBAEDD00355775 /* LogInViewController.swift */; };
-		E5A848B626FBAEDD00355775 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5A848B426FBAEDD00355775 /* Main.storyboard */; };
 		E5A848B926FBAEDD00355775 /* The_Moments.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B726FBAEDD00355775 /* The_Moments.xcdatamodeld */; };
 		E5A848BB26FBAEE100355775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5A848BA26FBAEE100355775 /* Assets.xcassets */; };
 		E5A848BE26FBAEE100355775 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5A848BC26FBAEE100355775 /* LaunchScreen.storyboard */; };
@@ -48,14 +50,16 @@
 		E53B21FB276D357100E2724C /* JSONModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModels.swift; sourceTree = "<group>"; };
 		E53B21FD276D3B3400E2724C /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		E53B21FF277F51DC00E2724C /* LoginVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCPresenter.swift; sourceTree = "<group>"; };
-		E53B2202277F530000E2724C /* MainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainData.swift; sourceTree = "<group>"; };
+		E53B2202277F530000E2724C /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		E53B22042780DDD400E2724C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E53B220827889B6400E2724C /* RegisterVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVCPresenter.swift; sourceTree = "<group>"; };
+		E59886C227B3046600342A12 /* FavouritsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritsViewController.swift; sourceTree = "<group>"; };
+		E59886C427B47E9B00342A12 /* SearchMeetingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMeetingsViewController.swift; sourceTree = "<group>"; };
+		E59886C627B481CC00342A12 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		E5A848AB26FBAEDD00355775 /* The Moments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Moments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A848AE26FBAEDD00355775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5A848B026FBAEDD00355775 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E5A848B226FBAEDD00355775 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		E5A848B526FBAEDD00355775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5A848B826FBAEDD00355775 /* The_Moments.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = The_Moments.xcdatamodel; sourceTree = "<group>"; };
 		E5A848BA26FBAEE100355775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5A848BD26FBAEE100355775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -124,7 +128,7 @@
 		E53B2201277F52E200E2724C /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				E53B2202277F530000E2724C /* MainData.swift */,
+				E53B2202277F530000E2724C /* GlobalData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -159,7 +163,6 @@
 				E5A848E126FBAF2800355775 /* View */,
 				E5A848AE26FBAEDD00355775 /* AppDelegate.swift */,
 				E5A848B026FBAEDD00355775 /* SceneDelegate.swift */,
-				E5A848B426FBAEDD00355775 /* Main.storyboard */,
 				E5A848BA26FBAEE100355775 /* Assets.xcassets */,
 				E5A848BC26FBAEE100355775 /* LaunchScreen.storyboard */,
 				E5A848B726FBAEDD00355775 /* The_Moments.xcdatamodeld */,
@@ -191,6 +194,9 @@
 			children = (
 				E5A848B226FBAEDD00355775 /* LogInViewController.swift */,
 				E53B22042780DDD400E2724C /* RegisterViewController.swift */,
+				E59886C227B3046600342A12 /* FavouritsViewController.swift */,
+				E59886C427B47E9B00342A12 /* SearchMeetingsViewController.swift */,
+				E59886C627B481CC00342A12 /* AccountViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -300,7 +306,6 @@
 			files = (
 				E5A848BE26FBAEE100355775 /* LaunchScreen.storyboard in Resources */,
 				E5A848BB26FBAEE100355775 /* Assets.xcassets in Resources */,
-				E5A848B626FBAEDD00355775 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,13 +331,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */,
+				E59886C327B3046700342A12 /* FavouritsViewController.swift in Sources */,
 				E53B22052780DDD400E2724C /* RegisterViewController.swift in Sources */,
 				E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */,
+				E59886C527B47E9B00342A12 /* SearchMeetingsViewController.swift in Sources */,
 				E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */,
 				E53B220927889B6400E2724C /* RegisterVCPresenter.swift in Sources */,
 				E53B2200277F51DC00E2724C /* LoginVCPresenter.swift in Sources */,
-				E53B2203277F530000E2724C /* MainData.swift in Sources */,
+				E53B2203277F530000E2724C /* GlobalData.swift in Sources */,
 				E53B21FC276D357100E2724C /* JSONModels.swift in Sources */,
+				E59886C727B481CC00342A12 /* AccountViewController.swift in Sources */,
 				E53B21FE276D3B3400E2724C /* DataModels.swift in Sources */,
 				E53B21F9276D32BE00E2724C /* RequestServices.swift in Sources */,
 				E5D72B5227B1787F00C8D806 /* ColorConverter.swift in Sources */,
@@ -372,14 +380,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E5A848B426FBAEDD00355775 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E5A848B526FBAEDD00355775 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E5A848BC26FBAEE100355775 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

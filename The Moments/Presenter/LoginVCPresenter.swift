@@ -9,9 +9,9 @@ import Foundation
 
 class LoginPresenter {
     func responseAuthHandling(response: LogInUserDataFromServer) {
-        response.id = MainData.shared.id
-        response.name = MainData.shared.name
-        response.avatar = MainData.shared.avatar
-        response.apiToken = MainData.shared.apiToken
+        response.id = PersonData.shared.id
+        response.name = PersonData.shared.name
+        response.avatar = PersonData.shared.avatar
+        response.apiToken = PersonData.shared.apiToken
     }
 }

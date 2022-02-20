@@ -30,9 +30,43 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         return label
     }()
     
+    private let loginTextField: UITextField = {
+        var textField = UITextField()
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Login",
+            attributes: [NSAttributedString.Key.foregroundColor: AppColors.shared.black,
+                         .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
+        textField.backgroundColor = AppColors.shared.grey
+        textField.textColor = AppColors.shared.black
+        textField.layer.borderWidth = 2.0
+        textField.layer.borderColor = UIColor.white.cgColor
+        textField.layer.cornerRadius = 20
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
+        textField.leftViewMode = .always
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
+    private let passwordTextField: UITextField = {
+        var textField = UITextField()
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Password",
+            attributes: [NSAttributedString.Key.foregroundColor: AppColors.shared.black,
+                         .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
+        textField.backgroundColor = AppColors.shared.grey
+        textField.textColor = AppColors.shared.black
+        textField.layer.borderWidth = 2.0
+        textField.layer.borderColor = UIColor.white.cgColor
+        textField.layer.cornerRadius = 20
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
+        textField.leftViewMode = .always
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
     private let logInButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(hexString: "7FA1E3")
+        button.backgroundColor = AppColors.shared.lightBlue
         button.setTitle("Log In", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         button.titleLabel?.textColor = .white
@@ -56,7 +90,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     private let signUpButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(hexString: "7FA1E3")
+        button.backgroundColor = AppColors.shared.lightBlue
         let buttonLabelAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white,
                                                                     .font: UIFont.systemFont(ofSize: 18, weight: .regular),
                                                                     .underlineStyle: NSUnderlineStyle.single.rawValue]
@@ -66,48 +100,17 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.cornerRadius = 20
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(signUpButtonIsPressed), for: .touchUpInside)
         return button
     }()
     
     //Mark: Variables
     private var presenter: LoginPresenter!
     
-    private var loginTextField: UITextField = {
-        var textField = UITextField()
-        textField.attributedPlaceholder = NSAttributedString(
-            string: "Login",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "777777"),
-                         .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
-        textField.backgroundColor = UIColor(hexString: "ECECEC")
-        textField.textColor = UIColor(hexString: "777777")
-        textField.layer.borderWidth = 2.0
-        textField.layer.borderColor = UIColor.white.cgColor
-        textField.layer.cornerRadius = 20
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
-        textField.leftViewMode = .always
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    private var passwordTextField: UITextField = {
-        var textField = UITextField()
-        textField.attributedPlaceholder = NSAttributedString(
-            string: "Password",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "777777"),
-                         .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
-        textField.backgroundColor = UIColor(hexString: "ECECEC")
-        textField.textColor = UIColor(hexString: "777777")
-        textField.layer.borderWidth = 2.0
-        textField.layer.borderColor = UIColor.white.cgColor
-        textField.layer.cornerRadius = 20
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
-        textField.leftViewMode = .always
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
     //Mark: Button's actions
     @objc func logInButtonIsPressed(sender: UIButton!){
-        let login = String(loginTextField.text!)
+      
+        /* let login = String(loginTextField.text!)
         let password = String(passwordTextField.text!)
         requestServices.logInRequest(Login: login, Password: password) { (result, message) in
             guard let result = result else {
@@ -120,12 +123,40 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             DispatchQueue.main.async {
                 self.okAuthAlert()
             }
-        }
+        }*/
+     
+        let tabBarVC = UITabBarController()
+        
+        //favourit
+        let myMeetings = UINavigationController(rootViewController: FavouritsViewController())
+        myMeetings.title = "Favourit meetings"
+        let favoritesItem = UITabBarItem.SystemItem.favorites
+        myMeetings.tabBarItem = UITabBarItem(tabBarSystemItem: favoritesItem, tag: 0)
+        
+        //search
+        let searchMeetings = UINavigationController(rootViewController: SearchMeetingsViewController())
+        searchMeetings.title = "Search meetings"
+        let searchItem = UITabBarItem.SystemItem.search
+        searchMeetings.tabBarItem = UITabBarItem(tabBarSystemItem: searchItem, tag: 0)
+        
+        //account
+        let account = UINavigationController(rootViewController: AccountViewController())
+        account.title = "My account"
+        account.tabBarItem.image = UIImage(systemName: "contacts")
+        
+        tabBarVC.setViewControllers([myMeetings, searchMeetings, account], animated: false)
+        
+        tabBarVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        tabBarVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
+        tabBarVC.tabBar.tintColor = UIColor.white
+        tabBarVC.modalPresentationStyle = .fullScreen
+        present(tabBarVC, animated: true)
+       
     }
     
     @objc func signUpButtonIsPressed(sender: UIButton!){
-       /* let registerViewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "registerVC") as UIViewController
-        self.present(registerViewController, animated: true, completion: nil)*/
+       let registerViewController = RegisterViewController()
+        self.present(registerViewController, animated: true, completion: nil)
     }
     
     //Mark: Lifecycle
@@ -142,8 +173,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
 extension LogInViewController {
     
     func setUpVC() {
-        let backgroundColor = UIColor(hexString: "4E8AFE")
-        view.backgroundColor = backgroundColor
+        
+        view.backgroundColor = AppColors.shared.blue
         
         view.addSubview(logoImageView)
         setLogoImageConstraints()
@@ -205,7 +236,7 @@ extension LogInViewController {
                            attribute: .top,
                            relatedBy: .equal,
                            toItem: view,
-                           attribute: .topMargin,
+                           attribute: .top,
                            multiplier: 1,
                            constant: 44).isActive = true
         NSLayoutConstraint(item: logoImageView,
@@ -236,7 +267,7 @@ extension LogInViewController {
                            attribute: .top,
                            relatedBy: .equal,
                            toItem: view,
-                           attribute: .topMargin,
+                           attribute: .top,
                            multiplier: 1,
                            constant: 270).isActive = true
         NSLayoutConstraint(item: logoLabel,
@@ -267,7 +298,7 @@ extension LogInViewController {
                            attribute: .top,
                            relatedBy: .equal,
                            toItem: view,
-                           attribute: .topMargin,
+                           attribute: .top,
                            multiplier: 1,
                            constant: 322).isActive = true
         NSLayoutConstraint(item: loginTextField,
@@ -298,7 +329,7 @@ extension LogInViewController {
                            attribute: .top,
                            relatedBy: .equal,
                            toItem: view,
-                           attribute: .topMargin,
+                           attribute: .top,
                            multiplier: 1,
                            constant: 387).isActive = true
         NSLayoutConstraint(item: passwordTextField,
@@ -329,7 +360,7 @@ extension LogInViewController {
                            attribute: .top,
                            relatedBy: .equal,
                            toItem: view,
-                           attribute: .topMargin,
+                           attribute: .top,
                            multiplier: 1,
                            constant: 460).isActive = true
         NSLayoutConstraint(item: logInButton,
@@ -360,7 +391,7 @@ extension LogInViewController {
                            attribute: .top,
                            relatedBy: .equal,
                            toItem: view,
-                           attribute: .topMargin,
+                           attribute: .top,
                            multiplier: 1,
                            constant: 530).isActive = true
         NSLayoutConstraint(item: noAccountLabel,
@@ -391,7 +422,7 @@ extension LogInViewController {
                            attribute: .top,
                            relatedBy: .equal,
                            toItem: view,
-                           attribute: .topMargin,
+                           attribute: .top,
                            multiplier: 1,
                            constant: 575).isActive = true
         NSLayoutConstraint(item: signUpButton,
