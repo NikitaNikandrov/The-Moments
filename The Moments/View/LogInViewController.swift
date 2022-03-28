@@ -126,30 +126,51 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         }*/
      
         let tabBarVC = UITabBarController()
-        
         //favourit
-        let myMeetings = UINavigationController(rootViewController: FavouritsViewController())
-        myMeetings.title = "Favourit meetings"
-        let favoritesItem = UITabBarItem.SystemItem.favorites
-        myMeetings.tabBarItem = UITabBarItem(tabBarSystemItem: favoritesItem, tag: 0)
+        let myMeetings = UINavigationController(rootViewController: FavoritsViewController())
+        myMeetings.title = "Favorits meetings"
+        let favoritesItem = UITabBarItem(title: myMeetings.title, image: UIImage(systemName: "star"), tag: 0)
+        myMeetings.tabBarItem = favoritesItem
         
         //search
         let searchMeetings = UINavigationController(rootViewController: SearchMeetingsViewController())
         searchMeetings.title = "Search meetings"
-        let searchItem = UITabBarItem.SystemItem.search
-        searchMeetings.tabBarItem = UITabBarItem(tabBarSystemItem: searchItem, tag: 0)
+        let searchItem = UITabBarItem(title: searchMeetings.title, image: UIImage(systemName: "magnifyingglass"), tag: 0)
+        searchMeetings.tabBarItem = searchItem
         
         //account
         let account = UINavigationController(rootViewController: AccountViewController())
         account.title = "My account"
-        account.tabBarItem.image = UIImage(systemName: "contacts")
+        let accountItem = UITabBarItem(title: account.title, image: UIImage(systemName: "person"), tag: 0)
+        account.tabBarItem = accountItem
         
         tabBarVC.setViewControllers([myMeetings, searchMeetings, account], animated: false)
         
-        tabBarVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
-        tabBarVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
-        tabBarVC.tabBar.tintColor = UIColor.white
+        if #available(iOS 15.0, *) {
+            let tabBarAppearance = UITabBarAppearance()
+            let tabBarItemApperance = UITabBarItemAppearance()
+            
+            tabBarAppearance.configureWithOpaqueBackground()
+            
+            tabBarItemApperance.normal.iconColor = .black
+            tabBarItemApperance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            tabBarItemApperance.selected.iconColor = .white
+            tabBarItemApperance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            
+            tabBarAppearance.backgroundColor = AppColors.shared.lightBlue
+            tabBarAppearance.stackedLayoutAppearance = tabBarItemApperance
+            
+            tabBarVC.tabBar.standardAppearance = tabBarAppearance
+            tabBarVC.tabBar.scrollEdgeAppearance = tabBarAppearance
+           
+        } else {
+            tabBarVC.tabBar.tintColor = UIColor.white
+            tabBarVC.tabBar.unselectedItemTintColor = UIColor.black
+            tabBarVC.tabBar.barTintColor = AppColors.shared.lightBlue
+        }
+       
         tabBarVC.modalPresentationStyle = .fullScreen
+        
         present(tabBarVC, animated: true)
        
     }

@@ -35,7 +35,5 @@ extension AccountViewController {
             self.navigationController?.navigationBar.standardAppearance = navBarAppearance
             self.navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         }
-        //Setting colors for tab bar
-        self.tabBarController?.tabBar.backgroundColor = AppColors.shared.lightBlue
     }
 }

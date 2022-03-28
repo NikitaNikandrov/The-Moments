@@ -7,9 +7,9 @@
 
 import UIKit
 
-class FavouritsViewController: UIViewController {
+class FavoritsViewController: UIViewController {
 
-    let testArray = ["сосать члены","ебаться в пьер да челло","нюхать бэбру", "гачи мучи", "1","2","3","4","5","6","7","8"]
+    let testArray = ["1","2","3","4"/*,"1","2","3","4","1","2","3","4","5","6","7","8","1","2","3","4","5"*/]
     let favouritsTableView: UITableView = {
         let favourits = UITableView()
         favourits.translatesAutoresizingMaskIntoConstraints = false
@@ -18,22 +18,26 @@ class FavouritsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        view.addSubview(favouritsTableView)
-        setTableViewConstraints()
+        
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpFavouritsVC()
+        view.addSubview(favouritsTableView)
+        setTableViewConstraints()
+        
         favouritsTableView.delegate = self
         favouritsTableView.dataSource = self
         favouritsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        setUpFavouritsVC()
     }
     
 }
 
-extension FavouritsViewController {
+extension FavoritsViewController {
     
     func setUpFavouritsVC() {
     
@@ -41,7 +45,7 @@ extension FavouritsViewController {
         //Setting colors nav bar
         self.navigationController?.navigationBar.backgroundColor = AppColors.shared.lightBlue
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        self.title = "Favourit meetings"
+        self.title = "Favorits meetings"
         //Setting status bar background color
         if #available(iOS 13.0, *) {
             let navBarAppearance = UINavigationBarAppearance()
@@ -52,22 +56,24 @@ extension FavouritsViewController {
             self.navigationController?.navigationBar.standardAppearance = navBarAppearance
             self.navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         }
-        //Setting colors for tab bar
-        self.tabBarController?.tabBar.backgroundColor = AppColors.shared.lightBlue
+
         //Setting colors for tableview
         self.favouritsTableView.backgroundColor = AppColors.shared.blue
         self.favouritsTableView.separatorColor = UIColor.white
     }
     
     func setTableViewConstraints() {
-        NSLayoutConstraint(item: favouritsTableView, attribute: .top,
-                           relatedBy: .equal, toItem: view,
+        favouritsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        favouritsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        /*NSLayoutConstraint(item: favouritsTableView, attribute: .top,
+                           relatedBy: .equal, toItem: view.safeAreaLayoutGuide.topAnchor,
                            attribute: .top, multiplier: 1,
                            constant: 0).isActive = true
+        //let tabBarHeight = self.tabBarController?.tabBar.frame.height ?? 49.0
         NSLayoutConstraint(item: favouritsTableView, attribute: .bottom,
-                           relatedBy: .equal, toItem: view,
+                           relatedBy: .equal, toItem: view.safeAreaLayoutGuide.bottomAnchor,
                            attribute: .bottom, multiplier: 1,
-                           constant: 0).isActive = true
+                           constant: 0).isActive = true*/
         NSLayoutConstraint(item: favouritsTableView, attribute: .leading,
                            relatedBy: .equal, toItem: view,
                            attribute: .leading, multiplier: 1,
@@ -79,7 +85,7 @@ extension FavouritsViewController {
     }
 }
 
-extension FavouritsViewController: UITableViewDelegate, UITableViewDataSource {
+extension FavoritsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return testArray.count
     }

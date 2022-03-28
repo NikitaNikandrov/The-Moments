@@ -11,7 +11,7 @@ class RequestServices {
     
     private var baseURL = "https://api-meetings.nenado.info"
     
-    func logInRequest(Login: String, Password: String, closure: @escaping((LogInUserDataFromServer?, String) -> Void)) {
+    func logInRequest(Login: String, Password: String, closure: @escaping((LogInUserDataFromServer?, (Int, String)) -> Void)) {
         //string for url
         let urlLogIn = baseURL + "/api/v1/auth-user"
         
@@ -35,8 +35,11 @@ class RequestServices {
         
         //Send request
         URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                closure(nil, (400, "\(error)"))
+                return
+            }
             guard let data = data else { return }
-            guard error == nil else { return }
             if let httpResponse = response as? HTTPURLResponse {
                 print("statusCode: \(httpResponse.statusCode)")
                 switch httpResponse.statusCode {
@@ -49,18 +52,18 @@ class RequestServices {
                         result.email = responseData.data?.email
                         result.avatar = responseData.data?.avatar
                         result.apiToken = responseData.data?.apiToken
-                        closure(result,"Sucsessful")
+                        closure(result, (200, "Sucsessful"))
                     } catch let error { print(error) }
                 
                 case 400:
                     do {
                         let responseData: JSONModels.LogInJSONmodel = try JSONDecoder().decode(JSONModels.LogInJSONmodel.self, from: data)
                         let errorMessage: String = responseData.message ?? "Server error"
-                        closure(nil, errorMessage)
+                        closure(nil, (400, errorMessage))
                     } catch let error { print(error) }
                 
                 default:
-                    closure(nil, "Server error")
+                    closure(nil, (400, "Server error"))
                 }
             }
         }.resume()
