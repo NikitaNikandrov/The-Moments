@@ -65,23 +65,8 @@ extension FavoritsViewController {
     func setTableViewConstraints() {
         favouritsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         favouritsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
-        /*NSLayoutConstraint(item: favouritsTableView, attribute: .top,
-                           relatedBy: .equal, toItem: view.safeAreaLayoutGuide.topAnchor,
-                           attribute: .top, multiplier: 1,
-                           constant: 0).isActive = true
-        //let tabBarHeight = self.tabBarController?.tabBar.frame.height ?? 49.0
-        NSLayoutConstraint(item: favouritsTableView, attribute: .bottom,
-                           relatedBy: .equal, toItem: view.safeAreaLayoutGuide.bottomAnchor,
-                           attribute: .bottom, multiplier: 1,
-                           constant: 0).isActive = true*/
-        NSLayoutConstraint(item: favouritsTableView, attribute: .leading,
-                           relatedBy: .equal, toItem: view,
-                           attribute: .leading, multiplier: 1,
-                           constant: 0).isActive = true
-        NSLayoutConstraint(item: favouritsTableView, attribute: .trailing,
-                           relatedBy: .equal, toItem: view,
-                           attribute: .trailing, multiplier: 1,
-                           constant: 0).isActive = true
+        favouritsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        favouritsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
     }
 }
 

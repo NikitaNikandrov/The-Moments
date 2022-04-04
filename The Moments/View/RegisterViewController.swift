@@ -179,221 +179,53 @@ extension RegisterViewController {
         signUpButton.isEnabled = false*/
     }
     
-    //Outlets
+    //Constraints
     func setLogoImageConstraints() {
-        NSLayoutConstraint(item: logoImageView,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 200).isActive = true
-        NSLayoutConstraint(item: logoImageView,
-                           attribute: .width,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 200).isActive = true
-        NSLayoutConstraint(item: logoImageView,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .topMargin,
-                           multiplier: 1,
-                           constant: 44).isActive = true
-        NSLayoutConstraint(item: logoImageView,
-                           attribute: .centerX,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .centerX,
-                           multiplier: 1,
-                           constant: 0).isActive = true
+        logoImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        logoImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 44).isActive = true
+        logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
     
     func setCreateLabelConstraints() {
-        NSLayoutConstraint(item: createLabel,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 28).isActive = true
-        NSLayoutConstraint(item: createLabel,
-                           attribute: .width,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 200).isActive = true
-        NSLayoutConstraint(item: createLabel,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .topMargin,
-                           multiplier: 1,
-                           constant: 270).isActive = true
-        NSLayoutConstraint(item: createLabel,
-                           attribute: .centerX,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .centerX,
-                           multiplier: 1,
-                           constant: 0).isActive = true
+        createLabel.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        createLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        createLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 270).isActive = true
+        createLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
     
     func setLoginTextFieldConstraints() {
-        NSLayoutConstraint(item: loginTextField,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 55).isActive = true
-        NSLayoutConstraint(item: loginTextField,
-                           attribute: .width,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 310).isActive = true
-        NSLayoutConstraint(item: loginTextField,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .topMargin,
-                           multiplier: 1,
-                           constant: 322).isActive = true
-        NSLayoutConstraint(item: loginTextField,
-                           attribute: .centerX,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .centerX,
-                           multiplier: 1,
-                           constant: 0).isActive = true
+        loginTextField.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        loginTextField.widthAnchor.constraint(equalToConstant: 310).isActive = true
+        loginTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 322).isActive = true
+        loginTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
     
     func setPasswordTextFieldConstraints() {
-        NSLayoutConstraint(item: passwordTextField,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 55).isActive = true
-        NSLayoutConstraint(item: passwordTextField,
-                           attribute: .width,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 310).isActive = true
-        NSLayoutConstraint(item: passwordTextField,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .topMargin,
-                           multiplier: 1,
-                           constant: 387).isActive = true
-        NSLayoutConstraint(item: passwordTextField,
-                           attribute: .centerX,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .centerX,
-                           multiplier: 1,
-                           constant: 0).isActive = true
+        passwordTextField.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        passwordTextField.widthAnchor.constraint(equalToConstant: 310).isActive = true
+        passwordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 387).isActive = true
+        passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
     
     func setConfirmPasswordTextFieldConstraints() {
-        NSLayoutConstraint(item: confirmPasswordTextField,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 55).isActive = true
-        NSLayoutConstraint(item: confirmPasswordTextField,
-                           attribute: .width,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 310).isActive = true
-        NSLayoutConstraint(item: confirmPasswordTextField,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .topMargin,
-                           multiplier: 1,
-                           constant: 456).isActive = true
-        NSLayoutConstraint(item: confirmPasswordTextField,
-                           attribute: .centerX,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .centerX,
-                           multiplier: 1,
-                           constant: 0).isActive = true
+        confirmPasswordTextField.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        confirmPasswordTextField.widthAnchor.constraint(equalToConstant: 310).isActive = true
+        confirmPasswordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 452).isActive = true
+        confirmPasswordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
     
     func setPasswordLabelConstraints() {
-        NSLayoutConstraint(item: passwordLabel,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 21).isActive = true
-        NSLayoutConstraint(item: passwordLabel,
-                           attribute: .width,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 250).isActive = true
-        NSLayoutConstraint(item: passwordLabel,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .topMargin,
-                           multiplier: 1,
-                           constant: 530).isActive = true
-        NSLayoutConstraint(item: passwordLabel,
-                           attribute: .centerX,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .centerX,
-                           multiplier: 1,
-                           constant: 0).isActive = true
+        passwordLabel.heightAnchor.constraint(equalToConstant: 21).isActive = true
+        passwordLabel.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        passwordLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 530).isActive = true
+        passwordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
     
     func setSignUpButtonConstraints() {
-        NSLayoutConstraint(item: signUpButton,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 50).isActive = true
-        NSLayoutConstraint(item: signUpButton,
-                           attribute: .width,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1,
-                           constant: 170).isActive = true
-        NSLayoutConstraint(item: signUpButton,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .topMargin,
-                           multiplier: 1,
-                           constant: 575).isActive = true
-        NSLayoutConstraint(item: signUpButton,
-                           attribute: .centerX,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .centerX,
-                           multiplier: 1,
-                           constant: 0).isActive = true
+        signUpButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        signUpButton.widthAnchor.constraint(equalToConstant: 170).isActive = true
+        signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 575).isActive = true
+        signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
 }
