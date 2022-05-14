@@ -11,14 +11,47 @@ import UIKit
 final class PersonData {
     static var shared = PersonData()
     private init() {
-        id = 0
+        id = ""
         name = ""
-        avatar = ""
-        apiToken = ""
+        email = ""
+        firstName = ""
+        lastName = ""
+        middleName = ""
+        phone = ""
+        dateBirth = ""
+        token = ""
+        avatar = Avatar()
     }
-    var id: Int
-    var name, avatar, apiToken: String
+    var id, name, email, firstName: String
+    var lastName, middleName, phone, dateBirth: String
+    var token: String
+    var avatar: Avatar
+    
+    struct Avatar {
+        var id, image: String
+        var preview: [Preview]
+        init() {
+            id = ""
+            image = ""
+            preview = [Preview()]
+        }
+    }
+    struct Preview {
+        var id, image, size: String
+        init() {
+            id = ""
+            image = ""
+            size = ""
+        }
+    }
 }
+
+
+
+
+
+
+
 
 final class MeetingsData {
     static var shared = MeetingsData()

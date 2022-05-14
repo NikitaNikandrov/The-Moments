@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E53B21F9276D32BE00E2724C /* RequestServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21F8276D32BE00E2724C /* RequestServices.swift */; };
-		E53B21FC276D357100E2724C /* JSONModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FB276D357100E2724C /* JSONModels.swift */; };
+		E53B21FC276D357100E2724C /* LoginJSONModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FB276D357100E2724C /* LoginJSONModels.swift */; };
 		E53B21FE276D3B3400E2724C /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FD276D3B3400E2724C /* DataModels.swift */; };
 		E53B2200277F51DC00E2724C /* LoginVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FF277F51DC00E2724C /* LoginVCPresenter.swift */; };
 		E53B2203277F530000E2724C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B2202277F530000E2724C /* Data.swift */; };
@@ -47,7 +47,7 @@
 
 /* Begin PBXFileReference section */
 		E53B21F8276D32BE00E2724C /* RequestServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestServices.swift; sourceTree = "<group>"; };
-		E53B21FB276D357100E2724C /* JSONModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModels.swift; sourceTree = "<group>"; };
+		E53B21FB276D357100E2724C /* LoginJSONModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginJSONModels.swift; sourceTree = "<group>"; };
 		E53B21FD276D3B3400E2724C /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		E53B21FF277F51DC00E2724C /* LoginVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCPresenter.swift; sourceTree = "<group>"; };
 		E53B2202277F530000E2724C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 		E53B21FA276D353C00E2724C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E53B21FB276D357100E2724C /* JSONModels.swift */,
+				E53B21FB276D357100E2724C /* LoginJSONModels.swift */,
 				E53B21FD276D3B3400E2724C /* DataModels.swift */,
 			);
 			path = Model;
@@ -339,7 +339,7 @@
 				E53B220927889B6400E2724C /* RegisterVCPresenter.swift in Sources */,
 				E53B2200277F51DC00E2724C /* LoginVCPresenter.swift in Sources */,
 				E53B2203277F530000E2724C /* Data.swift in Sources */,
-				E53B21FC276D357100E2724C /* JSONModels.swift in Sources */,
+				E53B21FC276D357100E2724C /* LoginJSONModels.swift in Sources */,
 				E59886C727B481CC00342A12 /* AccountViewController.swift in Sources */,
 				E53B21FE276D3B3400E2724C /* DataModels.swift in Sources */,
 				E53B21F9276D32BE00E2724C /* RequestServices.swift in Sources */,
@@ -515,6 +515,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8ZXWNP3PM;
 				INFOPLIST_FILE = "The Moments/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -522,7 +523,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Nikandroff.The-Moments";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -534,6 +535,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L8ZXWNP3PM;
 				INFOPLIST_FILE = "The Moments/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -541,7 +543,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Nikandroff.The-Moments";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

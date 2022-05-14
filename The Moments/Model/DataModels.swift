@@ -8,12 +8,12 @@
 import Foundation
 
 class BaseUserDataFromServer {
-    var id: Int?
+    var id: String?
     var name, email: String?
 }
 
 class LogInUserDataFromServer: BaseUserDataFromServer {
-    var avatar, apiToken: String?
+    var avatar, token: String?
 }
 
 class MethodArguments {

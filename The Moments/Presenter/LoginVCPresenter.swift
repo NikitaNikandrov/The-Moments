@@ -11,7 +11,9 @@ class LoginPresenter {
     func responseAuthHandling(response: LogInUserDataFromServer) {
         response.id = PersonData.shared.id
         response.name = PersonData.shared.name
+        /*
         response.avatar = PersonData.shared.avatar
         response.apiToken = PersonData.shared.apiToken
+         */
     }
 }

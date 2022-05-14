@@ -47,6 +47,23 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         return textField
     }()
     
+    private let emailTextField: UITextField = {
+        var textField = UITextField()
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Email",
+            attributes: [NSAttributedString.Key.foregroundColor: AppColors.shared.black,
+                         .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
+        textField.backgroundColor = AppColors.shared.grey
+        textField.textColor = AppColors.shared.black
+        textField.layer.borderWidth = 2.0
+        textField.layer.borderColor = UIColor.white.cgColor
+        textField.layer.cornerRadius = 20
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
+        textField.leftViewMode = .always
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    
     private let passwordTextField: UITextField = {
         var textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
@@ -162,6 +179,9 @@ extension RegisterViewController {
         view.addSubview(loginTextField)
         setLoginTextFieldConstraints()
         
+        view.addSubview(emailTextField)
+        setEmailTextField()
+        
         view.addSubview(passwordTextField)
         setPasswordTextFieldConstraints()
         
@@ -201,31 +221,38 @@ extension RegisterViewController {
         loginTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
     
+    func setEmailTextField() {
+        emailTextField.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        emailTextField.widthAnchor.constraint(equalToConstant: 310).isActive = true
+        emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 387).isActive = true
+        emailTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+    }
+    
     func setPasswordTextFieldConstraints() {
         passwordTextField.heightAnchor.constraint(equalToConstant: 55).isActive = true
         passwordTextField.widthAnchor.constraint(equalToConstant: 310).isActive = true
-        passwordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 387).isActive = true
+        passwordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 452).isActive = true
         passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
     
     func setConfirmPasswordTextFieldConstraints() {
         confirmPasswordTextField.heightAnchor.constraint(equalToConstant: 55).isActive = true
         confirmPasswordTextField.widthAnchor.constraint(equalToConstant: 310).isActive = true
-        confirmPasswordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 452).isActive = true
+        confirmPasswordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 517).isActive = true
         confirmPasswordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
     
     func setPasswordLabelConstraints() {
         passwordLabel.heightAnchor.constraint(equalToConstant: 21).isActive = true
         passwordLabel.widthAnchor.constraint(equalToConstant: 250).isActive = true
-        passwordLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 530).isActive = true
+        passwordLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 595).isActive = true
         passwordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
     
     func setSignUpButtonConstraints() {
         signUpButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         signUpButton.widthAnchor.constraint(equalToConstant: 170).isActive = true
-        signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 575).isActive = true
+        signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 640).isActive = true
         signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
 }
