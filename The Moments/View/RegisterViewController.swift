@@ -84,7 +84,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     private let confirmPasswordTextField: UITextField = {
         var textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
-            string: "Password",
+            string: "Confirm password",
             attributes: [NSAttributedString.Key.foregroundColor: AppColors.shared.black,
                          .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
         textField.backgroundColor = AppColors.shared.grey
@@ -125,9 +125,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
 //Mark: variables
     private var presenter: RegisterPresenter!
-/*
+
 //Mark: Actions
-    @IBAction func comparePasswords(_ sender: Any) {
+    @objc func comparePasswords(sender: UIButton!) {
         if presenter.comparePassword(password: String(loginTextField.text!) , confirmPassword: String(confirmPasswordTextField.text!)) {
             self.passwordLabel.isHidden = true
             if String(confirmPasswordTextField.text!) != "" {
@@ -137,7 +137,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             self.passwordLabel.isHidden = false
         }
     }
-    @IBAction func signUpButtonIsPressed(_ sender: Any) {
+    
+    @objc func signUpButtonIsPressed(sender: UIButton!) {
+        /*
         var requestData = MethodArguments.AuthUserArguments()
         requestData.login = String(loginTextField.text!)
         requestData.password = String(passwordTextField.text!)
@@ -148,18 +150,20 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                     return
                 }
             }
-    }
-  */
+         */
+         }
+  
 //Mark: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         presenter = RegisterPresenter()
-        /*
+        
         loginTextField.delegate = self
+        emailTextField.delegate = self
         passwordTextField.delegate = self
         confirmPasswordTextField.delegate = self
-        */
+        
         setUpVC()
     }
 }
@@ -194,9 +198,8 @@ extension RegisterViewController {
         view.addSubview(signUpButton)
         setSignUpButtonConstraints()
         
-        /*
         passwordLabel.isHidden = true
-        signUpButton.isEnabled = false*/
+        signUpButton.isEnabled = false
     }
     
     //Constraints
