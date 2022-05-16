@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController, UITextFieldDelegate {
+class RegisterViewController: UIViewController {
 
 //Mark: Constats
     let requestServices = RequestServices()
@@ -127,30 +127,20 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     private var presenter: RegisterPresenter!
 
 //Mark: Actions
-    @objc func comparePasswords(sender: UIButton!) {
-        if presenter.comparePassword(password: String(loginTextField.text!) , confirmPassword: String(confirmPasswordTextField.text!)) {
-            self.passwordLabel.isHidden = true
-            if String(confirmPasswordTextField.text!) != "" {
-                self.signUpButton.isEnabled = true
-            }
-        } else {
-            self.passwordLabel.isHidden = false
-        }
-    }
     
     @objc func signUpButtonIsPressed(sender: UIButton!) {
-        /*
+        
         var requestData = MethodArguments.AuthUserArguments()
         requestData.login = String(loginTextField.text!)
+        requestData.email = String(emailTextField.text!)
         requestData.password = String(passwordTextField.text!)
-        requestData.confirmPassword = String(confirmPasswordTextField.text!)
         requestServices.registerRequest(RegisterArguments: requestData) { data in
                 guard let data = data else {
                     print("request failed")
                     return
                 }
             }
-         */
+         
          }
   
 //Mark: LifeCycle
@@ -168,7 +158,26 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
-extension RegisterViewController {
+extension RegisterViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let chek = presenter.passwordManager(password: String(passwordTextField.text!) , confirmPassword: String(confirmPasswordTextField.text!))
+        switch chek {
+        case 0 :
+            passwordLabel.isHidden = true
+        case 1 :
+            passwordLabel.text = "Min 6 characters"
+            passwordLabel.isHidden = false
+        case 2 :
+            passwordLabel.text = "The passwords are different"
+            passwordLabel.isHidden = false
+        case 3 :
+            passwordLabel.isHidden = true
+            signUpButton.isEnabled = true
+        default :
+            break
+        }
+    }
     
     func setUpVC() {
         

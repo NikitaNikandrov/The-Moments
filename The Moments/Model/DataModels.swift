@@ -19,7 +19,7 @@ class LogInUserDataFromServer: BaseUserDataFromServer {
 class MethodArguments {
     struct AuthUserArguments {
         var login = ""
+        var email = ""
         var password = ""
-        var confirmPassword = ""
     }
 }
