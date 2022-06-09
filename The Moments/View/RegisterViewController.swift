@@ -8,8 +8,8 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
-
-//Mark: Constats
+    
+    //Mark: Constats
     let requestServices = RequestServices()
     
     private let logoImageView: UIImageView = {
@@ -123,27 +123,28 @@ class RegisterViewController: UIViewController {
         return button
     }()
     
-//Mark: variables
+    //Mark: variables
     private var presenter: RegisterPresenter!
-
-//Mark: Actions
+    private var activeTextField: UITextField? = nil
+    
+    //Mark: Actions
     
     @objc func signUpButtonIsPressed(sender: UIButton!) {
         
-        var requestData = MethodArguments.AuthUserArguments()
+        var requestData = MethodArguments.RegisterUserArguments()
         requestData.login = String(loginTextField.text!)
         requestData.email = String(emailTextField.text!)
-        requestData.password = String(passwordTextField.text!)
-        requestServices.registerRequest(RegisterArguments: requestData) { data in
-                guard let data = data else {
-                    print("request failed")
-                    return
-                }
-            }
-         
-         }
-  
-//Mark: LifeCycle
+        requestData.password = String(passwordTextField.text!)/*
+                                                               requestServices.registerRequest(RegisterArguments: requestData) { data,<#arg#>  in
+                                                               guard let data = data else {
+                                                               print("request failed")
+                                                               return
+                                                               }
+                                                               }*/
+        
+    }
+    
+    //Mark: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -155,63 +156,106 @@ class RegisterViewController: UIViewController {
         confirmPasswordTextField.delegate = self
         
         setUpVC()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
 
 extension RegisterViewController: UITextFieldDelegate {
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        
+        var shouldMoveViewUp = false
+        
+        if let activeTextField = activeTextField {
+            
+            let bottomOfTextField = activeTextField.convert(activeTextField.bounds, to: self.view).maxY;
+            let topOfKeyboard = self.view.frame.height - keyboardSize.height
+            if bottomOfTextField > topOfKeyboard {
+                shouldMoveViewUp = true
+            }
+        }
+        
+        if(shouldMoveViewUp) {
+            self.view.frame.origin.y = 0 - keyboardSize.height
+        }
+    }
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.activeTextField = textField
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        loginTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        confirmPasswordTextField.resignFirstResponder()
+        return true
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         let chek = presenter.passwordManager(password: String(passwordTextField.text!) , confirmPassword: String(confirmPasswordTextField.text!))
         switch chek {
-        case 0 :
+        case .hideLabel:
             passwordLabel.isHidden = true
-        case 1 :
+        case .min6char:
             passwordLabel.text = "Min 6 characters"
             passwordLabel.isHidden = false
-        case 2 :
+        case .differentPass:
             passwordLabel.text = "The passwords are different"
             passwordLabel.isHidden = false
-        case 3 :
+        case .ok:
             passwordLabel.isHidden = true
             signUpButton.isEnabled = true
-        default :
-            break
         }
+        self.activeTextField = nil
     }
     
     func setUpVC() {
         
         view.backgroundColor = AppColors.shared.blue
         
-        view.addSubview(logoImageView)
+        self.view.addSubview(logoImageView)
         setLogoImageConstraints()
         
-        view.addSubview(createLabel)
+        self.view.addSubview(createLabel)
         setCreateLabelConstraints()
         
-        view.addSubview(loginTextField)
+        self.view.addSubview(loginTextField)
         setLoginTextFieldConstraints()
         
-        view.addSubview(emailTextField)
+        self.view.addSubview(emailTextField)
         setEmailTextField()
         
-        view.addSubview(passwordTextField)
+        self.view.addSubview(passwordTextField)
         setPasswordTextFieldConstraints()
         
-        view.addSubview(confirmPasswordTextField)
+        self.view.addSubview(confirmPasswordTextField)
         setConfirmPasswordTextFieldConstraints()
         
-        view.addSubview(passwordLabel)
+        self.view.addSubview(passwordLabel)
         setPasswordLabelConstraints()
         
-        view.addSubview(signUpButton)
+        self.view.addSubview(signUpButton)
         setSignUpButtonConstraints()
         
         passwordLabel.isHidden = true
         signUpButton.isEnabled = false
     }
     
+    
+    
     //Constraints
+    
     func setLogoImageConstraints() {
         logoImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         logoImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true

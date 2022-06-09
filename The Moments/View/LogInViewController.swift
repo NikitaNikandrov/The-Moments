@@ -108,23 +108,69 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     private var presenter: LoginPresenter!
     
     //Mark: Button's actions
-    @objc func logInButtonIsPressed(sender: UIButton!){
-      
-        /* let login = String(loginTextField.text!)
+    @objc func logInButtonIsPressed(sender: UIButton!) {
+        
+        let login = String(loginTextField.text!)
         let password = String(passwordTextField.text!)
-        requestServices.logInRequest(Login: login, Password: password) { (result, message) in
-            guard let result = result else {
-                DispatchQueue.main.async {
-                    self.failAuthAlert(message: message)
-                }
-                return
+        requestServices.logInRequest(Login: login, Password: password) { [weak self] result in
+            switch result {
+            case .sucsess(_):
+                self?.presentFavoritsVC()
+            case let .error(code, message):
+                self?.failAuthAlert(code: code, message: message)
             }
-            self.presenter.responseAuthHandling(response: result)
-            DispatchQueue.main.async {
-                self.okAuthAlert()
-            }
-        }*/
-     
+        }
+    }
+    
+    @objc func signUpButtonIsPressed(sender: UIButton!){
+        let registerViewController = RegisterViewController()
+        self.present(registerViewController, animated: true, completion: nil)
+    }
+    
+    //Mark: Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        presenter = LoginPresenter()
+        loginTextField.delegate = self
+        passwordTextField.delegate = self
+        setUpVC()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+}
+
+extension LogInViewController {
+    
+    func setUpVC() {
+        
+        view.backgroundColor = AppColors.shared.blue
+        
+        view.addSubview(logoImageView)
+        setLogoImageConstraints()
+        
+        view.addSubview(logoLabel)
+        setLogoLabelConstraints()
+        
+        view.addSubview(loginTextField)
+        setLoginTextFieldConstraints()
+        
+        view.addSubview(passwordTextField)
+        setPasswordTextFieldConstraints()
+        
+        view.addSubview(logInButton)
+        setLogInButtonConstraints()
+        
+        view.addSubview(noAccountLabel)
+        setNoAccountLabelConstraints()
+        
+        view.addSubview(signUpButton)
+        setSignUpButtonConstraints()
+    }
+    
+    func presentFavoritsVC() {
         let tabBarVC = UITabBarController()
         //favourit
         let myMeetings = UINavigationController(rootViewController: FavoritsViewController())
@@ -162,79 +208,30 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             
             tabBarVC.tabBar.standardAppearance = tabBarAppearance
             tabBarVC.tabBar.scrollEdgeAppearance = tabBarAppearance
-           
+            
         } else {
             tabBarVC.tabBar.tintColor = UIColor.white
             tabBarVC.tabBar.unselectedItemTintColor = UIColor.black
             tabBarVC.tabBar.barTintColor = AppColors.shared.lightBlue
         }
-       
+        
         tabBarVC.modalPresentationStyle = .fullScreen
         
         present(tabBarVC, animated: true)
-       
     }
     
-    @objc func signUpButtonIsPressed(sender: UIButton!){
-       let registerViewController = RegisterViewController()
-        self.present(registerViewController, animated: true, completion: nil)
-    }
-    
-    //Mark: Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        presenter = LoginPresenter()
-        loginTextField.delegate = self
-        passwordTextField.delegate = self
-        setUpVC()
-    }
-}
-
-extension LogInViewController {
-    
-    func setUpVC() {
-        
-        view.backgroundColor = AppColors.shared.blue
-        
-        view.addSubview(logoImageView)
-        setLogoImageConstraints()
-        
-        view.addSubview(logoLabel)
-        setLogoLabelConstraints()
-        
-        view.addSubview(loginTextField)
-        setLoginTextFieldConstraints()
-        
-        view.addSubview(passwordTextField)
-        setPasswordTextFieldConstraints()
-        
-        view.addSubview(logInButton)
-        setLogInButtonConstraints()
-        
-        view.addSubview(noAccountLabel)
-        setNoAccountLabelConstraints()
-        
-        view.addSubview(signUpButton)
-        setSignUpButtonConstraints()
-    }
-    
-    func failAuthAlert(message: String) {
-        let alert = UIAlertController(title: "Ops, error", message: message, preferredStyle: .alert)
+    func failAuthAlert(code: Int, message: String) {
+        let erorrMessage = "Code: " + String(code) + " " + message
+        let alert = UIAlertController(title: "Ops, error", message: erorrMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
-    //only for test
-    func okAuthAlert() {
-        let alert = UIAlertController(title: "Correct", message: "Молодец, пора сделать главный экран прилы", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true)
-    }
+    
     //Mark: Hide keyboard with done button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         loginTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
-        return true;
+        return true
     }
     
     //Constraints

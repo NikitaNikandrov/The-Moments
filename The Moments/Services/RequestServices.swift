@@ -7,15 +7,20 @@
 
 import Foundation
 
+enum Result<T> {
+    case sucsess(T)
+    case error(Int, String)
+}
+
 class RequestServices {
     
     private let baseURL = "https://mssemenov.ru"
     
-    func logInRequest(Login: String, Password: String, closure: @escaping((LogInUserDataFromServer?, (Int, String)) -> Void)) {
+    func logInRequest(Login: String, Password: String, closure: @escaping((Result <LogInUserDataFromServer>) -> Void)) {//переменный с малой буквы
         //string for url
         let urlLogIn = baseURL + "/api/v1/login"
         
-        //url to request
+        //url for request
         guard let requestURL = URL(string: urlLogIn) else { return }
         
         //request
@@ -35,8 +40,8 @@ class RequestServices {
         
         //Send request
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                closure(nil, (400, "\(error)"))
+            if error == nil {
+                closure(.error(400, "error"))
                 return
             }
             guard let data = data else { return }
@@ -47,25 +52,25 @@ class RequestServices {
                         let responseData: LoginJSONModels.LogInJSONmodel = try JSONDecoder().decode(LoginJSONModels.LogInJSONmodel.self, from: data)
                         let result = LogInUserDataFromServer()
                         result.token = responseData.data?.token
-                        closure(result, (200, "Sucsessful"))
+                        closure(.sucsess(result))
                     } catch let error { print(error) }
                     
                 case 400:
-                    closure(nil, (400, "Server error"))
+                    closure(.error(400, "Server error"))
                 default:
-                    closure(nil, (400, "Server error"))
+                    closure(.error(400, "Server error"))
                 }
             }
         }.resume()
     }
     
-    func registerRequest(RegisterArguments: MethodArguments.AuthUserArguments, closure: @escaping((BaseUserDataFromServer?) -> Void)) {
+    func registerRequest(RegisterArguments: MethodArguments.RegisterUserArguments, closure: @escaping((BaseUserDataFromServer?, (Int, String)) -> Void)) {
         //string for url
         let urlRegister = baseURL + "/api/v1/register-user"
         
         //url to request
         guard let requestURL = URL(string: urlRegister) else {
-            closure(nil)
+            closure(nil, (400, "Server error"))
             return
         }
         
@@ -75,8 +80,8 @@ class RequestServices {
         
         //prepare JSON for request
         let requestJSON: [String: String] = ["name": RegisterArguments.login,
-                                             "email": RegisterArguments.password,
-                                             "password": RegisterArguments.confirmPassword]
+                                             "email": RegisterArguments.email,
+                                             "password": RegisterArguments.password]
         
         let requestJSONData = try? JSONSerialization.data(withJSONObject: requestJSON)
         
@@ -95,25 +100,22 @@ class RequestServices {
                     do {
                         resultResponse = try JSONDecoder().decode(RegisterJSONModels.SuccessRegistrJSONModel.self, from: data)
                         
-                        let result = BaseUserDataFromServer()
-                        /*
-                         result.id = resultResponse?.id
-                         result.name = resultResponse?.name
-                         result.email = resultResponse?.email
-                         */
-                        closure(result)
+                        let result = LogInUserDataFromServer()
+                        result.token = resultResponse?.data.token
+        
+                        closure(result, (200, "ok"))
                     } catch let error { print(error) }
                 case 422:
                     var resultResponse: RegisterJSONModels.BadPassRegistrJSONModel?
                     do {
                         resultResponse = try JSONDecoder().decode(RegisterJSONModels.BadPassRegistrJSONModel.self, from: data)
-                    closure(nil)
+                    closure(nil, (422,""))
                     } catch let error { print(error) }
                 default:
                     var resultResponse: RegisterJSONModels.FailRegisterRegistrJSONModel?
                     do {
                         resultResponse = try JSONDecoder().decode(RegisterJSONModels.FailRegisterRegistrJSONModel.self, from: data)
-                    closure(nil)
+                    closure(nil, (400, ""))
                     } catch let error { print(error) }
                 }
             }

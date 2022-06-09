@@ -7,26 +7,27 @@
 
 import Foundation
 
+enum PasswordState {
+    case hideLabel
+    case min6char
+    case differentPass
+    case ok
+}
+
 class RegisterPresenter {
-    func passwordManager(password: String, confirmPassword: String) -> Int {
+    func passwordManager(password: String, confirmPassword: String) -> PasswordState {
         if password == "" && confirmPassword == "" {
-            return 0
+            return .hideLabel
         }
         else if (password == "" || confirmPassword == "") && (password.count < 6 || confirmPassword.count < 6) {
-            return 1
+            return .min6char
         }
         else if password.count >= 6 && confirmPassword.count >= 6 && (password != confirmPassword) {
-            return 2
+            return .differentPass
         } else if password.count >= 6 && confirmPassword.count >= 6 && (password == confirmPassword) {
-            return 3
+            return .ok
         } else {
-            return 0
+            return .hideLabel
         }
-        /* Mark:
-         0 - hide label
-         1 - min 6 char
-         2 - length pass is ok, but passes are different
-         3 - ok
-         */
     }
 }

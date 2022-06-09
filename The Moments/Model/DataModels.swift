@@ -13,11 +13,11 @@ class BaseUserDataFromServer {
 }
 
 class LogInUserDataFromServer: BaseUserDataFromServer {
-    var avatar, token: String?
+    var token: String?
 }
 
 class MethodArguments {
-    struct AuthUserArguments {
+    struct RegisterUserArguments {
         var login = ""
         var email = ""
         var password = ""
