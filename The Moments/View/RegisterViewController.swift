@@ -177,7 +177,7 @@ extension RegisterViewController: UITextFieldDelegate {
         if let activeTextField = activeTextField {
             let bottomOfTextField = activeTextField.convert(activeTextField.bounds, to: self.view).maxY;
             let topOfKeyboard = self.view.frame.height - keyboardSize.height
-            if bottomOfTextField > topOfKeyboard {
+            if (bottomOfTextField > topOfKeyboard) || (topOfKeyboard - bottomOfTextField <= CGFloat(20)) {
                 shouldMoveViewUp = true
                 deltaOfHide = bottomOfTextField - topOfKeyboard + CGFloat(20)
             }
