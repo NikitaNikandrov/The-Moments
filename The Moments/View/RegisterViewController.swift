@@ -172,18 +172,20 @@ extension RegisterViewController: UITextFieldDelegate {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         
         var shouldMoveViewUp = false
+        var deltaOfHide = CGFloat(0)
         
         if let activeTextField = activeTextField {
-            
             let bottomOfTextField = activeTextField.convert(activeTextField.bounds, to: self.view).maxY;
             let topOfKeyboard = self.view.frame.height - keyboardSize.height
             if bottomOfTextField > topOfKeyboard {
                 shouldMoveViewUp = true
+                deltaOfHide = bottomOfTextField - topOfKeyboard + CGFloat(20)
             }
         }
         
         if(shouldMoveViewUp) {
-            self.view.frame.origin.y = 0 - keyboardSize.height
+            self.view.frame.origin.y = 0 - deltaOfHide
+            deltaOfHide = CGFloat(0)
         }
     }
     @objc func keyboardWillHide(notification: NSNotification) {
