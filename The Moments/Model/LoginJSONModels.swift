@@ -44,14 +44,15 @@ class RegisterJSONModels {
     //Register JSON model
     
     struct SuccessRegistrJSONModel: Codable {
-        let code: String
+        let code: Int
         let success: Bool
         let data: DataRegistrJSON
     }
     
     // MARK: - DataClass
     struct DataRegistrJSON: Codable {
-        let id, name, email: String
+        let id: Int
+        let name, email: String
         let firstName, lastName, middleName, phone: JSONNull?
         let dateBirth: JSONNull?
         let token: String
@@ -69,18 +70,18 @@ class RegisterJSONModels {
     }
     
     struct BadPassRegistrJSONModel: Codable {
-        let code: String
+        let code: Int
         let success: Bool
         let message: BadPassRegistrMessage
     }
-
+    
     // MARK: - Message
     struct BadPassRegistrMessage: Codable {
         let password: [String]
     }
     
     struct FailRegisterRegistrJSONModel: Codable {
-        let code: String
+        let code: Int
         let success: Bool
         let message: String
     }

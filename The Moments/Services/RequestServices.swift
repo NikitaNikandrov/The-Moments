@@ -14,9 +14,9 @@ enum Result<T> {
 
 class RequestServices {
     
-    private let baseURL = "https://mssemenov.ru"
+    private let baseURL = "https://mssemenov.ru" 
     
-    func logInRequest(Login: String, Password: String, closure: @escaping((Result <LogInUserDataFromServer>) -> Void)) {//переменный с малой буквы
+    func logInRequest(login: String, password: String, closure: @escaping((Result <LogInUserDataFromServer>) -> Void)) {//переменный с малой буквы
         //string for url
         let urlLogIn = baseURL + "/api/v1/login"
         
@@ -30,8 +30,8 @@ class RequestServices {
         request.httpMethod = "POST"
         
         //prepare JSON for request
-        let requestJSON: [String: Any] = ["email" : Login,
-                                          "password" : Password]
+        let requestJSON: [String: Any] = [ "email" : login,
+                                           "password" : password ]
         
         let requestJSONData = try? JSONSerialization.data(withJSONObject: requestJSON, options: .prettyPrinted)
         
@@ -64,26 +64,27 @@ class RequestServices {
         }.resume()
     }
     
-    func registerRequest(RegisterArguments: MethodArguments.RegisterUserArguments, closure: @escaping((BaseUserDataFromServer?, (Int, String)) -> Void)) {
+    func registerRequest(RegisterArguments: MethodArguments.RegisterUserArguments, closure: @escaping((Result <BaseUserDataFromServer>) -> Void)) {
         //string for url
-        let urlRegister = baseURL + "/api/v1/register-user"
-        
+        let urlRegister = baseURL + "/api/v1/registration"
+        print(urlRegister)
         //url to request
         guard let requestURL = URL(string: urlRegister) else {
-            closure(nil, (400, "Server error"))
+            closure(.error(400, "error"))
             return
         }
         
         //request
         var request = URLRequest(url: requestURL)
         request.httpMethod = "POST"
-        
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
         //prepare JSON for request
-        let requestJSON: [String: String] = ["name": RegisterArguments.login,
-                                             "email": RegisterArguments.email,
-                                             "password": RegisterArguments.password]
+        let requestJSON: [String: String] = [ "name": RegisterArguments.login,
+                                              "email": RegisterArguments.email,
+                                              "password": RegisterArguments.password ]
         
-        let requestJSONData = try? JSONSerialization.data(withJSONObject: requestJSON)
+        let requestJSONData = try? JSONSerialization.data(withJSONObject: requestJSON, options: .prettyPrinted)
         
         //inseart JSON data to request
         request.httpBody = requestJSONData
@@ -95,27 +96,26 @@ class RequestServices {
             if let httpResponse = response as? HTTPURLResponse {
                 switch httpResponse.statusCode {
                 case 200 :
-                    //model's data object for response
                     var resultResponse: RegisterJSONModels.SuccessRegistrJSONModel?
                     do {
                         resultResponse = try JSONDecoder().decode(RegisterJSONModels.SuccessRegistrJSONModel.self, from: data)
-                        
                         let result = LogInUserDataFromServer()
-                        result.token = resultResponse?.data.token
-        
-                        closure(result, (200, "ok"))
+                        result.name = resultResponse?.data.name
+                        closure(.sucsess(result))
                     } catch let error { print(error) }
                 case 422:
                     var resultResponse: RegisterJSONModels.BadPassRegistrJSONModel?
                     do {
                         resultResponse = try JSONDecoder().decode(RegisterJSONModels.BadPassRegistrJSONModel.self, from: data)
-                    closure(nil, (422,""))
+                        guard let message = resultResponse?.message.password[0] else { return }
+                        closure(.error(422, message))
                     } catch let error { print(error) }
                 default:
                     var resultResponse: RegisterJSONModels.FailRegisterRegistrJSONModel?
                     do {
                         resultResponse = try JSONDecoder().decode(RegisterJSONModels.FailRegisterRegistrJSONModel.self, from: data)
-                    closure(nil, (400, ""))
+                        guard let message = resultResponse?.message else { return }
+                        closure(.error(400, message))
                     } catch let error { print(error) }
                 }
             }

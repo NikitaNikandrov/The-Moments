@@ -112,7 +112,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
         let login = String(loginTextField.text!)
         let password = String(passwordTextField.text!)
-        requestServices.logInRequest(Login: login, Password: password) { [weak self] result in
+        requestServices.logInRequest(login: login, password: password) { [weak self] result in
             switch result {
             case .sucsess(_):
                 self?.presentFavoritsVC()

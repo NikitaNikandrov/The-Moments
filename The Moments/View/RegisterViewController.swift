@@ -120,6 +120,7 @@ class RegisterViewController: UIViewController {
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.cornerRadius = 20
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(signUpButtonIsPressed), for: .touchUpInside)
         return button
     }()
     
@@ -134,13 +135,19 @@ class RegisterViewController: UIViewController {
         var requestData = MethodArguments.RegisterUserArguments()
         requestData.login = String(loginTextField.text!)
         requestData.email = String(emailTextField.text!)
-        requestData.password = String(passwordTextField.text!)/*
-                                                               requestServices.registerRequest(RegisterArguments: requestData) { data,<#arg#>  in
-                                                               guard let data = data else {
-                                                               print("request failed")
-                                                               return
-                                                               }
-                                                               }*/
+        requestData.password = String(passwordTextField.text!)
+        requestServices.registerRequest(RegisterArguments: requestData) { [weak self] result in
+            switch result {
+            case let .sucsess(result):
+                DispatchQueue.main.async {
+                    self?.successAuthAlert(name: result.name!)
+                }
+            case let .error(code, message):
+                DispatchQueue.main.async {
+                    self?.failAuthAlert(code: code, message: message)
+                }
+            }
+        }
         
     }
     
@@ -167,6 +174,21 @@ class RegisterViewController: UIViewController {
 }
 
 extension RegisterViewController: UITextFieldDelegate {
+    
+    func  successAuthAlert(name: String) {
+        let message = name + " has been registered"
+        let alert = UIAlertController(title: "Successful", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: "Ok", style: .default) { (UIAlertAction) -> Void in
+            self.dismiss(animated: true, completion:nil)})
+        self.present(alert, animated: true)
+    }
+    
+    func failAuthAlert(code: Int, message: String) {
+        let erorrMessage = "Code " + String(code) + ": " + message
+        let alert = UIAlertController(title: "Ops, error", message: erorrMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
     
     @objc func keyboardWillShow(notification: NSNotification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
@@ -217,7 +239,7 @@ extension RegisterViewController: UITextFieldDelegate {
             passwordLabel.isHidden = false
         case .ok:
             passwordLabel.isHidden = true
-            signUpButton.isEnabled = true
+           // signUpButton.isEnabled = true
         }
         self.activeTextField = nil
     }
@@ -251,10 +273,8 @@ extension RegisterViewController: UITextFieldDelegate {
         setSignUpButtonConstraints()
         
         passwordLabel.isHidden = true
-        signUpButton.isEnabled = false
+        //signUpButton.isEnabled = false
     }
-    
-    
     
     //Constraints
     
