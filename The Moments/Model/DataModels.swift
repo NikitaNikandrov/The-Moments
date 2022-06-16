@@ -8,7 +8,7 @@
 import Foundation
 
 class BaseUserDataFromServer {
-    var id: String?
+    var id: Int?
     var name, email: String?
 }
 

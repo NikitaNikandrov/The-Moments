@@ -7,10 +7,10 @@
 
 import UIKit
 
-class LogInViewController: UIViewController, UITextFieldDelegate {
+class LogInViewController: UIViewController, UITextFieldDelegate, LoginVCDelegate {
     
     //Mark: Constants
-    private let requestServices = RequestServices()
+    private let requestServices = AuthRequestServices()
     
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -123,8 +123,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func signUpButtonIsPressed(sender: UIButton!){
-        let registerViewController = RegisterViewController()
-        self.present(registerViewController, animated: true, completion: nil)
+        guard let login = self.loginTextField.text else { return }
+        guard let password = self.passwordTextField.text else { return }
+        presenter.logInButtomIsPressed(login: login, password: password)
     }
     
     //Mark: Lifecycle
@@ -171,6 +172,7 @@ extension LogInViewController {
     }
     
     func presentFavoritsVC() {
+        
         let tabBarVC = UITabBarController()
         //favourit
         let myMeetings = UINavigationController(rootViewController: FavoritsViewController())

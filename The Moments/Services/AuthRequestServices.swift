@@ -12,7 +12,7 @@ enum Result<T> {
     case error(Int, String)
 }
 
-class RequestServices {
+class AuthRequestServices {
     
     private let baseURL = "https://mssemenov.ru" 
     
@@ -46,6 +46,7 @@ class RequestServices {
                     do {
                         let responseData: LoginJSONModels.SuccessLogInJSONmodel = try JSONDecoder().decode(LoginJSONModels.SuccessLogInJSONmodel.self, from: data)
                         let result = LogInUserDataFromServer()
+                        result.name = responseData.data?.token
                         result.token = responseData.data?.token
                         closure(.sucsess(result))
                     } catch let error { print(error) }
