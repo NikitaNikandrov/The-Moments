@@ -9,11 +9,12 @@ import Foundation
 
 class LoginJSONModels {
     
-    struct LogInJSONmodel: Codable {
+    struct SuccessLogInJSONmodel: Codable {
         let code: Int
         let success: Bool
         let data: DataLogInJSONModel?
     }
+    
     struct DataLogInJSONModel: Codable {
         let id: Int
         let name, email, firstName: String
