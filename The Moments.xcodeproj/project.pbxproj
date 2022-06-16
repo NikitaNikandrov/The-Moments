@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E53B21F9276D32BE00E2724C /* RequestServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21F8276D32BE00E2724C /* RequestServices.swift */; };
-		E53B21FC276D357100E2724C /* LoginJSONModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FB276D357100E2724C /* LoginJSONModels.swift */; };
+		E53B21F9276D32BE00E2724C /* AuthRequestServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21F8276D32BE00E2724C /* AuthRequestServices.swift */; };
+		E53B21FC276D357100E2724C /* AuthJSONModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FB276D357100E2724C /* AuthJSONModels.swift */; };
 		E53B21FE276D3B3400E2724C /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FD276D3B3400E2724C /* DataModels.swift */; };
 		E53B2200277F51DC00E2724C /* LoginVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FF277F51DC00E2724C /* LoginVCPresenter.swift */; };
 		E53B2203277F530000E2724C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B2202277F530000E2724C /* Data.swift */; };
@@ -46,8 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E53B21F8276D32BE00E2724C /* RequestServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestServices.swift; sourceTree = "<group>"; };
-		E53B21FB276D357100E2724C /* LoginJSONModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginJSONModels.swift; sourceTree = "<group>"; };
+		E53B21F8276D32BE00E2724C /* AuthRequestServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestServices.swift; sourceTree = "<group>"; };
+		E53B21FB276D357100E2724C /* AuthJSONModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthJSONModels.swift; sourceTree = "<group>"; };
 		E53B21FD276D3B3400E2724C /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		E53B21FF277F51DC00E2724C /* LoginVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCPresenter.swift; sourceTree = "<group>"; };
 		E53B2202277F530000E2724C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -98,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E52B9C89285B849100577771 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				E53B21FB276D357100E2724C /* AuthJSONModels.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		E53B21F4276D315B00E2724C /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,7 +118,7 @@
 		E53B21F7276D328A00E2724C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E53B21F8276D32BE00E2724C /* RequestServices.swift */,
+				E53B21F8276D32BE00E2724C /* AuthRequestServices.swift */,
 				E5D72B5127B1787E00C8D806 /* ColorConverter.swift */,
 			);
 			path = Services;
@@ -119,7 +127,7 @@
 		E53B21FA276D353C00E2724C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E53B21FB276D357100E2724C /* LoginJSONModels.swift */,
+				E52B9C89285B849100577771 /* JSON */,
 				E53B21FD276D3B3400E2724C /* DataModels.swift */,
 			);
 			path = Model;
@@ -339,10 +347,10 @@
 				E53B220927889B6400E2724C /* RegisterVCPresenter.swift in Sources */,
 				E53B2200277F51DC00E2724C /* LoginVCPresenter.swift in Sources */,
 				E53B2203277F530000E2724C /* Data.swift in Sources */,
-				E53B21FC276D357100E2724C /* LoginJSONModels.swift in Sources */,
+				E53B21FC276D357100E2724C /* AuthJSONModels.swift in Sources */,
 				E59886C727B481CC00342A12 /* AccountViewController.swift in Sources */,
 				E53B21FE276D3B3400E2724C /* DataModels.swift in Sources */,
-				E53B21F9276D32BE00E2724C /* RequestServices.swift in Sources */,
+				E53B21F9276D32BE00E2724C /* AuthRequestServices.swift in Sources */,
 				E5D72B5227B1787F00C8D806 /* ColorConverter.swift in Sources */,
 				E5A848B926FBAEDD00355775 /* The_Moments.xcdatamodeld in Sources */,
 			);

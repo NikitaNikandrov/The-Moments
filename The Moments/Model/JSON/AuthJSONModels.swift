@@ -8,14 +8,15 @@
 import Foundation
 
 class LoginJSONModels {
-    //Mark: Log in JSON model
+    
     struct LogInJSONmodel: Codable {
-        let code: String
+        let code: Int
         let success: Bool
         let data: DataLogInJSONModel?
     }
     struct DataLogInJSONModel: Codable {
-        let id, name, email, firstName: String
+        let id: Int
+        let name, email, firstName: String
         let lastName, middleName, phone, dateBirth: String
         let token: String
         let avatar: Avatar
@@ -41,7 +42,6 @@ class LoginJSONModels {
 }
 
 class RegisterJSONModels {
-    //Register JSON model
     
     struct SuccessRegistrJSONModel: Codable {
         let code: Int
@@ -49,7 +49,6 @@ class RegisterJSONModels {
         let data: DataRegistrJSON
     }
     
-    // MARK: - DataClass
     struct DataRegistrJSON: Codable {
         let id: Int
         let name, email: String
@@ -75,7 +74,6 @@ class RegisterJSONModels {
         let message: BadPassRegistrMessage
     }
     
-    // MARK: - Message
     struct BadPassRegistrMessage: Codable {
         let password: [String]
     }
@@ -87,7 +85,6 @@ class RegisterJSONModels {
     }
 }
 
-// MARK: - Encode/decode helpers
 class JSONNull: Codable, Hashable {
     
     public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
