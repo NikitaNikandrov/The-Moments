@@ -12,33 +12,26 @@ class LoginJSONModels {
     struct SuccessLogInJSONmodel: Codable {
         let code: Int
         let success: Bool
-        let data: DataLogInJSONModel?
+        let data: DataLogInJSONModel
     }
     
     struct DataLogInJSONModel: Codable {
         let id: Int
-        let name, email, firstName: String
-        let lastName, middleName, phone, dateBirth: String
-        let token: String
-        let avatar: Avatar
-        
-        enum CodingKeys: String, CodingKey {
-            case id, name, email
-            case firstName = "first_name"
-            case lastName = "last_name"
-            case middleName = "middle_name"
-            case phone
-            case dateBirth = "date_birth"
-            case token, avatar
-        }
-    }
-    
-    struct Avatar: Codable {
-        let id, image: String
-        let preview: [Preview]
-    }
-    struct Preview: Codable {
-        let id, image, size: String
+            let name, email: String
+            let firstName, lastName, middleName, phone: JSONNull?
+            let dateBirth: JSONNull?
+            let token: String
+            let avatar: JSONNull?
+
+            enum CodingKeys: String, CodingKey {
+                case id, name, email
+                case firstName = "first_name"
+                case lastName = "last_name"
+                case middleName = "middle_name"
+                case phone
+                case dateBirth = "date_birth"
+                case token, avatar
+            }
     }
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol LoginVCDelegate: NSObjectProtocol {
+protocol LoginVCDelegate: AnyObject {
     func presentFavoritsVC()
     func failAuthAlert(code: Int, message: String)
 }

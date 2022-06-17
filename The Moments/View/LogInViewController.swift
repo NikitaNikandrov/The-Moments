@@ -109,23 +109,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate, LoginVCDelegat
     
     //Mark: Button's actions
     @objc func logInButtonIsPressed(sender: UIButton!) {
-        
-        let login = String(loginTextField.text!)
-        let password = String(passwordTextField.text!)
-        requestServices.logInRequest(login: login, password: password) { [weak self] result in
-            switch result {
-            case .sucsess(_):
-                self?.presentFavoritsVC()
-            case let .error(code, message):
-                self?.failAuthAlert(code: code, message: message)
-            }
-        }
-    }
-    
-    @objc func signUpButtonIsPressed(sender: UIButton!){
         guard let login = self.loginTextField.text else { return }
         guard let password = self.passwordTextField.text else { return }
         presenter.logInButtomIsPressed(login: login, password: password)
+    }
+    
+    @objc func signUpButtonIsPressed(sender: UIButton!) {
+        let registrVC = RegisterViewController()
+        present(registrVC, animated: true)
     }
     
     //Mark: Lifecycle
@@ -133,6 +124,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, LoginVCDelegat
         super.viewDidLoad()
         
         presenter = LoginPresenter()
+        presenter.delegate = self
         loginTextField.delegate = self
         passwordTextField.delegate = self
         setUpVC()
