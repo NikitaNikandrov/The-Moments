@@ -17,15 +17,15 @@ class AccountViewController: UIViewController {
 }
 
 extension AccountViewController {
-    
+
     func setAccountVC() {
-    
+
         view.backgroundColor = AppColors.shared.blue
-        //Setting colors nav bar
+        // Setting colors nav bar
         self.navigationController?.navigationBar.backgroundColor = AppColors.shared.lightBlue
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.title = "My account"
-        //Setting status bar background color
+        // Setting status bar background color
         if #available(iOS 13.0, *) {
             let navBarAppearance = UINavigationBarAppearance()
             navBarAppearance.configureWithOpaqueBackground()

@@ -18,11 +18,9 @@ class RegisterPresenter {
     func passwordManager(password: String, confirmPassword: String) -> PasswordState {
         if password == "" && confirmPassword == "" {
             return .hideLabel
-        }
-        else if (password == "" || confirmPassword == "") && (password.count < 6 || confirmPassword.count < 6) {
+        } else if (password == "" || confirmPassword == "") && (password.count < 6 || confirmPassword.count < 6) {
             return .min6char
-        }
-        else if password.count >= 6 && confirmPassword.count >= 6 && (password != confirmPassword) {
+        } else if password.count >= 6 && confirmPassword.count >= 6 && (password != confirmPassword) {
             return .differentPass
         } else if password.count >= 6 && confirmPassword.count >= 6 && (password == confirmPassword) {
             return .ok

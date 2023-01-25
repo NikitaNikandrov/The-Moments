@@ -26,7 +26,7 @@ final class PersonData {
     var lastName, middleName, phone, dateBirth: String
     var token: String
     var avatar: Avatar
-    
+
     struct Avatar {
         var id, image: String
         var preview: [Preview]
@@ -46,13 +46,6 @@ final class PersonData {
     }
 }
 
-
-
-
-
-
-
-
 final class MeetingsData {
     static var shared = MeetingsData()
     private init() {
@@ -61,12 +54,10 @@ final class MeetingsData {
     }
     var favouritMeetingsCollection: [MeetingDetails]
     var searchingMeetingsCollection: [MeetingDetails]
-    
+
     struct MeetingDetails {
         var meetingName: String
         var meetingDate: String
         var meetingDescription: String
     }
 }
-
-
