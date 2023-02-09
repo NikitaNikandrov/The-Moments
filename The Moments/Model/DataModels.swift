@@ -7,7 +7,19 @@
 
 import Foundation
 
-class UserIsLogedIn {
+class BaseUserDataFromServer {
     var id: Int?
-    var name, email, avatar, apiToken: String?
+    var name, email: String?
+}
+
+class LogInUserDataFromServer: BaseUserDataFromServer {
+    var token: String?
+}
+
+class MethodArguments {
+    struct RegisterUserArguments {
+        var login = ""
+        var email = ""
+        var password = ""
+    }
 }
