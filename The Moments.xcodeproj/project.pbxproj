@@ -22,6 +22,7 @@
 		E59886C727B481CC00342A12 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59886C627B481CC00342A12 /* AccountViewController.swift */; };
 		E598C199299D66ED000DCD95 /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C198299D66ED000DCD95 /* LoadViewController.swift */; };
 		E598C19B299D7477000DCD95 /* UIColor-ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C19A299D7477000DCD95 /* UIColor-ext.swift */; };
+		E598C19D299D75BE000DCD95 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C19C299D75BE000DCD95 /* Resources.swift */; };
 		E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848AE26FBAEDD00355775 /* AppDelegate.swift */; };
 		E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B026FBAEDD00355775 /* SceneDelegate.swift */; };
 		E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B226FBAEDD00355775 /* LogInViewController.swift */; };
@@ -66,6 +67,7 @@
 		E59886C627B481CC00342A12 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		E598C198299D66ED000DCD95 /* LoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
 		E598C19A299D7477000DCD95 /* UIColor-ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-ext.swift"; sourceTree = "<group>"; };
+		E598C19C299D75BE000DCD95 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		E5A848AB26FBAEDD00355775 /* The Moments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Moments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A848AE26FBAEDD00355775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5A848B026FBAEDD00355775 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				E598C19A299D7477000DCD95 /* UIColor-ext.swift */,
+				E598C19C299D75BE000DCD95 /* Resources.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */,
 				E598C19B299D7477000DCD95 /* UIColor-ext.swift in Sources */,
 				E598C199299D66ED000DCD95 /* LoadViewController.swift in Sources */,
+				E598C19D299D75BE000DCD95 /* Resources.swift in Sources */,
 				E53B220927889B6400E2724C /* RegisterVCPresenter.swift in Sources */,
 				E53B2200277F51DC00E2724C /* LoginVCPresenter.swift in Sources */,
 				E53B2203277F530000E2724C /* Data.swift in Sources */,

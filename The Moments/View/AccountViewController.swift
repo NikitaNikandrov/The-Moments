@@ -20,9 +20,9 @@ extension AccountViewController {
 
     func setAccountVC() {
 
-        view.backgroundColor = AppColors.shared.blue
+        view.backgroundColor = Resources.Colors.blue
         // Setting colors nav bar
-        self.navigationController?.navigationBar.backgroundColor = AppColors.shared.lightBlue
+        self.navigationController?.navigationBar.backgroundColor = Resources.Colors.lightBlue
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.title = "My account"
         // Setting status bar background color
@@ -31,7 +31,7 @@ extension AccountViewController {
             navBarAppearance.configureWithOpaqueBackground()
             navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-            navBarAppearance.backgroundColor = AppColors.shared.lightBlue
+            navBarAppearance.backgroundColor = Resources.Colors.lightBlue
             self.navigationController?.navigationBar.standardAppearance = navBarAppearance
             self.navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         }

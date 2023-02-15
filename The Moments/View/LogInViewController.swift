@@ -34,10 +34,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate, LoginVCDelegat
         var textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
             string: "Login",
-            attributes: [NSAttributedString.Key.foregroundColor: AppColors.shared.black,
+            attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
                          .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
-        textField.backgroundColor = AppColors.shared.grey
-        textField.textColor = AppColors.shared.black
+        textField.backgroundColor = Resources.Colors.grey
+        textField.textColor = Resources.Colors.black
         textField.layer.borderWidth = 2.0
         textField.layer.borderColor = UIColor.white.cgColor
         textField.layer.cornerRadius = 20
@@ -51,10 +51,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate, LoginVCDelegat
         var textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
             string: "Password",
-            attributes: [NSAttributedString.Key.foregroundColor: AppColors.shared.black,
+            attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
                          .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
-        textField.backgroundColor = AppColors.shared.grey
-        textField.textColor = AppColors.shared.black
+        textField.backgroundColor = Resources.Colors.grey
+        textField.textColor = Resources.Colors.black
         textField.layer.borderWidth = 2.0
         textField.layer.borderColor = UIColor.white.cgColor
         textField.layer.cornerRadius = 20
@@ -66,7 +66,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, LoginVCDelegat
 
     private let logInButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = AppColors.shared.lightBlue
+        button.backgroundColor = Resources.Colors.lightBlue
         button.setTitle("Log In", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         button.titleLabel?.textColor = .white
@@ -90,7 +90,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, LoginVCDelegat
 
     private let signUpButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = AppColors.shared.lightBlue
+        button.backgroundColor = Resources.Colors.lightBlue
         let buttonLabelAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white,
                                                                     .font: UIFont.systemFont(ofSize: 18, weight: .regular),
                                                                     .underlineStyle: NSUnderlineStyle.single.rawValue]
@@ -139,7 +139,7 @@ extension LogInViewController {
 
     func setUpVC() {
 
-        view.backgroundColor = AppColors.shared.blue
+        view.backgroundColor = Resources.Colors.blue
 
         view.addSubview(logoImageView)
         setLogoImageConstraints()
@@ -197,7 +197,7 @@ extension LogInViewController {
             tabBarItemApperance.selected.iconColor = .white
             tabBarItemApperance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 
-            tabBarAppearance.backgroundColor = AppColors.shared.lightBlue
+            tabBarAppearance.backgroundColor = Resources.Colors.lightBlue
             tabBarAppearance.stackedLayoutAppearance = tabBarItemApperance
 
             tabBarVC.tabBar.standardAppearance = tabBarAppearance
@@ -206,7 +206,7 @@ extension LogInViewController {
         } else {
             tabBarVC.tabBar.tintColor = UIColor.white
             tabBarVC.tabBar.unselectedItemTintColor = UIColor.black
-            tabBarVC.tabBar.barTintColor = AppColors.shared.lightBlue
+            tabBarVC.tabBar.barTintColor = Resources.Colors.lightBlue
         }
 
         tabBarVC.modalPresentationStyle = .fullScreen

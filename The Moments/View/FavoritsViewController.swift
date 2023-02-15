@@ -40,9 +40,9 @@ extension FavoritsViewController {
 
     func setUpFavouritsVC() {
 
-        view.backgroundColor = AppColors.shared.blue
+        view.backgroundColor = Resources.Colors.blue
         // Setting colors nav bar
-        self.navigationController?.navigationBar.backgroundColor = AppColors.shared.lightBlue
+        self.navigationController?.navigationBar.backgroundColor = Resources.Colors.lightBlue
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.title = "Favorits meetings"
         // Setting status bar background color
@@ -51,13 +51,13 @@ extension FavoritsViewController {
             navBarAppearance.configureWithOpaqueBackground()
             navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-            navBarAppearance.backgroundColor = AppColors.shared.lightBlue
+            navBarAppearance.backgroundColor = Resources.Colors.lightBlue
             self.navigationController?.navigationBar.standardAppearance = navBarAppearance
             self.navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         }
 
         // Setting colors for tableview
-        self.favouritsTableView.backgroundColor = AppColors.shared.blue
+        self.favouritsTableView.backgroundColor = Resources.Colors.blue
         self.favouritsTableView.separatorColor = UIColor.white
     }
 
@@ -78,7 +78,7 @@ extension FavoritsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "\(testArray[indexPath.row])"
         cell.textLabel?.textColor = UIColor.white
-        cell.backgroundColor = AppColors.shared.blue
+        cell.backgroundColor = Resources.Colors.blue
 
         return cell
     }

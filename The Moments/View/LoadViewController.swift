@@ -26,7 +26,7 @@ class LoadViewController: UIViewController {
     }
     
     func setupVC(){
-        view.backgroundColor = AppColors.shared.blue
+        view.backgroundColor = Resources.Colors.blue
         
         view.addSubview(logoImageView)
         setLogoImageConstraints()

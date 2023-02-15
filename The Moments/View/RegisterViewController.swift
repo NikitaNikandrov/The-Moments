@@ -34,10 +34,10 @@ class RegisterViewController: UIViewController {
         var textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
             string: "Login",
-            attributes: [NSAttributedString.Key.foregroundColor: AppColors.shared.black,
+            attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
                          .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
-        textField.backgroundColor = AppColors.shared.grey
-        textField.textColor = AppColors.shared.black
+        textField.backgroundColor = Resources.Colors.grey
+        textField.textColor = Resources.Colors.black
         textField.layer.borderWidth = 2.0
         textField.layer.borderColor = UIColor.white.cgColor
         textField.layer.cornerRadius = 20
@@ -51,10 +51,10 @@ class RegisterViewController: UIViewController {
         var textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
             string: "Email",
-            attributes: [NSAttributedString.Key.foregroundColor: AppColors.shared.black,
+            attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.lightBlue,
                          .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
-        textField.backgroundColor = AppColors.shared.grey
-        textField.textColor = AppColors.shared.black
+        textField.backgroundColor = Resources.Colors.grey
+        textField.textColor = Resources.Colors.black
         textField.layer.borderWidth = 2.0
         textField.layer.borderColor = UIColor.white.cgColor
         textField.layer.cornerRadius = 20
@@ -68,10 +68,10 @@ class RegisterViewController: UIViewController {
         var textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
             string: "Password",
-            attributes: [NSAttributedString.Key.foregroundColor: AppColors.shared.black,
+            attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
                          .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
-        textField.backgroundColor = AppColors.shared.grey
-        textField.textColor = AppColors.shared.black
+        textField.backgroundColor = Resources.Colors.grey
+        textField.textColor = Resources.Colors.black
         textField.layer.borderWidth = 2.0
         textField.layer.borderColor = UIColor.white.cgColor
         textField.layer.cornerRadius = 20
@@ -85,10 +85,10 @@ class RegisterViewController: UIViewController {
         var textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
             string: "Confirm password",
-            attributes: [NSAttributedString.Key.foregroundColor: AppColors.shared.black,
+            attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
                          .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
-        textField.backgroundColor = AppColors.shared.grey
-        textField.textColor = AppColors.shared.black
+        textField.backgroundColor = Resources.Colors.grey
+        textField.textColor = Resources.Colors.black
         textField.layer.borderWidth = 2.0
         textField.layer.borderColor = UIColor.white.cgColor
         textField.layer.cornerRadius = 20
@@ -110,7 +110,7 @@ class RegisterViewController: UIViewController {
 
     private let signUpButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = AppColors.shared.lightBlue
+        button.backgroundColor = Resources.Colors.lightBlue
         let buttonLabelAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white,
                                                                     .font: UIFont.systemFont(ofSize: 18, weight: .regular),
                                                                     .underlineStyle: NSUnderlineStyle.single.rawValue]
@@ -246,7 +246,7 @@ extension RegisterViewController: UITextFieldDelegate {
 
     func setUpVC() {
 
-        view.backgroundColor = AppColors.shared.blue
+        view.backgroundColor = Resources.Colors.blue
 
         self.view.addSubview(logoImageView)
         setLogoImageConstraints()
