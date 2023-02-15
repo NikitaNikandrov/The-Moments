@@ -20,6 +20,8 @@
 		E59886C327B3046700342A12 /* FavoritsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59886C227B3046600342A12 /* FavoritsViewController.swift */; };
 		E59886C527B47E9B00342A12 /* SearchMeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59886C427B47E9B00342A12 /* SearchMeetingsViewController.swift */; };
 		E59886C727B481CC00342A12 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59886C627B481CC00342A12 /* AccountViewController.swift */; };
+		E598C199299D66ED000DCD95 /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C198299D66ED000DCD95 /* LoadViewController.swift */; };
+		E598C19B299D7477000DCD95 /* UIColor-ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C19A299D7477000DCD95 /* UIColor-ext.swift */; };
 		E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848AE26FBAEDD00355775 /* AppDelegate.swift */; };
 		E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B026FBAEDD00355775 /* SceneDelegate.swift */; };
 		E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B226FBAEDD00355775 /* LogInViewController.swift */; };
@@ -62,6 +64,8 @@
 		E59886C227B3046600342A12 /* FavoritsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritsViewController.swift; sourceTree = "<group>"; };
 		E59886C427B47E9B00342A12 /* SearchMeetingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMeetingsViewController.swift; sourceTree = "<group>"; };
 		E59886C627B481CC00342A12 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		E598C198299D66ED000DCD95 /* LoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
+		E598C19A299D7477000DCD95 /* UIColor-ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-ext.swift"; sourceTree = "<group>"; };
 		E5A848AB26FBAEDD00355775 /* The Moments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Moments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A848AE26FBAEDD00355775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5A848B026FBAEDD00355775 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,18 +140,19 @@
 		E53B21FA276D353C00E2724C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E53B2202277F530000E2724C /* Data.swift */,
 				E52B9C89285B849100577771 /* JSON */,
 				E53B21FD276D3B3400E2724C /* DataModels.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		E53B2201277F52E200E2724C /* Data */ = {
+		E53B2201277F52E200E2724C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E53B2202277F530000E2724C /* Data.swift */,
+				E598C19A299D7477000DCD95 /* UIColor-ext.swift */,
 			);
-			path = Data;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		E5A848A226FBAEDD00355775 = {
@@ -173,7 +178,7 @@
 		E5A848AD26FBAEDD00355775 /* The Moments */ = {
 			isa = PBXGroup;
 			children = (
-				E53B2201277F52E200E2724C /* Data */,
+				E53B2201277F52E200E2724C /* Resources */,
 				E53B21FA276D353C00E2724C /* Model */,
 				E53B21F7276D328A00E2724C /* Services */,
 				E53B21F4276D315B00E2724C /* Presenter */,
@@ -209,6 +214,7 @@
 		E5A848E126FBAF2800355775 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E598C198299D66ED000DCD95 /* LoadViewController.swift */,
 				E5A848B226FBAEDD00355775 /* LogInViewController.swift */,
 				E53B22042780DDD400E2724C /* RegisterViewController.swift */,
 				E59886C227B3046600342A12 /* FavoritsViewController.swift */,
@@ -354,6 +360,8 @@
 				E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */,
 				E59886C527B47E9B00342A12 /* SearchMeetingsViewController.swift in Sources */,
 				E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */,
+				E598C19B299D7477000DCD95 /* UIColor-ext.swift in Sources */,
+				E598C199299D66ED000DCD95 /* LoadViewController.swift in Sources */,
 				E53B220927889B6400E2724C /* RegisterVCPresenter.swift in Sources */,
 				E53B2200277F51DC00E2724C /* LoginVCPresenter.swift in Sources */,
 				E53B2203277F530000E2724C /* Data.swift in Sources */,
