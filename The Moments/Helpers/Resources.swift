@@ -14,4 +14,16 @@ enum Resources {
         static var grey = UIColor(hexString: "ECECEC")
         static var black = UIColor(hexString: "777777")
     }
+    
+    enum TabImages {
+        static var favorits = UIImage(systemName: "star")
+        static var search = UIImage(systemName: "magnifyingglass")
+        static var account = UIImage(systemName: "person")
+    }
+    
+    enum TabStrings {
+        static var favorits = "Favorits"
+        static var search = "Search"
+        static var account = "Account"
+    }
 }
