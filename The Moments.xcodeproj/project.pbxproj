@@ -149,13 +149,21 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		E53B2201277F52E200E2724C /* Resources */ = {
+		E53B2201277F52E200E2724C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E598C19E299D7973000DCD95 /* Extensions */,
+				E598C19C299D75BE000DCD95 /* Resources.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E598C19E299D7973000DCD95 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				E598C19A299D7477000DCD95 /* UIColor-ext.swift */,
-				E598C19C299D75BE000DCD95 /* Resources.swift */,
 			);
-			path = Resources;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E5A848A226FBAEDD00355775 = {
@@ -181,7 +189,7 @@
 		E5A848AD26FBAEDD00355775 /* The Moments */ = {
 			isa = PBXGroup;
 			children = (
-				E53B2201277F52E200E2724C /* Resources */,
+				E53B2201277F52E200E2724C /* Helpers */,
 				E53B21FA276D353C00E2724C /* Model */,
 				E53B21F7276D328A00E2724C /* Services */,
 				E53B21F4276D315B00E2724C /* Presenter */,
