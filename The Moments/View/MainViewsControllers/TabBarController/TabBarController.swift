@@ -18,19 +18,18 @@ final class TabBarController: UITabBarController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
+        setupTabBar()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup() {
-        tabBar.tintColor = Resources.Colors.blue
-        tabBar.barTintColor = Resources.Colors.grey
-        tabBar.backgroundColor = .white
+    private func setupTabBar() {
+        tabBar.tintColor = .white
+        tabBar.unselectedItemTintColor = .black
         
-        tabBar.layer.backgroundColor = Resources.Colors.grey.cgColor
+        tabBar.layer.backgroundColor = Resources.Colors.lightBlue.cgColor
         tabBar.layer.borderWidth = 1
         tabBar.layer.masksToBounds = true
         
@@ -38,9 +37,9 @@ final class TabBarController: UITabBarController {
         let searchMeetingsViewController = SearchMeetingsViewController()
         let accountViewController = AccountViewController()
         
-        let favoritsNavigationController = UINavigationController(rootViewController: favoritsViewController)
-        let searchMeetingsNavigationController = UINavigationController(rootViewController: searchMeetingsViewController)
-        let accountNavigationController = UINavigationController(rootViewController: accountViewController)
+        let favoritsNavigationController = NavBarController(rootViewController: favoritsViewController)
+        let searchMeetingsNavigationController = NavBarController(rootViewController: searchMeetingsViewController)
+        let accountNavigationController = NavBarController(rootViewController: accountViewController)
         
         favoritsViewController.tabBarItem = UITabBarItem(title: Resources.TabStrings.favorits,
                                                          image: Resources.TabImages.favorits,
@@ -52,9 +51,8 @@ final class TabBarController: UITabBarController {
                                                         image: Resources.TabImages.account,
                                                         tag: Tabs.account.rawValue)
         
-        setViewControllers([favoritsViewController,
-                           searchMeetingsViewController,
-                           accountViewController],
-                           animated: false)
+        setViewControllers([favoritsNavigationController,
+                            searchMeetingsNavigationController,
+                            accountNavigationController], animated: false)
     }
 }

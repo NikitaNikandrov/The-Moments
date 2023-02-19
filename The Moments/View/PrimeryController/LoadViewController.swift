@@ -17,7 +17,7 @@ class LoadViewController: UIViewController {
         return imageView
     }()
     
-    private var activityView: UIActivityIndicatorView?
+    private var activityIndicator: UIActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,17 +34,17 @@ class LoadViewController: UIViewController {
     }
     
     func showActivityIndicator() {
-        activityView = UIActivityIndicatorView(style: .large)
-        activityView?.tintColor = .white
-        activityView?.center = self.view.center
-        self.view.addSubview(activityView!)
-        activityView?.startAnimating()
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator?.tintColor = .white
+        activityIndicator?.center = self.view.center
+        self.view.addSubview(activityIndicator!)
+        activityIndicator?.startAnimating()
     }
     
     func makeServiceCall() {
         showActivityIndicator()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) {
-            self.activityView?.stopAnimating()
+            self.activityIndicator?.stopAnimating()
             SceneDelegate.shared?.rootViewController.showLoginScreen()
         }
         /*

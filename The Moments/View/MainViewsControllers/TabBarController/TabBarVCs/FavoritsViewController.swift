@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoritsViewController: UIViewController {
+class FavoritsViewController: BaseViewController {
 
     let testArray = ["1", "2", "3", "4"/*,"1","2","3","4","1","2","3","4","5","6","7","8","1","2","3","4","5"*/]
     let favouritsTableView: UITableView = {
@@ -39,23 +39,10 @@ class FavoritsViewController: UIViewController {
 extension FavoritsViewController {
 
     func setUpFavouritsVC() {
-
-        view.backgroundColor = Resources.Colors.blue
-        // Setting colors nav bar
-        self.navigationController?.navigationBar.backgroundColor = Resources.Colors.lightBlue
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+    
         self.title = "Favorits meetings"
-        // Setting status bar background color
-        if #available(iOS 13.0, *) {
-            let navBarAppearance = UINavigationBarAppearance()
-            navBarAppearance.configureWithOpaqueBackground()
-            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-            navBarAppearance.backgroundColor = Resources.Colors.lightBlue
-            self.navigationController?.navigationBar.standardAppearance = navBarAppearance
-            self.navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-        }
-
+        self.tabBarItem.title = Resources.TabStrings.favorits
+        
         // Setting colors for tableview
         self.favouritsTableView.backgroundColor = Resources.Colors.blue
         self.favouritsTableView.separatorColor = UIColor.white

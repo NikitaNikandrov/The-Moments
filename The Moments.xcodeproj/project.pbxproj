@@ -25,6 +25,9 @@
 		E598C19D299D75BE000DCD95 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C19C299D75BE000DCD95 /* Resources.swift */; };
 		E598C1A1299D7AFC000DCD95 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1A0299D7AFC000DCD95 /* TabBarController.swift */; };
 		E598C1A529A2433C000DCD95 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1A429A2433C000DCD95 /* RootViewController.swift */; };
+		E598C1A929A26FE1000DCD95 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1A829A26FE1000DCD95 /* BaseViewController.swift */; };
+		E598C1AE29A272FA000DCD95 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1AD29A272FA000DCD95 /* NavBarController.swift */; };
+		E598C1B029A28513000DCD95 /* UIView - ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1AF29A28513000DCD95 /* UIView - ext.swift */; };
 		E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848AE26FBAEDD00355775 /* AppDelegate.swift */; };
 		E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B026FBAEDD00355775 /* SceneDelegate.swift */; };
 		E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B226FBAEDD00355775 /* LogInViewController.swift */; };
@@ -72,6 +75,9 @@
 		E598C19C299D75BE000DCD95 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		E598C1A0299D7AFC000DCD95 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E598C1A429A2433C000DCD95 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		E598C1A829A26FE1000DCD95 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E598C1AD29A272FA000DCD95 /* NavBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
+		E598C1AF29A28513000DCD95 /* UIView - ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView - ext.swift"; sourceTree = "<group>"; };
 		E5A848AB26FBAEDD00355775 /* The Moments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Moments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A848AE26FBAEDD00355775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5A848B026FBAEDD00355775 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,17 +172,19 @@
 			isa = PBXGroup;
 			children = (
 				E598C19A299D7477000DCD95 /* UIColor-ext.swift */,
+				E598C1AF29A28513000DCD95 /* UIView - ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E598C19F299D7AD6000DCD95 /* TabBar */ = {
+		E598C19F299D7AD6000DCD95 /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
 				E598C1A0299D7AFC000DCD95 /* TabBarController.swift */,
+				E598C1A829A26FE1000DCD95 /* BaseViewController.swift */,
 				E598C1A329A2369D000DCD95 /* TabBarVCs */,
 			);
-			path = TabBar;
+			path = TabBarController;
 			sourceTree = "<group>";
 		};
 		E598C1A2299D7F57000DCD95 /* Login-Register */ = {
@@ -196,6 +204,32 @@
 				E59886C627B481CC00342A12 /* AccountViewController.swift */,
 			);
 			path = TabBarVCs;
+			sourceTree = "<group>";
+		};
+		E598C1AA29A271BD000DCD95 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				E598C1AD29A272FA000DCD95 /* NavBarController.swift */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		E598C1AB29A27210000DCD95 /* MainViewsControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E598C1AA29A271BD000DCD95 /* NavigationController */,
+				E598C19F299D7AD6000DCD95 /* TabBarController */,
+			);
+			path = MainViewsControllers;
+			sourceTree = "<group>";
+		};
+		E598C1AC29A27248000DCD95 /* PrimeryController */ = {
+			isa = PBXGroup;
+			children = (
+				E598C1A429A2433C000DCD95 /* RootViewController.swift */,
+				E598C198299D66ED000DCD95 /* LoadViewController.swift */,
+			);
+			path = PrimeryController;
 			sourceTree = "<group>";
 		};
 		E5A848A226FBAEDD00355775 = {
@@ -257,10 +291,9 @@
 		E5A848E126FBAF2800355775 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E598C1A429A2433C000DCD95 /* RootViewController.swift */,
-				E598C198299D66ED000DCD95 /* LoadViewController.swift */,
+				E598C1AC29A27248000DCD95 /* PrimeryController */,
 				E598C1A2299D7F57000DCD95 /* Login-Register */,
-				E598C19F299D7AD6000DCD95 /* TabBar */,
+				E598C1AB29A27210000DCD95 /* MainViewsControllers */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -399,8 +432,10 @@
 				E53B22052780DDD400E2724C /* RegisterViewController.swift in Sources */,
 				E57EC6462860C46C009C9BD0 /* MeetingsRequestService.swift in Sources */,
 				E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */,
+				E598C1A929A26FE1000DCD95 /* BaseViewController.swift in Sources */,
 				E59886C527B47E9B00342A12 /* SearchMeetingsViewController.swift in Sources */,
 				E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */,
+				E598C1B029A28513000DCD95 /* UIView - ext.swift in Sources */,
 				E598C19B299D7477000DCD95 /* UIColor-ext.swift in Sources */,
 				E598C199299D66ED000DCD95 /* LoadViewController.swift in Sources */,
 				E598C19D299D75BE000DCD95 /* Resources.swift in Sources */,
@@ -416,6 +451,7 @@
 				E53B21FE276D3B3400E2724C /* DataModels.swift in Sources */,
 				E53B21F9276D32BE00E2724C /* AuthRequestServices.swift in Sources */,
 				E5D72B5227B1787F00C8D806 /* ColorConverter.swift in Sources */,
+				E598C1AE29A272FA000DCD95 /* NavBarController.swift in Sources */,
 				E5A848B926FBAEDD00355775 /* The_Moments.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
