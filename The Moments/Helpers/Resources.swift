@@ -15,19 +15,31 @@ enum Resources {
         static var black = UIColor(hexString: "777777")
     }
     
-    enum TabImages {
-        static var favorits = UIImage(systemName: "star")
-        static var search = UIImage(systemName: "magnifyingglass")
-        static var account = UIImage(systemName: "person")
-    }
-    
-    enum TabStrings {
-        static var favorits = "Favorits"
-        static var search = "Search"
-        static var account = "Account"
+    enum TabBarResources {
+        enum TabBarItemsImages {
+            static var favorits = UIImage(systemName: "star")
+            static var search = UIImage(systemName: "magnifyingglass")
+            static var account = UIImage(systemName: "person")
+        }
+        
+        enum TabBarItemsStrings {
+            static var favorits = "Favorits"
+            static var search = "Search"
+            static var account = "Account"
+        }
     }
     
     enum AppImageStrings {
         static var logoImage = "momentsLogo.png"
+    }
+    
+    enum NetworkServicesStrings {
+        static var baseURL = "https://mssemenov.ru"
+        static var logInURL = "/api/v1/login"
+        static var registerURL = "/api/v1/registration"
+    }
+    
+    enum ErrorMessages {
+        static var serverError = "Server error"
     }
 }

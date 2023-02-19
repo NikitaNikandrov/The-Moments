@@ -41,14 +41,14 @@ final class TabBarController: UITabBarController {
         let searchMeetingsNavigationController = NavBarController(rootViewController: searchMeetingsViewController)
         let accountNavigationController = NavBarController(rootViewController: accountViewController)
         
-        favoritsViewController.tabBarItem = UITabBarItem(title: Resources.TabStrings.favorits,
-                                                         image: Resources.TabImages.favorits,
+        favoritsViewController.tabBarItem = UITabBarItem(title: Resources.TabBarResources.TabBarItemsStrings.favorits,
+                                                         image: Resources.TabBarResources.TabBarItemsImages.favorits,
                                                          tag: Tabs.favorits.rawValue)
-        searchMeetingsViewController.tabBarItem = UITabBarItem(title: Resources.TabStrings.search,
-                                                               image: Resources.TabImages.search,
+        searchMeetingsViewController.tabBarItem = UITabBarItem(title: Resources.TabBarResources.TabBarItemsStrings.search,
+                                                               image: Resources.TabBarResources.TabBarItemsImages.search,
                                                                tag: Tabs.search.rawValue)
-        accountViewController.tabBarItem = UITabBarItem(title: Resources.TabStrings.account,
-                                                        image: Resources.TabImages.account,
+        accountViewController.tabBarItem = UITabBarItem(title: Resources.TabBarResources.TabBarItemsStrings.account,
+                                                        image: Resources.TabBarResources.TabBarItemsImages.account,
                                                         tag: Tabs.account.rawValue)
         
         setViewControllers([favoritsNavigationController,

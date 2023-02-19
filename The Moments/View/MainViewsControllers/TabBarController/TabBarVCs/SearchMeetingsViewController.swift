@@ -21,6 +21,6 @@ extension SearchMeetingsViewController {
     func setUpSearchVC() {
 
         self.title = "Search meetings"
-        self.tabBarItem.title = Resources.TabStrings.search
+        self.tabBarItem.title = Resources.TabBarResources.TabBarItemsStrings.search
     }
 }

@@ -41,7 +41,7 @@ extension FavoritsViewController {
     func setUpFavouritsVC() {
     
         self.title = "Favorits meetings"
-        self.tabBarItem.title = Resources.TabStrings.favorits
+        self.tabBarItem.title = Resources.TabBarResources.TabBarItemsStrings.favorits
         
         // Setting colors for tableview
         self.favouritsTableView.backgroundColor = Resources.Colors.blue

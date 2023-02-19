@@ -13,19 +13,21 @@ enum Result<T> {
 }
 
 class AuthRequestServices {
-
-    private let baseURL = "https://mssemenov.ru"
+    
+    private func prepareRequest(request: inout URLRequest) {
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
+        request.httpMethod = "POST"
+    }
 
     func logInRequest(login: String, password: String, closure: @escaping((Result <LogInUserDataFromServer>) -> Void)) {
 
-        let urlLogIn = baseURL + "/api/v1/login"
+        let urlLogIn = Resources.NetworkServicesStrings.baseURL + Resources.NetworkServicesStrings.logInURL
 
         guard let requestURL = URL(string: urlLogIn) else { return }
 
         var request = URLRequest(url: requestURL)
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
-        request.httpMethod = "POST"
+        prepareRequest(request: &request)
 
         let requestJSON: [String: String] = [ "email": login,
                                            "password": password ]
@@ -41,7 +43,7 @@ class AuthRequestServices {
                 switch httpResponse.statusCode {
                 case 200:
                     do {
-                        let responseData: LoginJSONModels.SuccessLogInJSONmodel = try JSONDecoder().decode(LoginJSONModels.SuccessLogInJSONmodel.self, from: data)
+                        let responseData: LoginJSONModel.SuccessLogInJSONmodel = try JSONDecoder().decode(LoginJSONModel.SuccessLogInJSONmodel.self, from: data)
                         let result = LogInUserDataFromServer()
                         result.name = responseData.data.name
                         result.token = responseData.data.token
@@ -49,9 +51,9 @@ class AuthRequestServices {
                     } catch let error { print(error) }
 
                 case 400:
-                    closure(.error(400, "Server error"))
+                    closure(.error(400, Resources.ErrorMessages.serverError))
                 default:
-                    closure(.error(400, "Server error"))
+                    closure(.error(400, Resources.ErrorMessages.serverError))
                 }
             }
         }.resume()
@@ -59,7 +61,7 @@ class AuthRequestServices {
 
     func registerRequest(RegisterArguments: MethodArguments.RegisterUserArguments, closure: @escaping((Result <BaseUserDataFromServer>) -> Void)) {
 
-        let urlRegister = baseURL + "/api/v1/registration"
+        let urlRegister = Resources.NetworkServicesStrings.baseURL + Resources.NetworkServicesStrings.registerURL
 
         guard let requestURL = URL(string: urlRegister) else {
             closure(.error(400, "error"))
@@ -67,9 +69,7 @@ class AuthRequestServices {
         }
 
         var request = URLRequest(url: requestURL)
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
-        request.httpMethod = "POST"
+        prepareRequest(request: &request)
 
         let requestJSON: [String: String] = [ "name": RegisterArguments.login,
                                               "email": RegisterArguments.email,

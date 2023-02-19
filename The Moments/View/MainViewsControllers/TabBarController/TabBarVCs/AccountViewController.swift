@@ -21,7 +21,7 @@ extension AccountViewController {
     func setAccountVC() {
 
         self.title = "My account"
-        self.tabBarItem.title = Resources.TabStrings.account
+        self.tabBarItem.title = Resources.TabBarResources.TabBarItemsStrings.account
        
     }
 }
