@@ -8,7 +8,7 @@
 import UIKit
 
 class LoadViewController: UIViewController {
-    
+    //MARK: Constants
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
         let logoImage = UIImage(named: Resources.AppImageStrings.logoImage)
@@ -17,8 +17,10 @@ class LoadViewController: UIViewController {
         return imageView
     }()
     
+    //MARK: Variables
     private var activityIndicator: UIActivityIndicatorView?
     
+    //MARK: LiveCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +28,7 @@ class LoadViewController: UIViewController {
         makeServiceCall()
     }
     
+    //MARK: Methods
     func setupVC(){
         view.backgroundColor = Resources.Colors.blue
         
@@ -53,11 +56,9 @@ class LoadViewController: UIViewController {
         } else {
             // navigate to login screen
         }*/
-   
-        
     }
     
-    //Mark: Setting Constreints
+    //MARK: Setting Constreints
     func setLogoImageConstraints() {
         logoImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         logoImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true

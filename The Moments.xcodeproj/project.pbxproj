@@ -14,7 +14,6 @@
 		E53B2203277F530000E2724C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B2202277F530000E2724C /* Data.swift */; };
 		E53B22052780DDD400E2724C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B22042780DDD400E2724C /* RegisterViewController.swift */; };
 		E53B220927889B6400E2724C /* RegisterVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B220827889B6400E2724C /* RegisterVCPresenter.swift */; };
-		E57EC6442860C420009C9BD0 /* SearchVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57EC6432860C420009C9BD0 /* SearchVCPresenter.swift */; };
 		E59886C327B3046700342A12 /* FavoritsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59886C227B3046600342A12 /* FavoritsViewController.swift */; };
 		E59886C527B47E9B00342A12 /* SearchMeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59886C427B47E9B00342A12 /* SearchMeetingsViewController.swift */; };
 		E59886C727B481CC00342A12 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59886C627B481CC00342A12 /* AccountViewController.swift */; };
@@ -28,6 +27,9 @@
 		E598C1B029A28513000DCD95 /* UIView - ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1AF29A28513000DCD95 /* UIView - ext.swift */; };
 		E598C1B329A28C84000DCD95 /* LogInJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1B229A28C84000DCD95 /* LogInJSONModel.swift */; };
 		E598C1B629A28D5E000DCD95 /* JSONNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1B529A28D5E000DCD95 /* JSONNull.swift */; };
+		E598C1B929A2999E000DCD95 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1B829A2999E000DCD95 /* LogInViewModel.swift */; };
+		E598C1BD29A2A14C000DCD95 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1BC29A2A14C000DCD95 /* Bindable.swift */; };
+		E598C1BF29A2C826000DCD95 /* StatusConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1BE29A2C826000DCD95 /* StatusConditions.swift */; };
 		E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848AE26FBAEDD00355775 /* AppDelegate.swift */; };
 		E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B026FBAEDD00355775 /* SceneDelegate.swift */; };
 		E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B226FBAEDD00355775 /* LogInViewController.swift */; };
@@ -62,7 +64,6 @@
 		E53B2202277F530000E2724C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		E53B22042780DDD400E2724C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E53B220827889B6400E2724C /* RegisterVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVCPresenter.swift; sourceTree = "<group>"; };
-		E57EC6432860C420009C9BD0 /* SearchVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVCPresenter.swift; sourceTree = "<group>"; };
 		E59886C227B3046600342A12 /* FavoritsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritsViewController.swift; sourceTree = "<group>"; };
 		E59886C427B47E9B00342A12 /* SearchMeetingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMeetingsViewController.swift; sourceTree = "<group>"; };
 		E59886C627B481CC00342A12 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +77,9 @@
 		E598C1AF29A28513000DCD95 /* UIView - ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView - ext.swift"; sourceTree = "<group>"; };
 		E598C1B229A28C84000DCD95 /* LogInJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInJSONModel.swift; sourceTree = "<group>"; };
 		E598C1B529A28D5E000DCD95 /* JSONNull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONNull.swift; sourceTree = "<group>"; };
+		E598C1B829A2999E000DCD95 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		E598C1BC29A2A14C000DCD95 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		E598C1BE29A2C826000DCD95 /* StatusConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusConditions.swift; sourceTree = "<group>"; };
 		E5A848AB26FBAEDD00355775 /* The Moments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Moments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A848AE26FBAEDD00355775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5A848B026FBAEDD00355775 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,7 +133,6 @@
 			children = (
 				E53B21FF277F51DC00E2724C /* LoginVCPresenter.swift */,
 				E53B220827889B6400E2724C /* RegisterVCPresenter.swift */,
-				E57EC6432860C420009C9BD0 /* SearchVCPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			children = (
 				E598C19C299D75BE000DCD95 /* Resources.swift */,
 				E598C19E299D7973000DCD95 /* Extensions */,
+				E598C1BE29A2C826000DCD95 /* StatusConditions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -243,6 +247,31 @@
 			path = "LogIn-RegisterJSONModels";
 			sourceTree = "<group>";
 		};
+		E598C1B729A2994D000DCD95 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E598C1BB29A2A126000DCD95 /* Bindings */,
+				E598C1BA29A299B2000DCD95 /* Login-Register */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E598C1BA29A299B2000DCD95 /* Login-Register */ = {
+			isa = PBXGroup;
+			children = (
+				E598C1B829A2999E000DCD95 /* LogInViewModel.swift */,
+			);
+			path = "Login-Register";
+			sourceTree = "<group>";
+		};
+		E598C1BB29A2A126000DCD95 /* Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				E598C1BC29A2A14C000DCD95 /* Bindable.swift */,
+			);
+			path = Bindings;
+			sourceTree = "<group>";
+		};
 		E5A848A226FBAEDD00355775 = {
 			isa = PBXGroup;
 			children = (
@@ -267,9 +296,10 @@
 			isa = PBXGroup;
 			children = (
 				E53B2201277F52E200E2724C /* Helpers */,
-				E53B21FA276D353C00E2724C /* Model */,
 				E53B21F7276D328A00E2724C /* Services */,
 				E53B21F4276D315B00E2724C /* Presenter */,
+				E53B21FA276D353C00E2724C /* Model */,
+				E598C1B729A2994D000DCD95 /* ViewModels */,
 				E5A848E126FBAF2800355775 /* View */,
 				E5A848AE26FBAEDD00355775 /* AppDelegate.swift */,
 				E5A848B026FBAEDD00355775 /* SceneDelegate.swift */,
@@ -442,19 +472,21 @@
 				E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */,
 				E598C1A929A26FE1000DCD95 /* BaseViewController.swift in Sources */,
 				E59886C527B47E9B00342A12 /* SearchMeetingsViewController.swift in Sources */,
+				E598C1B929A2999E000DCD95 /* LogInViewModel.swift in Sources */,
+				E598C1BF29A2C826000DCD95 /* StatusConditions.swift in Sources */,
 				E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */,
 				E598C1B029A28513000DCD95 /* UIView - ext.swift in Sources */,
 				E598C19B299D7477000DCD95 /* UIColor-ext.swift in Sources */,
 				E598C199299D66ED000DCD95 /* LoadViewController.swift in Sources */,
 				E598C19D299D75BE000DCD95 /* Resources.swift in Sources */,
 				E598C1B329A28C84000DCD95 /* LogInJSONModel.swift in Sources */,
+				E598C1BD29A2A14C000DCD95 /* Bindable.swift in Sources */,
 				E53B220927889B6400E2724C /* RegisterVCPresenter.swift in Sources */,
 				E53B2200277F51DC00E2724C /* LoginVCPresenter.swift in Sources */,
 				E598C1A529A2433C000DCD95 /* RootViewController.swift in Sources */,
 				E53B2203277F530000E2724C /* Data.swift in Sources */,
 				E598C1A1299D7AFC000DCD95 /* TabBarController.swift in Sources */,
 				E598C1B629A28D5E000DCD95 /* JSONNull.swift in Sources */,
-				E57EC6442860C420009C9BD0 /* SearchVCPresenter.swift in Sources */,
 				E53B21FC276D357100E2724C /* RegisterJSONModels.swift in Sources */,
 				E59886C727B481CC00342A12 /* AccountViewController.swift in Sources */,
 				E53B21FE276D3B3400E2724C /* DataModels.swift in Sources */,

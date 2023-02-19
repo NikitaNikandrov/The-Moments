@@ -8,9 +8,10 @@
 import UIKit
 
 class RootViewController: UIViewController {
-    
+    //MARK: variables
     private var current: UIViewController
     
+    //MARK: Init
     init() {
         self.current = LoadViewController()
         super.init(nibName: nil, bundle: nil)
@@ -20,6 +21,7 @@ class RootViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +31,7 @@ class RootViewController: UIViewController {
         current.didMove(toParent: self)
     }
     
+    //MARK: Methods
     func showLoginScreen() {
         let new = UINavigationController(rootViewController: LogInViewController())
         addChild(new)

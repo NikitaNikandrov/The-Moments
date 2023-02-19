@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LogInViewController: UIViewController, UITextFieldDelegate, LoginVCDelegate {
+class LogInViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Constants
     private let requestServices = AuthenticationRequestService()
@@ -105,13 +105,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate, LoginVCDelegat
     }()
 
     // MARK: Variables
-    private var presenter: LoginPresenter!
+    private var viewModel = LogInViewModel()
 
     // MARK: Button's actions
     @objc func logInButtonIsPressed(sender: UIButton!) {
         guard let login = self.loginTextField.text else { return }
         guard let password = self.passwordTextField.text else { return }
-        presenter.logInButtomIsPressed(login: login, password: password)
+        viewModel.logInButtonIsPressed(login: login, password: password)
     }
 
     @objc func signUpButtonIsPressed(sender: UIButton!) {
@@ -122,20 +122,33 @@ class LogInViewController: UIViewController, UITextFieldDelegate, LoginVCDelegat
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        presenter = LoginPresenter()
-        presenter.delegate = self
-        loginTextField.delegate = self
-        passwordTextField.delegate = self
+        
         setUpVC()
+        bindViewModel()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-}
-
-extension LogInViewController {
+    
+    func bindViewModel() {
+        viewModel.loginResult.bind { [weak self] (loginResult) in
+            DispatchQueue.main.async {
+                switch loginResult {
+                case .succes:
+                    SceneDelegate.shared?.rootViewController.showMainScreen()
+                case .fail:
+                    self?.viewModel.errorMessage.bind { [weak self] (message) in
+                        DispatchQueue.main.async {
+                            self?.failAuthAlert(message: message)
+                        }
+                    }
+                case .unknowned:
+                    return
+                }
+            }
+        }
+    }
 
     func setUpVC() {
 
@@ -163,59 +176,8 @@ extension LogInViewController {
         setSignUpButtonConstraints()
     }
 
-    func presentFavoritsVC() {
-
-        let tabBarVC = UITabBarController()
-        // favourit
-        let myMeetings = UINavigationController(rootViewController: FavoritsViewController())
-        myMeetings.title = "Favorits meetings"
-        let favoritesItem = UITabBarItem(title: myMeetings.title, image: UIImage(systemName: "star"), tag: 0)
-        myMeetings.tabBarItem = favoritesItem
-
-        // search
-        let searchMeetings = UINavigationController(rootViewController: SearchMeetingsViewController())
-        searchMeetings.title = "Search meetings"
-        let searchItem = UITabBarItem(title: searchMeetings.title, image: UIImage(systemName: "magnifyingglass"), tag: 0)
-        searchMeetings.tabBarItem = searchItem
-
-        // account
-        let account = UINavigationController(rootViewController: AccountViewController())
-        account.title = "My account"
-        let accountItem = UITabBarItem(title: account.title, image: UIImage(systemName: "person"), tag: 0)
-        account.tabBarItem = accountItem
-
-        tabBarVC.setViewControllers([myMeetings, searchMeetings, account], animated: false)
-
-        if #available(iOS 15.0, *) {
-            let tabBarAppearance = UITabBarAppearance()
-            let tabBarItemApperance = UITabBarItemAppearance()
-
-            tabBarAppearance.configureWithOpaqueBackground()
-
-            tabBarItemApperance.normal.iconColor = .black
-            tabBarItemApperance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-            tabBarItemApperance.selected.iconColor = .white
-            tabBarItemApperance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-
-            tabBarAppearance.backgroundColor = Resources.Colors.lightBlue
-            tabBarAppearance.stackedLayoutAppearance = tabBarItemApperance
-
-            tabBarVC.tabBar.standardAppearance = tabBarAppearance
-            tabBarVC.tabBar.scrollEdgeAppearance = tabBarAppearance
-
-        } else {
-            tabBarVC.tabBar.tintColor = UIColor.white
-            tabBarVC.tabBar.unselectedItemTintColor = UIColor.black
-            tabBarVC.tabBar.barTintColor = Resources.Colors.lightBlue
-        }
-
-        tabBarVC.modalPresentationStyle = .fullScreen
-
-        present(tabBarVC, animated: true)
-    }
-
-    func failAuthAlert(code: Int, message: String) {
-        let erorrMessage = "Code " + String(code) + ": " + message
+    func failAuthAlert(message: String) {
+        let erorrMessage =  message
         let alert = UIAlertController(title: "Ops, error", message: erorrMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true)
