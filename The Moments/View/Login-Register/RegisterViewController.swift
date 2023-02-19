@@ -10,7 +10,7 @@ import UIKit
 class RegisterViewController: UIViewController {
 
     // MARK: Constats
-    let requestServices = AuthRequestServices()
+    let requestServices = AuthenticationRequestService()
 
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()

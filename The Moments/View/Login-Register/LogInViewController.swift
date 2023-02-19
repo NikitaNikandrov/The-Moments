@@ -10,7 +10,7 @@ import UIKit
 class LogInViewController: UIViewController, UITextFieldDelegate, LoginVCDelegate {
 
     // MARK: Constants
-    private let requestServices = AuthRequestServices()
+    private let requestServices = AuthenticationRequestService()
 
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()

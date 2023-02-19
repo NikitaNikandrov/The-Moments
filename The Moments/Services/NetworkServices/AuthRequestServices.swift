@@ -12,7 +12,7 @@ enum Result<T> {
     case error(Int, String)
 }
 
-class AuthRequestServices {
+class AuthenticationRequestService {
     
     private func prepareRequest(request: inout URLRequest) {
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
