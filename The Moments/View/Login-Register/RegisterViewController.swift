@@ -14,7 +14,7 @@ class RegisterViewController: UIViewController {
 
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
-        let logoImage = UIImage(named: "momentsLogo.png")
+        let logoImage = UIImage(named: Resources.AppImageStrings.logoImage)
         imageView.image = logoImage
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView

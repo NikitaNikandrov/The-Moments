@@ -26,4 +26,8 @@ enum Resources {
         static var search = "Search"
         static var account = "Account"
     }
+    
+    enum AppImageStrings {
+        static var logoImage = "momentsLogo.png"
+    }
 }

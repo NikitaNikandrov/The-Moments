@@ -24,6 +24,7 @@
 		E598C19B299D7477000DCD95 /* UIColor-ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C19A299D7477000DCD95 /* UIColor-ext.swift */; };
 		E598C19D299D75BE000DCD95 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C19C299D75BE000DCD95 /* Resources.swift */; };
 		E598C1A1299D7AFC000DCD95 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1A0299D7AFC000DCD95 /* TabBarController.swift */; };
+		E598C1A529A2433C000DCD95 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1A429A2433C000DCD95 /* RootViewController.swift */; };
 		E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848AE26FBAEDD00355775 /* AppDelegate.swift */; };
 		E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B026FBAEDD00355775 /* SceneDelegate.swift */; };
 		E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B226FBAEDD00355775 /* LogInViewController.swift */; };
@@ -70,6 +71,7 @@
 		E598C19A299D7477000DCD95 /* UIColor-ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-ext.swift"; sourceTree = "<group>"; };
 		E598C19C299D75BE000DCD95 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		E598C1A0299D7AFC000DCD95 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		E598C1A429A2433C000DCD95 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		E5A848AB26FBAEDD00355775 /* The Moments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Moments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A848AE26FBAEDD00355775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5A848B026FBAEDD00355775 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				E598C1A0299D7AFC000DCD95 /* TabBarController.swift */,
+				E598C1A329A2369D000DCD95 /* TabBarVCs */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -183,6 +186,16 @@
 				E53B22042780DDD400E2724C /* RegisterViewController.swift */,
 			);
 			path = "Login-Register";
+			sourceTree = "<group>";
+		};
+		E598C1A329A2369D000DCD95 /* TabBarVCs */ = {
+			isa = PBXGroup;
+			children = (
+				E59886C227B3046600342A12 /* FavoritsViewController.swift */,
+				E59886C427B47E9B00342A12 /* SearchMeetingsViewController.swift */,
+				E59886C627B481CC00342A12 /* AccountViewController.swift */,
+			);
+			path = TabBarVCs;
 			sourceTree = "<group>";
 		};
 		E5A848A226FBAEDD00355775 = {
@@ -244,12 +257,10 @@
 		E5A848E126FBAF2800355775 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E598C1A429A2433C000DCD95 /* RootViewController.swift */,
 				E598C198299D66ED000DCD95 /* LoadViewController.swift */,
 				E598C1A2299D7F57000DCD95 /* Login-Register */,
 				E598C19F299D7AD6000DCD95 /* TabBar */,
-				E59886C227B3046600342A12 /* FavoritsViewController.swift */,
-				E59886C427B47E9B00342A12 /* SearchMeetingsViewController.swift */,
-				E59886C627B481CC00342A12 /* AccountViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -395,6 +406,7 @@
 				E598C19D299D75BE000DCD95 /* Resources.swift in Sources */,
 				E53B220927889B6400E2724C /* RegisterVCPresenter.swift in Sources */,
 				E53B2200277F51DC00E2724C /* LoginVCPresenter.swift in Sources */,
+				E598C1A529A2433C000DCD95 /* RootViewController.swift in Sources */,
 				E53B2203277F530000E2724C /* Data.swift in Sources */,
 				E598C1A1299D7AFC000DCD95 /* TabBarController.swift in Sources */,
 				E57EC6442860C420009C9BD0 /* SearchVCPresenter.swift in Sources */,

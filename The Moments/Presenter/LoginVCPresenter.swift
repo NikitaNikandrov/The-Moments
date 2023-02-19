@@ -31,6 +31,8 @@ class LoginPresenter {
     }
 
     func logInButtomIsPressed(login: String, password: String) {
+        SceneDelegate.shared?.rootViewController.showMainScreen()
+        /*
         let requestService = AuthRequestServices()
         requestService.logInRequest(login: login, password: password) { [weak self] result in
             switch result {
@@ -46,6 +48,6 @@ class LoginPresenter {
                     self?.delegate?.failAuthAlert(code: code, message: message)
                 }
             }
-        }
+        }*/
     }
 }
