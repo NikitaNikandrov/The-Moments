@@ -111,7 +111,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @objc func logInButtonIsPressed(sender: UIButton!) {
         guard let login = self.loginTextField.text else { return }
         guard let password = self.passwordTextField.text else { return }
-        viewModel.logInButtonIsPressed(login: "test12@mail.com", password: "123456")
+        viewModel.logInButtonIsPressed(login: login, password: password)
     }
 
     @objc func signUpButtonIsPressed(sender: UIButton!) {
@@ -127,6 +127,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         bindViewModel()
     }
 
+    
+    //MARK: Methods
+    
+    // Hide keyboard with done button
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        loginTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        return true
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -183,14 +193,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true)
     }
 
-    // MARK: Hide keyboard with done button
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        loginTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
-        return true
-    }
-
-    // Constraints
+    //MARK: Constraints
     func setLogoImageConstraints() {
         logoImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         logoImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
