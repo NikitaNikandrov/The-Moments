@@ -59,7 +59,7 @@ final class AuthenticationRequestService {
         }.resume()
     }
 
-    func registerRequest(RegisterArguments: MethodArguments.RegisterUserArguments, closure: @escaping((Result <UserDataModel>) -> Void)) {
+    func registerRequest(registerArguments: MethodArguments.RegisterUserArguments, closure: @escaping((Result <UserDataModel>) -> Void)) {
 
         let urlRegister = Resources.NetworkServicesStrings.baseURL + Resources.NetworkServicesStrings.registerURL
 
@@ -71,9 +71,9 @@ final class AuthenticationRequestService {
         var request = URLRequest(url: requestURL)
         prepareRequest(request: &request)
 
-        let requestJSON: [String: String] = [ "name": RegisterArguments.login,
-                                              "email": RegisterArguments.email,
-                                              "password": RegisterArguments.password ]
+        let requestJSON: [String: String] = [ "name": registerArguments.login,
+                                              "email": registerArguments.email,
+                                              "password": registerArguments.password ]
 
         let requestJSONData = try? JSONSerialization.data(withJSONObject: requestJSON, options: .prettyPrinted)
 

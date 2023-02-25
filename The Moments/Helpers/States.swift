@@ -7,8 +7,15 @@
 
 import Foundation
 
-enum StatusConditions {
+enum StatusState {
     case succes
     case fail
     case unknowned
+}
+
+enum PasswordState {
+    case hideLabel
+    case min6char
+    case differentPass
+    case ok
 }

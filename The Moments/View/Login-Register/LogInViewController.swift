@@ -7,11 +7,11 @@
 
 import UIKit
 
-class LogInViewController: UIViewController, UITextFieldDelegate {
-
+class LogInViewController: UIViewController {
+    
     // MARK: Constants
     private let requestServices = AuthenticationRequestService()
-
+    
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
         let logoImage = UIImage(named: Resources.AppImageStrings.logoImage)
@@ -19,7 +19,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-
+    
     private let logoLabel: UILabel = {
         let label = UILabel()
         label.text = "The Moments"
@@ -29,7 +29,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     private let loginTextField: UITextField = {
         var textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
@@ -46,7 +46,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-
+    
     private let passwordTextField: UITextField = {
         var textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
@@ -63,7 +63,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-
+    
     private let logInButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = Resources.Colors.lightBlue
@@ -77,7 +77,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         button.addTarget(self, action: #selector(logInButtonIsPressed), for: .touchUpInside)
         return button
     }()
-
+    
     private let noAccountLabel: UILabel = {
         let label = UILabel()
         label.text = "Don't have an account yet ?"
@@ -87,7 +87,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     private let signUpButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = Resources.Colors.lightBlue
@@ -103,46 +103,35 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         button.addTarget(self, action: #selector(signUpButtonIsPressed), for: .touchUpInside)
         return button
     }()
-
+    
     // MARK: Variables
     private var viewModel = LogInViewModel()
-
+    
     // MARK: Button's actions
     @objc func logInButtonIsPressed(sender: UIButton!) {
         guard let login = self.loginTextField.text else { return }
         guard let password = self.passwordTextField.text else { return }
         viewModel.logInButtonIsPressed(login: login, password: password)
     }
-
+    
     @objc func signUpButtonIsPressed(sender: UIButton!) {
         let registrVC = RegisterViewController()
         present(registrVC, animated: true)
     }
-
+    
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpVC()
+        prepareVC()
         bindViewModel()
     }
-
+    
     
     //MARK: Methods
     
-    // Hide keyboard with done button
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        loginTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
     func bindViewModel() {
-        viewModel.loginResult.bind { [weak self] (loginResult) in
+        viewModel.loginResult.bind { [weak self] loginResult in
             DispatchQueue.main.async {
                 switch loginResult {
                 case .succes:
@@ -159,40 +148,40 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-
-    func setUpVC() {
-
+    
+    func prepareVC() {
+        
         view.backgroundColor = Resources.Colors.blue
-
+        
         view.addSubview(logoImageView)
         setLogoImageConstraints()
-
+        
         view.addSubview(logoLabel)
         setLogoLabelConstraints()
-
+        
         view.addSubview(loginTextField)
         setLoginTextFieldConstraints()
-
+        
         view.addSubview(passwordTextField)
         setPasswordTextFieldConstraints()
-
+        
         view.addSubview(logInButton)
         setLogInButtonConstraints()
-
+        
         view.addSubview(noAccountLabel)
         setNoAccountLabelConstraints()
-
+        
         view.addSubview(signUpButton)
         setSignUpButtonConstraints()
     }
-
+    
     func failAuthAlert(message: String) {
         let erorrMessage =  message
         let alert = UIAlertController(title: "Ops, error", message: erorrMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
-
+    
     //MARK: Constraints
     func setLogoImageConstraints() {
         logoImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
@@ -200,46 +189,62 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 44).isActive = true
         logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
-
+    
     func setLogoLabelConstraints() {
         logoLabel.heightAnchor.constraint(equalToConstant: 28).isActive = true
         logoLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
         logoLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 270).isActive = true
         logoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
-
+    
     func setLoginTextFieldConstraints() {
         loginTextField.heightAnchor.constraint(equalToConstant: 55).isActive = true
         loginTextField.widthAnchor.constraint(equalToConstant: 310).isActive = true
         loginTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 322).isActive = true
         loginTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
-
+    
     func setPasswordTextFieldConstraints() {
         passwordTextField.heightAnchor.constraint(equalToConstant: 55).isActive = true
         passwordTextField.widthAnchor.constraint(equalToConstant: 310).isActive = true
         passwordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 387).isActive = true
         passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
-
+    
     func setLogInButtonConstraints() {
         logInButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         logInButton.widthAnchor.constraint(equalToConstant: 170).isActive = true
         logInButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 460).isActive = true
         logInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
-
+    
     func setNoAccountLabelConstraints() {
         noAccountLabel.heightAnchor.constraint(equalToConstant: 21).isActive = true
         noAccountLabel.widthAnchor.constraint(equalToConstant: 250).isActive = true
         noAccountLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 530).isActive = true
         noAccountLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
-
+    
     func setSignUpButtonConstraints() {
         signUpButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         signUpButton.widthAnchor.constraint(equalToConstant: 170).isActive = true
         signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 575).isActive = true
         signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+    }
+}
+
+extension LogInViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        loginTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        return true
+    }
+}
+
+extension LogInViewController {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }

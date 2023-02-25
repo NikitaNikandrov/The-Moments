@@ -9,7 +9,7 @@ import Foundation
 
 class LogInViewModel {
     
-    var loginResult = Bindable<StatusConditions>(StatusConditions.unknowned)
+    var loginResult = Bindable<StatusState>(StatusState.unknowned)
     var errorMessage = Bindable<String>("")
     
     func logInButtonIsPressed(login: String, password: String) {
@@ -31,11 +31,11 @@ class LogInViewModel {
                 
                 UserDefaults.standard.set(true, forKey: Resources.UserDefaultsStrings.logged)
                 
-                self?.loginResult.value = StatusConditions.succes
+                self?.loginResult.value = StatusState.succes
                 
             case let .error(code, message):
                 self?.errorMessage.value = "Code " + String(code) + ": " + message
-                self?.loginResult.value = StatusConditions.fail
+                self?.loginResult.value = StatusState.fail
             }
         }
     }
