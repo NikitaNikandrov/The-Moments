@@ -7,12 +7,13 @@
 
 import Foundation
 
-class BaseUserDataFromServer {
+class UserDataModel {
     var id: Int?
-    var name, email: String?
+    var name: String?
+    var email: String?
 }
 
-class LogInUserDataFromServer: BaseUserDataFromServer {
+class LogInUserDataFromServer: UserDataModel {
     var token: String?
 }
 

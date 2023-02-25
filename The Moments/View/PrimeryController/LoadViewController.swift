@@ -46,16 +46,14 @@ class LoadViewController: UIViewController {
     
     func makeServiceCall() {
         showActivityIndicator()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) {
+        
+        if UserDefaults.standard.bool(forKey: Resources.UserDefaultsStrings.logged) {
+            self.activityIndicator?.stopAnimating()
+            SceneDelegate.shared?.rootViewController.showMainScreen()
+        } else {
             self.activityIndicator?.stopAnimating()
             SceneDelegate.shared?.rootViewController.showLoginScreen()
         }
-        /*
-        if UserDefaults.standard.bool(forKey: "LOGGED_IN") {
-            // navigate to protected page
-        } else {
-            // navigate to login screen
-        }*/
     }
     
     //MARK: Setting Constreints

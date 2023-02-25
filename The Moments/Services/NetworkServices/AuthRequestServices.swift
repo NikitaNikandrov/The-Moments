@@ -12,9 +12,9 @@ enum Result<T> {
     case error(Int, String)
 }
 
-class AuthenticationRequestService {
+final class AuthenticationRequestService {
     
-    private func prepareRequest(request: inout URLRequest) {
+    func prepareRequest(request: inout URLRequest) {
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
         request.httpMethod = "POST"
@@ -43,7 +43,7 @@ class AuthenticationRequestService {
                 switch httpResponse.statusCode {
                 case 200:
                     do {
-                        let responseData: LoginJSONModel.SuccessLogInJSONmodel = try JSONDecoder().decode(LoginJSONModel.SuccessLogInJSONmodel.self, from: data)
+                        let responseData: AuthJSONModel.SuccessAuthJSONmodel = try JSONDecoder().decode(AuthJSONModel.SuccessAuthJSONmodel.self, from: data)
                         let result = LogInUserDataFromServer()
                         result.name = responseData.data.name
                         result.token = responseData.data.token
@@ -59,7 +59,7 @@ class AuthenticationRequestService {
         }.resume()
     }
 
-    func registerRequest(RegisterArguments: MethodArguments.RegisterUserArguments, closure: @escaping((Result <BaseUserDataFromServer>) -> Void)) {
+    func registerRequest(RegisterArguments: MethodArguments.RegisterUserArguments, closure: @escaping((Result <UserDataModel>) -> Void)) {
 
         let urlRegister = Resources.NetworkServicesStrings.baseURL + Resources.NetworkServicesStrings.registerURL
 
@@ -85,24 +85,24 @@ class AuthenticationRequestService {
             if let httpResponse = response as? HTTPURLResponse {
                 switch httpResponse.statusCode {
                 case 200 :
-                    var resultResponse: RegisterJSONModels.SuccessRegistrJSONModel?
+                    var resultResponse: AuthJSONModel.SuccessAuthJSONmodel?
                     do {
-                        resultResponse = try JSONDecoder().decode(RegisterJSONModels.SuccessRegistrJSONModel.self, from: data)
+                        resultResponse = try JSONDecoder().decode(AuthJSONModel.SuccessAuthJSONmodel.self, from: data)
                         let result = LogInUserDataFromServer()
                         result.name = resultResponse?.data.name
                         closure(.sucsess(result))
                     } catch let error { print(error) }
                 case 422:
-                    var resultResponse: RegisterJSONModels.BadPassRegistrJSONModel?
+                    var resultResponse: AuthJSONModel.BadPassRegistrJSONModel?
                     do {
-                        resultResponse = try JSONDecoder().decode(RegisterJSONModels.BadPassRegistrJSONModel.self, from: data)
+                        resultResponse = try JSONDecoder().decode(AuthJSONModel.BadPassRegistrJSONModel.self, from: data)
                         guard let message = resultResponse?.message.password[0] else { return }
                         closure(.error(422, message))
                     } catch let error { print(error) }
                 default:
-                    var resultResponse: RegisterJSONModels.FailRegisterRegistrJSONModel?
+                    var resultResponse: AuthJSONModel.FailRegisterRegistrJSONModel?
                     do {
-                        resultResponse = try JSONDecoder().decode(RegisterJSONModels.FailRegisterRegistrJSONModel.self, from: data)
+                        resultResponse = try JSONDecoder().decode(AuthJSONModel.FailRegisterRegistrJSONModel.self, from: data)
                         guard let message = resultResponse?.message else { return }
                         closure(.error(400, message))
                     } catch let error { print(error) }

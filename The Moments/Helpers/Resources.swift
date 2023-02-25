@@ -42,4 +42,13 @@ enum Resources {
     enum ErrorMessages {
         static var serverError = "Server error"
     }
+    
+    enum KeyChainStrings {
+        static var loginService = "LoginService"
+        static var loginAccount = "User"
+    }
+    
+    enum UserDefaultsStrings {
+        static var logged = "logged"
+    }
 }

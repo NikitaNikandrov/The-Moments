@@ -111,7 +111,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @objc func logInButtonIsPressed(sender: UIButton!) {
         guard let login = self.loginTextField.text else { return }
         guard let password = self.passwordTextField.text else { return }
-        viewModel.logInButtonIsPressed(login: login, password: password)
+        viewModel.logInButtonIsPressed(login: "test12@mail.com", password: "123456")
     }
 
     @objc func signUpButtonIsPressed(sender: UIButton!) {
