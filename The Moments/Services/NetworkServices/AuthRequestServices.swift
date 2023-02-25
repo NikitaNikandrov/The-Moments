@@ -20,7 +20,7 @@ final class AuthenticationRequestService {
         request.httpMethod = "POST"
     }
 
-    func logInRequest(login: String, password: String, closure: @escaping((Result <LogInUserDataFromServer>) -> Void)) {
+    func logInRequest(email: String, password: String, closure: @escaping((Result <LogInUserDataFromServer>) -> Void)) {
 
         let urlLogIn = Resources.NetworkServicesStrings.baseURL + Resources.NetworkServicesStrings.logInURL
 
@@ -29,7 +29,7 @@ final class AuthenticationRequestService {
         var request = URLRequest(url: requestURL)
         prepareRequest(request: &request)
 
-        let requestJSON: [String: String] = [ "email": login,
+        let requestJSON: [String: String] = [ "email": email,
                                            "password": password ]
 
         let requestJSONData = try? JSONSerialization.data(withJSONObject: requestJSON, options: .prettyPrinted)
@@ -71,7 +71,7 @@ final class AuthenticationRequestService {
         var request = URLRequest(url: requestURL)
         prepareRequest(request: &request)
 
-        let requestJSON: [String: String] = [ "name": registerArguments.login,
+        let requestJSON: [String: String] = [ "name": registerArguments.name,
                                               "email": registerArguments.email,
                                               "password": registerArguments.password ]
 

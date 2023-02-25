@@ -19,7 +19,7 @@ class LogInUserDataFromServer: UserDataModel {
 
 class MethodArguments {
     struct RegisterUserArguments {
-        var login = ""
+        var name = ""
         var email = ""
         var password = ""
     }

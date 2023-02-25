@@ -131,13 +131,13 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		E53B21FA276D353C00E2724C /* Model */ = {
+		E53B21FA276D353C00E2724C /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				E52B9C89285B849100577771 /* JSON */,
 				E53B21FD276D3B3400E2724C /* DataModels.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E53B2201277F52E200E2724C /* Helpers */ = {
@@ -164,7 +164,6 @@
 			children = (
 				E598C1A0299D7AFC000DCD95 /* TabBarController.swift */,
 				E598C1A829A26FE1000DCD95 /* BaseViewController.swift */,
-				E598C1A329A2369D000DCD95 /* TabBarVCs */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -178,14 +177,14 @@
 			path = "Login-Register";
 			sourceTree = "<group>";
 		};
-		E598C1A329A2369D000DCD95 /* TabBarVCs */ = {
+		E598C1A329A2369D000DCD95 /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				E59886C227B3046600342A12 /* FavoritsViewController.swift */,
 				E59886C427B47E9B00342A12 /* SearchMeetingsViewController.swift */,
 				E59886C627B481CC00342A12 /* AccountViewController.swift */,
 			);
-			path = TabBarVCs;
+			path = MainViewControllers;
 			sourceTree = "<group>";
 		};
 		E598C1AA29A271BD000DCD95 /* NavigationController */ = {
@@ -199,6 +198,7 @@
 		E598C1AB29A27210000DCD95 /* MainViewsControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E598C1A329A2369D000DCD95 /* MainViewControllers */,
 				E598C1AA29A271BD000DCD95 /* NavigationController */,
 				E598C19F299D7AD6000DCD95 /* TabBarController */,
 			);
@@ -281,9 +281,9 @@
 			children = (
 				E53B2201277F52E200E2724C /* Helpers */,
 				E53B21F7276D328A00E2724C /* Services */,
-				E53B21FA276D353C00E2724C /* Model */,
+				E53B21FA276D353C00E2724C /* Models */,
 				E598C1B729A2994D000DCD95 /* ViewModels */,
-				E5A848E126FBAF2800355775 /* View */,
+				E5A848E126FBAF2800355775 /* Views */,
 				E5A848AE26FBAEDD00355775 /* AppDelegate.swift */,
 				E5A848B026FBAEDD00355775 /* SceneDelegate.swift */,
 				E5A848BA26FBAEE100355775 /* Assets.xcassets */,
@@ -311,14 +311,14 @@
 			path = "The MomentsUITests";
 			sourceTree = "<group>";
 		};
-		E5A848E126FBAF2800355775 /* View */ = {
+		E5A848E126FBAF2800355775 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				E598C1AC29A27248000DCD95 /* PrimeryController */,
 				E598C1A2299D7F57000DCD95 /* Login-Register */,
 				E598C1AB29A27210000DCD95 /* MainViewsControllers */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -51,4 +51,21 @@ enum Resources {
     enum UserDefaultsStrings {
         static var logged = "logged"
     }
+    
+    enum LogInVCStrings {
+        static var logoLabelString = "The Moments"
+        static var emailTextfieldString = "Email"
+        static var passwordTextfieldString = "Password"
+        static var logInButtonString = "Log In"
+        static var noAccountString = "Don't have an account yet ?"
+        static var signUpButtonString = "Sign Up"
+    }
+    
+    enum RegisterVCStrings {
+        static var createLabelString = "Create an account"
+        static var nameTextFieldString = "Name"
+        static var emailTextfieldString = "Email"
+        static var passwordTextfieldString = "Password"
+        static var confirmPasswordTextfieldString = "Confirm password"
+    }
 }

@@ -22,7 +22,7 @@ class RegisterViewController: UIViewController {
     
     private let createLabel: UILabel = {
         let label = UILabel()
-        label.text = "Create an account"
+        label.text = Resources.RegisterVCStrings.createLabelString
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 24, weight: .medium)
         label.textColor = .white
@@ -30,12 +30,11 @@ class RegisterViewController: UIViewController {
         return label
     }()
     
-    private let loginTextField: UITextField = {
+    private let nameTextField: UITextField = {
         var textField = UITextField()
-        textField.attributedPlaceholder = NSAttributedString(
-            string: "Login",
-            attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
-                         .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
+        textField.attributedPlaceholder = NSAttributedString( string: Resources.RegisterVCStrings.nameTextFieldString,
+                                                              attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
+                                                                           .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
         textField.backgroundColor = Resources.Colors.grey
         textField.textColor = Resources.Colors.black
         textField.layer.borderWidth = 2.0
@@ -49,10 +48,9 @@ class RegisterViewController: UIViewController {
     
     private let emailTextField: UITextField = {
         var textField = UITextField()
-        textField.attributedPlaceholder = NSAttributedString(
-            string: "Email",
-            attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
-                         .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
+        textField.attributedPlaceholder = NSAttributedString( string: Resources.RegisterVCStrings.emailTextfieldString,
+                                                              attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
+                                                                           .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
         textField.backgroundColor = Resources.Colors.grey
         textField.textColor = Resources.Colors.black
         textField.layer.borderWidth = 2.0
@@ -66,10 +64,9 @@ class RegisterViewController: UIViewController {
     
     private let passwordTextField: UITextField = {
         var textField = UITextField()
-        textField.attributedPlaceholder = NSAttributedString(
-            string: "Password",
-            attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
-                         .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
+        textField.attributedPlaceholder = NSAttributedString( string: Resources.RegisterVCStrings.passwordTextfieldString,
+                                                              attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
+                                                                           .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
         textField.backgroundColor = Resources.Colors.grey
         textField.textColor = Resources.Colors.black
         textField.layer.borderWidth = 2.0
@@ -83,10 +80,9 @@ class RegisterViewController: UIViewController {
     
     private let confirmPasswordTextField: UITextField = {
         var textField = UITextField()
-        textField.attributedPlaceholder = NSAttributedString(
-            string: "Confirm password",
-            attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
-                         .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
+        textField.attributedPlaceholder = NSAttributedString( string: Resources.RegisterVCStrings.confirmPasswordTextfieldString,
+                                                              attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
+                                                                           .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
         textField.backgroundColor = Resources.Colors.grey
         textField.textColor = Resources.Colors.black
         textField.layer.borderWidth = 2.0
@@ -100,7 +96,6 @@ class RegisterViewController: UIViewController {
     
     private let passwordLabel: UILabel = {
         let label = UILabel()
-        label.text = "The passwords are different !"
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         label.textColor = .white
@@ -133,7 +128,7 @@ class RegisterViewController: UIViewController {
     @objc func signUpButtonIsPressed(sender: UIButton!) {
         
         var requestData = MethodArguments.RegisterUserArguments()
-        requestData.login = String(loginTextField.text!)
+        requestData.name = String(nameTextField.text!)
         requestData.email = String(emailTextField.text!)
         requestData.password = String(passwordTextField.text!)
         
@@ -144,7 +139,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginTextField.delegate = self
+        nameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
         confirmPasswordTextField.delegate = self
@@ -189,7 +184,7 @@ class RegisterViewController: UIViewController {
         self.view.addSubview(createLabel)
         setCreateLabelConstraints()
         
-        self.view.addSubview(loginTextField)
+        self.view.addSubview(nameTextField)
         setLoginTextFieldConstraints()
         
         self.view.addSubview(emailTextField)
@@ -241,10 +236,10 @@ class RegisterViewController: UIViewController {
     }
     
     private func setLoginTextFieldConstraints() {
-        loginTextField.heightAnchor.constraint(equalToConstant: 55).isActive = true
-        loginTextField.widthAnchor.constraint(equalToConstant: 310).isActive = true
-        loginTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 322).isActive = true
-        loginTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        nameTextField.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        nameTextField.widthAnchor.constraint(equalToConstant: 310).isActive = true
+        nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 322).isActive = true
+        nameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
     
     private func setEmailTextField() {
@@ -290,7 +285,7 @@ extension RegisterViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        loginTextField.resignFirstResponder()
+        nameTextField.resignFirstResponder()
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
         confirmPasswordTextField.resignFirstResponder()

@@ -22,7 +22,7 @@ class LogInViewController: UIViewController {
     
     private let logoLabel: UILabel = {
         let label = UILabel()
-        label.text = "The Moments"
+        label.text = Resources.LogInVCStrings.logoLabelString
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 24, weight: .medium)
         label.textColor = .white
@@ -30,12 +30,11 @@ class LogInViewController: UIViewController {
         return label
     }()
     
-    private let loginTextField: UITextField = {
+    private let emailTextField: UITextField = {
         var textField = UITextField()
-        textField.attributedPlaceholder = NSAttributedString(
-            string: "Login",
-            attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
-                         .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
+        textField.attributedPlaceholder = NSAttributedString( string: Resources.LogInVCStrings.emailTextfieldString,
+                                                              attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
+                                                                           .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
         textField.backgroundColor = Resources.Colors.grey
         textField.textColor = Resources.Colors.black
         textField.layer.borderWidth = 2.0
@@ -49,10 +48,9 @@ class LogInViewController: UIViewController {
     
     private let passwordTextField: UITextField = {
         var textField = UITextField()
-        textField.attributedPlaceholder = NSAttributedString(
-            string: "Password",
-            attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
-                         .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
+        textField.attributedPlaceholder = NSAttributedString( string: Resources.LogInVCStrings.passwordTextfieldString,
+                                                              attributes: [NSAttributedString.Key.foregroundColor: Resources.Colors.black,
+                                                                           .font: UIFont.systemFont(ofSize: 18, weight: .regular)])
         textField.backgroundColor = Resources.Colors.grey
         textField.textColor = Resources.Colors.black
         textField.layer.borderWidth = 2.0
@@ -67,7 +65,7 @@ class LogInViewController: UIViewController {
     private let logInButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = Resources.Colors.lightBlue
-        button.setTitle("Log In", for: .normal)
+        button.setTitle(Resources.LogInVCStrings.logInButtonString, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         button.titleLabel?.textColor = .white
         button.layer.borderWidth = 2.0
@@ -80,7 +78,7 @@ class LogInViewController: UIViewController {
     
     private let noAccountLabel: UILabel = {
         let label = UILabel()
-        label.text = "Don't have an account yet ?"
+        label.text = Resources.LogInVCStrings.noAccountString
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         label.textColor = .white
@@ -94,7 +92,7 @@ class LogInViewController: UIViewController {
         let buttonLabelAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white,
                                                                     .font: UIFont.systemFont(ofSize: 18, weight: .regular),
                                                                     .underlineStyle: NSUnderlineStyle.single.rawValue]
-        let attributeString = NSMutableAttributedString(string: "Sign Up", attributes: buttonLabelAttributes)
+        let attributeString = NSMutableAttributedString(string: Resources.LogInVCStrings.signUpButtonString, attributes: buttonLabelAttributes)
         button.setAttributedTitle(attributeString, for: .normal)
         button.layer.borderWidth = 2.0
         button.layer.borderColor = UIColor.white.cgColor
@@ -109,9 +107,9 @@ class LogInViewController: UIViewController {
     
     // MARK: Button's actions
     @objc func logInButtonIsPressed(sender: UIButton!) {
-        guard let login = self.loginTextField.text else { return }
+        guard let email = self.emailTextField.text else { return }
         guard let password = self.passwordTextField.text else { return }
-        viewModel.logInButtonIsPressed(login: login, password: password)
+        viewModel.logInButtonIsPressed(email: email, password: password)
     }
     
     @objc func signUpButtonIsPressed(sender: UIButton!) {
@@ -159,7 +157,7 @@ class LogInViewController: UIViewController {
         view.addSubview(logoLabel)
         setLogoLabelConstraints()
         
-        view.addSubview(loginTextField)
+        view.addSubview(emailTextField)
         setLoginTextFieldConstraints()
         
         view.addSubview(passwordTextField)
@@ -198,10 +196,10 @@ class LogInViewController: UIViewController {
     }
     
     func setLoginTextFieldConstraints() {
-        loginTextField.heightAnchor.constraint(equalToConstant: 55).isActive = true
-        loginTextField.widthAnchor.constraint(equalToConstant: 310).isActive = true
-        loginTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 322).isActive = true
-        loginTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        emailTextField.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        emailTextField.widthAnchor.constraint(equalToConstant: 310).isActive = true
+        emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 322).isActive = true
+        emailTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
     
     func setPasswordTextFieldConstraints() {
@@ -236,7 +234,7 @@ class LogInViewController: UIViewController {
 extension LogInViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        loginTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
         return true
     }

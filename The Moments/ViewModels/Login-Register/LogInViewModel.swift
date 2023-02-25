@@ -12,10 +12,10 @@ class LogInViewModel {
     var loginResult = Bindable<StatusState>(StatusState.unknowned)
     var errorMessage = Bindable<String>("")
     
-    func logInButtonIsPressed(login: String, password: String) {
+    func logInButtonIsPressed(email: String, password: String) {
         let requestService = AuthenticationRequestService()
         
-        requestService.logInRequest(login: login, password: password) { [weak self] result in
+        requestService.logInRequest(email: email, password: password) { [weak self] result in
             
             switch result {
             
