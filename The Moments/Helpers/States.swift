@@ -19,3 +19,8 @@ enum PasswordState {
     case differentPass
     case ok
 }
+
+enum ResultOfResponse<T> {
+    case sucsess(T)
+    case error(Int, String)
+}

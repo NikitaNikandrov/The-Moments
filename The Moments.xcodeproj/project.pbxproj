@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E53B21F9276D32BE00E2724C /* AuthRequestServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21F8276D32BE00E2724C /* AuthRequestServices.swift */; };
-		E53B21FE276D3B3400E2724C /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FD276D3B3400E2724C /* DataModels.swift */; };
+		E53B21FE276D3B3400E2724C /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B21FD276D3B3400E2724C /* UserDataModel.swift */; };
 		E53B22052780DDD400E2724C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53B22042780DDD400E2724C /* RegisterViewController.swift */; };
 		E59886C327B3046700342A12 /* FavoritsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59886C227B3046600342A12 /* FavoritsViewController.swift */; };
 		E59886C527B47E9B00342A12 /* SearchMeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59886C427B47E9B00342A12 /* SearchMeetingsViewController.swift */; };
@@ -27,6 +27,10 @@
 		E598C1BF29A2C826000DCD95 /* States.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1BE29A2C826000DCD95 /* States.swift */; };
 		E598C1C229A55A51000DCD95 /* KeyChainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1C129A55A51000DCD95 /* KeyChainManager.swift */; };
 		E598C1C429AA622A000DCD95 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1C329AA622A000DCD95 /* RegisterViewModel.swift */; };
+		E598C1C729AAB3A2000DCD95 /* MeetingsRequestServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1C629AAB3A2000DCD95 /* MeetingsRequestServices.swift */; };
+		E598C1C929AABAEE000DCD95 /* MethodsArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1C829AABAEE000DCD95 /* MethodsArguments.swift */; };
+		E598C1CC29AABCBA000DCD95 /* MeetingsJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1CB29AABCBA000DCD95 /* MeetingsJSONModel.swift */; };
+		E598C1CE29AB693C000DCD95 /* MeetingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1CD29AB693C000DCD95 /* MeetingDataModel.swift */; };
 		E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848AE26FBAEDD00355775 /* AppDelegate.swift */; };
 		E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B026FBAEDD00355775 /* SceneDelegate.swift */; };
 		E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B226FBAEDD00355775 /* LogInViewController.swift */; };
@@ -55,7 +59,7 @@
 
 /* Begin PBXFileReference section */
 		E53B21F8276D32BE00E2724C /* AuthRequestServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestServices.swift; sourceTree = "<group>"; };
-		E53B21FD276D3B3400E2724C /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
+		E53B21FD276D3B3400E2724C /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		E53B22042780DDD400E2724C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E59886C227B3046600342A12 /* FavoritsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritsViewController.swift; sourceTree = "<group>"; };
 		E59886C427B47E9B00342A12 /* SearchMeetingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMeetingsViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +78,10 @@
 		E598C1BE29A2C826000DCD95 /* States.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = States.swift; sourceTree = "<group>"; };
 		E598C1C129A55A51000DCD95 /* KeyChainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainManager.swift; sourceTree = "<group>"; };
 		E598C1C329AA622A000DCD95 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		E598C1C629AAB3A2000DCD95 /* MeetingsRequestServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsRequestServices.swift; sourceTree = "<group>"; };
+		E598C1C829AABAEE000DCD95 /* MethodsArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodsArguments.swift; sourceTree = "<group>"; };
+		E598C1CB29AABCBA000DCD95 /* MeetingsJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsJSONModel.swift; sourceTree = "<group>"; };
+		E598C1CD29AB693C000DCD95 /* MeetingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDataModel.swift; sourceTree = "<group>"; };
 		E5A848AB26FBAEDD00355775 /* The Moments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Moments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A848AE26FBAEDD00355775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5A848B026FBAEDD00355775 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +125,7 @@
 		E52B9C89285B849100577771 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				E598C1CA29AABC23000DCD95 /* MeetingsJSONModels */,
 				E598C1B429A28CCD000DCD95 /* AuthJSONModels */,
 			);
 			path = JSON;
@@ -135,7 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				E52B9C89285B849100577771 /* JSON */,
-				E53B21FD276D3B3400E2724C /* DataModels.swift */,
+				E53B21FD276D3B3400E2724C /* UserDataModel.swift */,
+				E598C1CD29AB693C000DCD95 /* MeetingDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,6 +156,7 @@
 				E598C19E299D7973000DCD95 /* Extensions */,
 				E598C1BE29A2C826000DCD95 /* States.swift */,
 				E598C19C299D75BE000DCD95 /* Resources.swift */,
+				E598C1C829AABAEE000DCD95 /* MethodsArguments.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -218,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				E53B21F8276D32BE00E2724C /* AuthRequestServices.swift */,
+				E598C1C629AAB3A2000DCD95 /* MeetingsRequestServices.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -254,6 +266,14 @@
 				E598C1C129A55A51000DCD95 /* KeyChainManager.swift */,
 			);
 			path = DataServices;
+			sourceTree = "<group>";
+		};
+		E598C1CA29AABC23000DCD95 /* MeetingsJSONModels */ = {
+			isa = PBXGroup;
+			children = (
+				E598C1CB29AABCBA000DCD95 /* MeetingsJSONModel.swift */,
+			);
+			path = MeetingsJSONModels;
 			sourceTree = "<group>";
 		};
 		E5A848A226FBAEDD00355775 = {
@@ -454,6 +474,8 @@
 				E59886C327B3046700342A12 /* FavoritsViewController.swift in Sources */,
 				E53B22052780DDD400E2724C /* RegisterViewController.swift in Sources */,
 				E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */,
+				E598C1CE29AB693C000DCD95 /* MeetingDataModel.swift in Sources */,
+				E598C1C929AABAEE000DCD95 /* MethodsArguments.swift in Sources */,
 				E598C1A929A26FE1000DCD95 /* BaseViewController.swift in Sources */,
 				E59886C527B47E9B00342A12 /* SearchMeetingsViewController.swift in Sources */,
 				E598C1B929A2999E000DCD95 /* LogInViewModel.swift in Sources */,
@@ -469,10 +491,12 @@
 				E598C1C229A55A51000DCD95 /* KeyChainManager.swift in Sources */,
 				E598C1A1299D7AFC000DCD95 /* TabBarController.swift in Sources */,
 				E59886C727B481CC00342A12 /* AccountViewController.swift in Sources */,
-				E53B21FE276D3B3400E2724C /* DataModels.swift in Sources */,
+				E53B21FE276D3B3400E2724C /* UserDataModel.swift in Sources */,
 				E53B21F9276D32BE00E2724C /* AuthRequestServices.swift in Sources */,
 				E598C1AE29A272FA000DCD95 /* NavBarController.swift in Sources */,
 				E5A848B926FBAEDD00355775 /* The_Moments.xcdatamodeld in Sources */,
+				E598C1CC29AABCBA000DCD95 /* MeetingsJSONModel.swift in Sources */,
+				E598C1C729AAB3A2000DCD95 /* MeetingsRequestServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,11 +16,3 @@ class UserDataModel {
 class LogInUserDataFromServer: UserDataModel {
     var token: String?
 }
-
-class MethodArguments {
-    struct RegisterUserArguments {
-        var name = ""
-        var email = ""
-        var password = ""
-    }
-}

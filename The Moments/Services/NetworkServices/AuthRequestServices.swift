@@ -7,11 +7,6 @@
 
 import Foundation
 
-enum Result<T> {
-    case sucsess(T)
-    case error(Int, String)
-}
-
 final class AuthenticationRequestService {
     
     func prepareRequest(request: inout URLRequest) {
@@ -20,7 +15,7 @@ final class AuthenticationRequestService {
         request.httpMethod = "POST"
     }
 
-    func logInRequest(email: String, password: String, closure: @escaping((Result <LogInUserDataFromServer>) -> Void)) {
+    func logInRequest(email: String, password: String, closure: @escaping((ResultOfResponse <LogInUserDataFromServer>) -> Void)) {
 
         let urlLogIn = Resources.NetworkServicesStrings.baseURL + Resources.NetworkServicesStrings.logInURL
 
@@ -45,8 +40,8 @@ final class AuthenticationRequestService {
                     do {
                         let responseData: AuthJSONModel.SuccessAuthJSONmodel = try JSONDecoder().decode(AuthJSONModel.SuccessAuthJSONmodel.self, from: data)
                         let result = LogInUserDataFromServer()
-                        result.name = responseData.data.name
-                        result.token = responseData.data.token
+                        result.name = responseData.data?.name
+                        result.token = responseData.data?.token
                         closure(.sucsess(result))
                     } catch let error { print(error) }
 
@@ -59,7 +54,7 @@ final class AuthenticationRequestService {
         }.resume()
     }
 
-    func registerRequest(registerArguments: MethodArguments.RegisterUserArguments, closure: @escaping((Result <UserDataModel>) -> Void)) {
+    func registerRequest(registerArguments: MethodArguments.RegisterUserArguments, closure: @escaping((ResultOfResponse <UserDataModel>) -> Void)) {
 
         let urlRegister = Resources.NetworkServicesStrings.baseURL + Resources.NetworkServicesStrings.registerURL
 
@@ -89,14 +84,14 @@ final class AuthenticationRequestService {
                     do {
                         resultResponse = try JSONDecoder().decode(AuthJSONModel.SuccessAuthJSONmodel.self, from: data)
                         let result = LogInUserDataFromServer()
-                        result.name = resultResponse?.data.name
+                        result.name = resultResponse?.data?.name
                         closure(.sucsess(result))
                     } catch let error { print(error) }
                 case 422:
                     var resultResponse: AuthJSONModel.BadPassRegistrJSONModel?
                     do {
                         resultResponse = try JSONDecoder().decode(AuthJSONModel.BadPassRegistrJSONModel.self, from: data)
-                        guard let message = resultResponse?.message.password[0] else { return }
+                        guard let message = resultResponse?.message?.password?[0] else { return }
                         closure(.error(422, message))
                     } catch let error { print(error) }
                 default:

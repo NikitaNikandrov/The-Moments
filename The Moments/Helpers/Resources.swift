@@ -8,6 +8,7 @@
 import UIKit
 
 enum Resources {
+    //MARK: Colors
     enum Colors {
         static var blue = UIColor(hexString: "4E8AFE")
         static var lightBlue = UIColor(hexString: "7FA1E3")
@@ -15,6 +16,7 @@ enum Resources {
         static var black = UIColor(hexString: "777777")
     }
     
+    //MARK: Tabbar resources
     enum TabBarResources {
         enum TabBarItemsImages {
             static var favorits = UIImage(systemName: "star")
@@ -29,20 +31,24 @@ enum Resources {
         }
     }
     
+    //MARK: Images
     enum AppImageStrings {
         static var logoImage = "momentsLogo.png"
     }
     
+    //MARK: network resources
     enum NetworkServicesStrings {
         static var baseURL = "https://mssemenov.ru"
         static var logInURL = "/api/v1/login"
         static var registerURL = "/api/v1/registration"
+        static var meetingsURL = "/api/v1/meetings"
     }
     
     enum ErrorMessages {
         static var serverError = "Server error"
     }
     
+    //MARK: Data service resources
     enum KeyChainStrings {
         static var loginService = "LoginService"
         static var loginAccount = "User"
@@ -52,6 +58,7 @@ enum Resources {
         static var logged = "logged"
     }
     
+    //MARK: View controllers resources
     enum LogInVCStrings {
         static var logoLabelString = "The Moments"
         static var emailTextfieldString = "Email"
