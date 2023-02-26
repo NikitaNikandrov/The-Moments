@@ -34,7 +34,7 @@ class MeetingsRequestService {
                     do {
                         let responseData: MeetingsJSONModel.MeetingsJSONModel = try JSONDecoder().decode(MeetingsJSONModel.MeetingsJSONModel.self,
                                                                                                          from: data)
-                        let result = [MeetingsDataModel()]
+                        let result: [MeetingsDataModel] = []
                         if responseData.serviceData.perPage != 0 {
                             for item in responseData.serviceData.data! {
                                 let meeting = MeetingsDataModel()
