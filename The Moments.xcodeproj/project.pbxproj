@@ -31,6 +31,7 @@
 		E598C1C929AABAEE000DCD95 /* MethodsArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1C829AABAEE000DCD95 /* MethodsArguments.swift */; };
 		E598C1CC29AABCBA000DCD95 /* MeetingsJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1CB29AABCBA000DCD95 /* MeetingsJSONModel.swift */; };
 		E598C1CE29AB693C000DCD95 /* MeetingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1CD29AB693C000DCD95 /* MeetingDataModel.swift */; };
+		E598C1D129BE4373000DCD95 /* FavoritsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E598C1D029BE4373000DCD95 /* FavoritsTableViewCell.swift */; };
 		E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848AE26FBAEDD00355775 /* AppDelegate.swift */; };
 		E5A848B126FBAEDD00355775 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B026FBAEDD00355775 /* SceneDelegate.swift */; };
 		E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A848B226FBAEDD00355775 /* LogInViewController.swift */; };
@@ -82,6 +83,7 @@
 		E598C1C829AABAEE000DCD95 /* MethodsArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodsArguments.swift; sourceTree = "<group>"; };
 		E598C1CB29AABCBA000DCD95 /* MeetingsJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsJSONModel.swift; sourceTree = "<group>"; };
 		E598C1CD29AB693C000DCD95 /* MeetingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDataModel.swift; sourceTree = "<group>"; };
+		E598C1D029BE4373000DCD95 /* FavoritsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritsTableViewCell.swift; sourceTree = "<group>"; };
 		E5A848AB26FBAEDD00355775 /* The Moments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Moments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A848AE26FBAEDD00355775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5A848B026FBAEDD00355775 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		E598C1A329A2369D000DCD95 /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E598C1CF29BE433E000DCD95 /* TableViewCells */,
 				E59886C227B3046600342A12 /* FavoritsViewController.swift */,
 				E59886C427B47E9B00342A12 /* SearchMeetingsViewController.swift */,
 				E59886C627B481CC00342A12 /* AccountViewController.swift */,
@@ -274,6 +277,14 @@
 				E598C1CB29AABCBA000DCD95 /* MeetingsJSONModel.swift */,
 			);
 			path = MeetingsJSONModels;
+			sourceTree = "<group>";
+		};
+		E598C1CF29BE433E000DCD95 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				E598C1D029BE4373000DCD95 /* FavoritsTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		E5A848A226FBAEDD00355775 = {
@@ -472,6 +483,7 @@
 				E5A848B326FBAEDD00355775 /* LogInViewController.swift in Sources */,
 				E598C1C429AA622A000DCD95 /* RegisterViewModel.swift in Sources */,
 				E59886C327B3046700342A12 /* FavoritsViewController.swift in Sources */,
+				E598C1D129BE4373000DCD95 /* FavoritsTableViewCell.swift in Sources */,
 				E53B22052780DDD400E2724C /* RegisterViewController.swift in Sources */,
 				E5A848AF26FBAEDD00355775 /* AppDelegate.swift in Sources */,
 				E598C1CE29AB693C000DCD95 /* MeetingDataModel.swift in Sources */,
